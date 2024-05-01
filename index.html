@@ -118,26 +118,35 @@
             <textarea id="description" name="description" rows="4" cols="50"></textarea>
             <label for="steps">Steps:</label>
             <input type="number" id="steps" name="steps" min="1" max="50" value="4">
+            <label for="checkpointSelect">Modelo:</label>
+            <select id="checkpointSelect" name="checkpointSelect">
+                <option value="https://huggingface.co/sergiollorente/trainedModels/blob/main/cvbasil.ckpt">Basilica (cvbasil)</option>
+                <option value="https://huggingface.co/sergiollorente/trainedModels/blob/main/jovenalp.ckpt">Al Pacino (jovenalp)</option>
+                <option value="https://huggingface.co/sergiollorente/trainedModels/blob/main/sqgkhoju.ckpt">Jung Hoyeon (sqgkhoju)</option>
+            </select>
             <div style="display: flex; gap: 10px; width: 45%;">
                 <button type="submit">Generar Imagen</button>
                 <button type="button" class="cancel" onclick="cancelGeneration()">Cancelar</button>
             </div>
         </form>
         <center>
-        <div id="generatedImageContainer">
-            <div id="generatedImageTitle">Imagen Generada</div>
-            <img id="generatedImage" src="" alt="Imagen generada">
-            <button id="downloadButton" class="download" onclick="downloadImage()">Descargar</button>
-        </div>
-    </center>
+            <div id="generatedImageContainer">
+                <div id="generatedImageTitle">Imagen Generada</div>
+                <img id="generatedImage" src="" alt="Imagen generada">
+                <button id="downloadButton" class="download" onclick="downloadImage()">Descargar</button>
+            </div>
+        </center>
     </div>
 
     <script>
+
         let abortController;
+
 
         function generateImage() {
             const description = document.getElementById('description').value;
             const steps = parseInt(document.getElementById('steps').value);
+            const modelCKPT = document.getElementById('checkpointSelect').value;
 
             if (!description.trim()) {
                 alert("Por favor, introduce una descripción.");
@@ -166,7 +175,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ prompt: description, num_inference_steps: steps }),
+                body: JSON.stringify({ prompt: description, num_inference_steps: steps, model : modelCKPT }),
                 signal: abortController.signal,
             })
             .then(response => {
@@ -185,6 +194,7 @@
                 console.error('Error:', error);
             });
         }
+
 
         function cancelGeneration() {
             if (abortController) {
