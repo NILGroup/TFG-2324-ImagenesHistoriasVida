@@ -21,6 +21,8 @@ Ahora expuestos todos los motivos de elección de Stable Diffusion, tanto en com
 
 \section{Entrenamiento con Stable Diffusion}
 
+\subsection{Versiones y métodos de entrenamiento}
+
 Stable Diffusion cuenta, hasta el momento, con 3 grandes versiones que, paulatinamente, han ido mejorando la calidad en las imágenes generadas. Todas ellas son totalmente gratuitas y de libre acceso, la primera versión que se presentó fue Stable Diffusion 1 (en sus variaciones 1.4 y 1.5), seguida por Stable Diffusion 2 (con sus respectivas variaciones 2.0 y 2.1) y por último, Stable Diffusion XL (que cuenta con su variación XL Turbo). 
 
 La diferencia principal entre las dos primeras versiones es el tamaño de resolución de las imágenes ya que las primeras versiones trabajaban en un espacio de 512x512 píxeles y en la versión 2 dicho tamaño aumentó a 768x758. Además, se introdujeron algunas correcciones y mejoras como la técnica de inpainting, que se trata de la restauración de algunas partes de la imagen mejorando la calidad y los detalles de la misma o incluso, reemplazando ese área por lo especificado por el usuario en el prompt.
@@ -42,9 +44,13 @@ El principal de los objetivos que establecimos en la realización del proyecto e
 
 Como se ha dicho anteriormente, el método elegido fue un cuaderno en Google Colab mediante Dreambooth,  un modelo de generación de aprendizaje profundo, y que fue desarrollado en 2022 por un grupo de investigadores de Google Research y la Universidad de Boston.  Este modelo nos permite añadir capas de entrenamiento a la inteligencia artificial para que reconozca objetos concretos. Esto es muy importante, porque es el mecanismo que consigue mejores resultados y con una velocidad aceptable, que era la utilización que queríamos otorgarle. Por consiguiente, podemos decir que la misión de esta tecnología es la de poder entrenar a modelos de inteligencia artificial para personalizarlo según tus necesidades.
 
+\subsection{Requisitos en las imágenes de entrenamiento}
+
 Para realizar el entrenamiento de una forma correcta, lo primero que tenemos que tener claro es  el elemento o token al que queremos dar una identidad. Por ejemplo, si seleccionamos una persona, debemos elegir unas imágenes en las que aparezca, de tal manera que, tras el entrenamiento, la IA pueda identificarla. 
 
 Lo ideal es que se elija un número considerable de fotografías, a partir de 10, las cuales tienen que cumplir ciertas características. Deben ser fotografías de buena calidad, bajo diferentes ángulos, escenarios y luces, se recomienda que como mínimo hayan 1 o 2 fotografías en las que la persona aparezca de perfil, mostrando 3 cuartos de la cara, de frente y si es posible que en alguna esté sonriendo (para que la IA pueda reconocer la expresión), de cuerpo entero, cintura para arriba y del rostro de cerca. Además, es importante que la ropa no sea siempre la misma, sino al ser así, el modelo podría interpretar como que la ropa forma parte de la persona y siempre se la generaría con la misma, lo cual no queremos que ocurra. Idealmente, las fotografías deberían alternar la luz y estar hechas tanto en interiores como en exteriores. Por último y esto es fundamental, estas deberán tener un tamaño igual o mayor a 512 x 512 píxeles, y deberán llamarse exactamente de la misma manera, con el identificador del token al que hagamos referencia. Además, es preferible que todas las imágenes tengan la misma extensión, ya sea .jpg o .png. 
+
+\subsection{Procedimiento de entrenamiento}
 
 En el ejemplo de la figura \ref{fig:datasethoyeon}  elegimos como persona de entrenamiento una que no fuese reconocida por nuestro modelo (al contar con un dataset de 5 mil millones de imágenes, ya de por sí reconoce a varias personas famosas sin necesidad de entrenarlas). En este caso, se trata de una actriz coreana llamada Jung Hoyeon, y el token que le otorgamos, como se puede ver, respondía bajo el nombre de "sqgkhoju". Lo ideal, es que la etiqueta no sea nombrada bajo una palabra que el modelo pueda reconocer, es decir, que el token no tenga significado. Si por un casual llamasemos al token "mujer", seguramente la IA no logre ni identificar ni asociar a la persona que hemos entrenado, y probablemente acabe generando la imagen de una mujer que no existe, que es justamente lo que queremos evitar. \\
 
@@ -78,6 +84,11 @@ Este archivo, en formato ckpt, se podrá utilizar en la aplicación SKMD GUI má
 Un aspecto muy importante a tener en cuenta, es que tras la realización de múltiples pruebas, los resultados óptimos que hemos obtenido ha sido seleccionando un conjunto de datos formado por 10 imágenes, y con 2400 pasos de entrenamiento. En la tabla \ref{tab:resultadosentrenamiento}\\
 
 
+
+\subsection{Entrenamiento con personas}
+** pensar qué mas poner
+
+
 \begin{table}
 	\centering
 	\begin{tabular}{c|c|c|c}
@@ -96,9 +107,9 @@ Un aspecto muy importante a tener en cuenta, es que tras la realización de múl
 \end{table}
 
 
-
 Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. 
 
+\subsection{Entrenamiento con lugares}
 El objetivo de entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no tendría sentido realizar el entrenamiento. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos para él o ella y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
 
 Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el token otorgado.
@@ -112,6 +123,9 @@ Además, quisimos comprobar si el número de imágenes y steps establecidos para
 	\caption{Dataset seleccionado para el entrenamiento con lugares}
 	\label{fig:datasetcolme}
 \end{figure}
+
+
+\subsection{Entrenamiento con animales: técnica LORA}
 
 Para el entrenamiento de animales, seleccionamos 10 fotografías de un perro de la raza Shiba Inu en diferentes perspectivas, escenarios y mostrando distintas emociones para comprobar si la inteligencia artificial permitía entrenar con animales. Sin embargo, a la luz de los resultados vistos en personas y lugares quisimos comprobar la técnica de LORA que presenta Stable Diffusion. Las siglas LORA hacen referencia a \textit{Low-Rank Adaptation of Large Language Models}, del inglés. Esta técnica favorece un equilibrio entre el tamaño del archivo y la eficiencia del propio entrenamiento y como vimos en el Capítulo 2 del Estado de la Cuestión, ha presentado imágenes de gran calidad en un tiempo excepcional.
 
@@ -142,7 +156,7 @@ Como se puede apreciar en la figura anterior, se hizo hincapié en la diversidad
 Ahora podemos decir que hemos logrado entrenar un modelo de generación de imágenes incluyendo fotografías propias, y eso es algo que puede ser realmente útil para nuestros siguientes propósitos. Esto es porque podemos lograr que cualquier persona pueda incorporar las imágenes que considere oportunas para servir de apoyo al paciente. Lo cual consideramos un éxito en el desarrollo de nuestro trabajo. 
 
 
-\section{Generación de imágenes con la interfaz de Stable Diffusion}
+\section{Interfaz de Stable Diffusion}
 
 \subsection{Requisitos de instalación}
 
@@ -173,7 +187,7 @@ para que sirven los botones y ajustes etc
 
 **explicar como funciona para integrar diferentes modelos, loras, establecer los parametros a la hora de generar la imagen
 
-\subsection{Resultados de generación de imágenes}
+\section{Resultados de generación de imágenes}
 
 
 
@@ -185,46 +199,34 @@ Para la personalización del modelo de Stable Diffusion hemos probado distintas 
 
  
 Una vez entrenado el modelo, obtuvimos un total de 10 archivos en formato safetensor. Esto es debido a que, como hemos explicado con anterioridad, Lora tiene la ventaja de devolver múltiples resultados con un número de pasos distinto, con el objetivo de tener la posibilidad de probar cuáles son los steps ideales, y con cuáles habría falta o exceso de entrenamiento. En este caso, el safetensor adecuado fue el primero, puesto que a partir del segundo se podía apreciar la deformidad típica del sobreentrenamiento.\\
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 0.6
-	\textwidth]{Imagenes/Vectorial/comparacion_hachiko.png}
-	\caption{Mismo prompt con 1000, 2000 y 10.000 pasos de entrenamiento}
-	\label{fig:comphachi}
-\end{figure}
 
 En el momento en el que se descartan los demás archivos Safetensor, la siguiente labor es probar cuál es el número de pasos ideal para la generación de imágenes, y descubrir si con diferentes prompts, el modelo entrenado podría obtener buenos resultados.\\
 
 
 **explicar mejor
 
+\subsection{Resultados con personas}
+buenassssss\\
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
-	\textwidth]{Imagenes/Vectorial/hachiko_detallada.png}
-	\caption{Imagen generada con el modelo Stable Diffusion 1.5, Lora Hachiko}
-	\label{fig:detallehachi}
-\end{figure}
-
-
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width = 0.5
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/hoyeon1.png}
 	\caption{Resultados de entrenamiento de una persona con Dreambooth}
 	\label{fig:hoyeonsd}
 \end{figure}
 
-\begin{figure}[h]
+que tallll\\
+
+\begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/hoyeon_results.png}
 	\caption{Resultados de entrenamiento de una persona con diferentes estilos}
 	\label{fig:imagshoyeon}
 \end{figure}
 
+\subsection{Resultados con lugares}
 
 Con diferentes estilos:\\
 
@@ -248,6 +250,30 @@ Añadiendo otros elementos:\\
 	\label{fig:elementscolme}
 \end{figure}
 
+\subsection{Resultados con animales}
+hellloouuuuu\\
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 0.6
+	\textwidth]{Imagenes/Vectorial/hachiko_detallada.png}
+	\caption{Imagen generada con el modelo Stable Diffusion 1.5, Lora Hachiko}
+	\label{fig:detallehachi}
+\end{figure}
+
+heyyyyy\\
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 0.6
+	\textwidth]{Imagenes/Vectorial/comparacion_hachiko.png}
+	\caption{Mismo prompt con 1000, 2000 y 10.000 pasos de entrenamiento}
+	\label{fig:comphachi}
+\end{figure}
+
+\subsection{Logros y fallos en resultados}
+**se puede cambiar el nombre de la seccion \\
+
 
 Peligros con el sobreentrenamiento: Se produce cuando el modelo no se puede generalizar y se ajusta demasiado al conjunto de datos entrenados. Se debe principalmente a que el tamaño de los datos es demasiado pequeño y no contiene suficientes muestras de datos para poder representar con precisión la totalidad de datos de entrada posibles. Otra razón es que el modelo se entrena durante demasiado tiempo en un solo conjunto de datos de muestra. En nuestro modelo, encontramos sobreentrenamiento cuando elegimos un número de steps muy elevado para un número de fotografías que no es lo suficientemente alto. Una manera de detectar que nuestro modelo está sobreentrenado es cuando no genera bien la cara de la persona, y se aprecian fallos en determinadas facciones, como en los ojos y la boca, en los cuales se aprecia deformidad.\\
 
@@ -261,14 +287,6 @@ En cuanto a mezcla de personas: Para ampliar los horizontes de nuestro entrenami
 		\caption{Duplicidad de elementos}
 	\label{fig:willpor2}
 \end{figure}
-
-
-**sñadir capitulo 4 para el funcioonamiento de la aplicacion
-
-4.1. backend\\
-
-4.2. frontend\\
-
 
 
 Avances respecto al modelo.\\
