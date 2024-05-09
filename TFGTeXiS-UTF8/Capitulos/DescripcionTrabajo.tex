@@ -1,5 +1,5 @@
-\chapter{Descripción del Trabajo}
-\label{cap:descripcionTrabajo}
+\chapter{Generación de imágenes con Inteligencia Artificial}
+\label{cap:genimgsia}
 
 \section{Elección del modelo}
 
@@ -85,16 +85,15 @@ Un aspecto muy importante a tener en cuenta, es que tras la realización de múl
 
 
 
-\subsection{Entrenamiento con personas}
-** pensar qué mas poner
-
-
+\subsection{Entrenamiento con Dreambooth}
+\usepackage{graphicx}
 \begin{table}
 	\centering
 	\begin{tabular}{c|c|c|c}
 		\textbf{Intento} & \textbf{Número de imágenes} & \textbf{Número de pasos} & \textbf{Veredicto} \\
 		\hline\hline
-		1 & 20 & 4000 & \\
+		1 & 20 & 4000 & \includegraphics[width = 0.3
+			\textwidth]{Imagenes/Vectorial/dreambooth.png}\\
 		2 & 20 & 3000 & \\
 		3 & 15 & 3000 & \\
 		4 & 15 & 2000 & \\
@@ -107,38 +106,26 @@ Un aspecto muy importante a tener en cuenta, es que tras la realización de múl
 \end{table}
 
 
-Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. 
+Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. \\
 
-\subsection{Entrenamiento con lugares}
-El objetivo de entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no tendría sentido realizar el entrenamiento. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos para él o ella y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
+El objetivo de entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no tendría sentido realizar el entrenamiento. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos en su memoria y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
 
-Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el token otorgado.
+Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido e el modelo previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el token otorgado.
 
-Además, quisimos comprobar si el número de imágenes y steps establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente.  
+Además, quisimos comprobar si el número de imágenes y steps establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente de Resultados.  
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 1
+	\includegraphics[width = 0.7
 	\textwidth]{Imagenes/Vectorial/dataset_colmenar.png}
 	\caption{Dataset seleccionado para el entrenamiento con lugares}
 	\label{fig:datasetcolme}
 \end{figure}
 
 
-\subsection{Entrenamiento con animales: técnica LORA}
+\subsection{Entrenamiento con la técnica de LORA}
 
-Para el entrenamiento de animales, seleccionamos 10 fotografías de un perro de la raza Shiba Inu en diferentes perspectivas, escenarios y mostrando distintas emociones para comprobar si la inteligencia artificial permitía entrenar con animales. Sin embargo, a la luz de los resultados vistos en personas y lugares quisimos comprobar la técnica de LORA que presenta Stable Diffusion. Las siglas LORA hacen referencia a \textit{Low-Rank Adaptation of Large Language Models}, del inglés. Esta técnica favorece un equilibrio entre el tamaño del archivo y la eficiencia del propio entrenamiento y como vimos en el Capítulo 2 del Estado de la Cuestión, ha presentado imágenes de gran calidad en un tiempo excepcional.
-
-El hecho de cambiar a LORA no supuso grandes cambios a la hora de entrenar el elemento deseado debido a que la selección de imágenes es exactamente igual. Donde realmente cambia el entrenamiento es en el cuaderno utilizado en Google Colab, este es diferente y por lo tanto, la forma de ejecución y los pasos a seguir también lo son. 
-
-
-Es de vital importancia saber cuáles son los parámetros que se deben ajustar para poder desarrollar el modelo de manera correcta y entender cada uno de ellos, dado que pueden resultar un poco más complejos en comparación con la técnica del cuaderno de Fast-Dreambooth.\\
-
-*****************************************************************************************************
-Se debe indicar el nombre del proyecto. Es muy importante, porque  aquí es donde obtendremos el resultado final, y es donde se debe incluir el dataset que mencionamos en el párrafo anterior. A continuación, el modelo a entrenar, como se ha explicado, hemos elegido el Stable Diffusion 1.5, por lo que es el que sirve de base para todos los entrenamientos escogidos. No obstante, esta técnica de entrenamiento tiene la peculiar característica de que se puede utilizar de base cualquier checkpoint desarrollado previamente, por lo que en caso de realizar un entrenamiento sobre personas, existe la posibilidad de elegir un modelo de base especializado en retratos. Esto garantiza que, seleccionando unas fotografías adecuadas y ajustando de manera correcta cada parámetro, los resultados sean bastante buenos.\\
-
-Animales:\\
-Para realizar una prueba del modelo de entrenamiento con Lora, lo primero fue elegir el animal y crear nuestro propio conjunto de datos, de manera que había que escoger 10 imágenes que tuviesen un tamaño igual o superior a 512 x 512 píxeles, y que la relación entre el ancho y el alto fuese 1 a 1. Además, al elegir el animal, se hizo la comprobación de que Stable Diffusion no lo incorporara ya en el modelo.\\ 
+Para el entrenamiento de animales, seleccionamos 10 fotografías de un perro de la raza Shiba Inu bajo diferentes perspectivas, escenarios y mostrando distintas expresiones para comprobar si la inteligencia artificial permitía entrenar con animales. Sin embargo, a la luz de los resultados vistos en personas y lugares quisimos comprobar la técnica de LORA que presenta Stable Diffusion. Las siglas LORA hacen referencia a \textit{Low-Rank Adaptation of Large Language Models}, del inglés. Esta técnica favorece un equilibrio entre el tamaño del archivo y la eficiencia del propio entrenamiento y como vimos en el Capítulo 2 del Estado de la Cuestión, ha presentado imágenes de gran calidad en un tiempo excepcional. En la figura \ref{fig:datasethachi} se pueden ver más en detalle las imágenes seleccionadas para las pruebas con LORA en animales.
 
 \begin{figure}[h]
 	\centering
@@ -150,8 +137,23 @@ Para realizar una prueba del modelo de entrenamiento con Lora, lo primero fue el
 
 Como se puede apreciar en la figura anterior, se hizo hincapié en la diversidad de las imágenes, para aportar un mayor valor al entrenamiento, de modo que se tuviese una visión completa del elemento a entrenar.\\
 
-*******************************************************
+Respecto al modo de ejecución, el hecho de cambiar a LORA no supuso grandes cambios a la hora de entrenar el elemento deseado debido a que la selección de imágenes es exactamente igual. Donde realmente cambia el entrenamiento es en el cuaderno utilizado en Google Colab, este es diferente y por lo tanto, la forma de ejecución y los pasos a seguir también lo son. \\
 
+Es de vital importancia saber cuáles son los parámetros que se deben ajustar para poder desarrollar el modelo de manera correcta y entender cada uno de ellos, dado que pueden resultar un poco más complejos en comparación con la técnica del cuaderno de Fast-Dreambooth.\\
+
+El cuaderno de LORA de Google Colab, a diferencia del de Fast-Dreambooth, contiene una única celda de código con varios parámetros a ajustar y que  está ordenada en varias secciones. La primera sección es "Setup", lo que se puede traducir como la configuración o preparación, en ella se exige indicar el nombre del proyecto, la estructura de carpetas y por último, se debe especificar el modelo a entrenar entre tres opciones dadas (Anime, AnyLora y Stable Diffusion), y como se ha explicado anteriormente, hemos elegido el Stable Diffusion 1.5, al ser el que sirve de base para todos los entrenamientos escogidos. No obstante, esta técnica de entrenamiento tiene la peculiar característica de que se puede utilizar de base cualquier checkpoint desarrollado previamente, por lo que en caso de realizar un entrenamiento sobre personas, existe la posibilidad de elegir un modelo de base especializado en retratos. Esto garantiza que, seleccionando unas fotografías adecuadas y ajustando de manera correcta cada parámetro, los resultados sean bastante buenos.\\
+
+La siguiente sección se llama "Processing", el parámetro más destacable en este apartado es la resolución de la imagen, a elegir entre 512, 640, 768, 896 y 1024. La elección dependerá del tamaño mínimo que tenga la imagen más pequeña de nuestro dataset, en este caso en particular, elegimos 512. Los demás parámetros son tags o etiquetas sobre la simetría y calidad de las imágenes. 
+
+
+Terminada esta, empieza la próxima sección "Steps" 
+
+**explicar lo de los epoch 
+
+
+Las secciones siguientes "Learning" de aprendizaje y "Structure" de estructura se refieren a variables que no se deben modificar del entrenamiento a cómo están preestablecidas, y por lo tanto, no hemos incidido en ellas.\\ 
+
+Finalmente, la sección "Ready" nos indica que está ya todo listo para poder empezar el entrenamiento con LORA. \\
 
 Ahora podemos decir que hemos logrado entrenar un modelo de generación de imágenes incluyendo fotografías propias, y eso es algo que puede ser realmente útil para nuestros siguientes propósitos. Esto es porque podemos lograr que cualquier persona pueda incorporar las imágenes que considere oportunas para servir de apoyo al paciente. Lo cual consideramos un éxito en el desarrollo de nuestro trabajo. 
 
@@ -191,19 +193,6 @@ para que sirven los botones y ajustes etc
 
 
 
-Para la ejecución, debemos seleccionar un modelo , introducir una descripción y ajustar el número de pasos, que determinarán la duración de la generación y la calidad de la imagen, en función del modelo escogido y las limitaciones que presenta la tarjeta gráfica, que como hemos explicado es fundamental para esta tarea. Uno de los puntos a favor de esta interfaz, y que resulta de gran interés para nuestro proyecto, es que permite la utilización de modelos personalizados. \\
-
-Para la personalización del modelo de Stable Diffusion hemos probado distintas vías y se ha llegado a distintos resultados y conclusiones:\\
-
-
-
- 
-Una vez entrenado el modelo, obtuvimos un total de 10 archivos en formato safetensor. Esto es debido a que, como hemos explicado con anterioridad, Lora tiene la ventaja de devolver múltiples resultados con un número de pasos distinto, con el objetivo de tener la posibilidad de probar cuáles son los steps ideales, y con cuáles habría falta o exceso de entrenamiento. En este caso, el safetensor adecuado fue el primero, puesto que a partir del segundo se podía apreciar la deformidad típica del sobreentrenamiento.\\
-
-En el momento en el que se descartan los demás archivos Safetensor, la siguiente labor es probar cuál es el número de pasos ideal para la generación de imágenes, y descubrir si con diferentes prompts, el modelo entrenado podría obtener buenos resultados.\\
-
-
-**explicar mejor
 
 \subsection{Resultados con personas}
 buenassssss\\
@@ -232,7 +221,7 @@ Con diferentes estilos:\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/colmenar_styles.png}
 	\caption{Resultados de imagenes del lugar entrenado al estilo Van Gogh y viñeta}
 	\label{fig:colmestyles}
@@ -244,7 +233,7 @@ Añadiendo otros elementos:\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/colmenar_elements.png}
 	\caption{Resultados de imágenes del lugar en invierno y con una persona}
 	\label{fig:elementscolme}
@@ -255,7 +244,7 @@ hellloouuuuu\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/hachiko_detallada.png}
 	\caption{Imagen generada con el modelo Stable Diffusion 1.5, Lora Hachiko}
 	\label{fig:detallehachi}
@@ -265,7 +254,7 @@ heyyyyy\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.6
+	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/comparacion_hachiko.png}
 	\caption{Mismo prompt con 1000, 2000 y 10.000 pasos de entrenamiento}
 	\label{fig:comphachi}
@@ -282,18 +271,13 @@ Falta de pasos en el entrenamiento: En este caso, se produce cuando el modelo de
 En cuanto a mezcla de personas: Para ampliar los horizontes de nuestro entrenamiento, hemos entrenado a una persona, asociando un token a ella para su identificación, sobre un modelo que previamente ya había sido entrenado con una persona y su token asociado, para comprobar si efectivamente se podía generar en una sola imagen una representación de las dos personas entrenadas, una junto a la otra. Es aquí donde se ha detectado una peculiaridad, ya que, a pesar de que un modelo genere buenos resultados de cada una de las dos personas, en el mismo momento que se solicita en un determinado prompt o descripción que se vean reflejados una o varias personas entrenadas en la misma fotografía, ningún modelo de los que se haya probado, ha generado buenos resultados de esta manera. Lo que finalmente se aprecia en la imagen generada, es que aparecen dos personas pero sus rostros son una mezcla de las características faciales y fisiológicas de ambas, produciéndose una deformidad en muchos de los casos y que los rostros aparezcan prácticamente duplicados.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width = 0.4
+	\includegraphics[width = 0.8
 	\textwidth]{Imagenes/Vectorial/duplicidad_will.png}
 		\caption{Duplicidad de elementos}
 	\label{fig:willpor2}
 \end{figure}
 
 
-Avances respecto al modelo.\\
 
-Aplicación de Stable Diffusion genera imágenes aceptables en un tiempo normal (1-2 minutos como máximo). Existe la posibilidad de utilizar imágenes para poder incorporar al modelo de Stable Diffusion como Token. La aplicación contiene un apartado de training, pero tras probar incorporar escasas imágenes al modelo, el proceso es demasiado largo (varios días) y el resultado es una incógnita. \\
 
-El modelo de .csv parece estar obsoleto, y al intentar el entrenamiento con las imágenes de personas sale un error en el paso 6, lo cual limita y habrá que identificar y trabajar con otro modelo de entrenamiento. LoRA puede ser una opción para ello.
-También hemos probado más modelos de Hugging Face a ejecutar por consola mediante Anaconda, pero los resultados no son los adecuados. Generan imágenes de calidad no muy buena en un tiempo muy elevado, entre 10 y 20 minutos. Por tanto, también decidimos descartar esta vía. 
-La más razonable hasta ahora es la GUI de Stable Diffusion, ya que es la única que genera imágenes en un tiempo adecuado, y que permite la posibilidad de incorporar imágenes propias al modelo\\
 

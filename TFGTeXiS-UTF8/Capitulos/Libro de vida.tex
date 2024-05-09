@@ -1,0 +1,41 @@
+\chapter{Libro de vida}
+\label{cap:librodevida}
+
+El arduo trabajo llevado a cabo en los capítulos anteriores nos ha servido para saber los recursos con los que contamos, pero también con sus limitaciones. Con la experiencia en el entrenamiento de imágenes, decidimos realizar un entrenamiento intensivo sobre una persona para memorar su paso de los años, y de esta manera poder construir el libro de vida personalizado y compuesto exclusivamente con sus recuerdos. Para ello, tomamos como referencia a una persona que tuviera una amplitud de fotografías desde una edad temprana hasta una más avanzada. La persona en cuestión es el actor Alfredo James Pacino, un actor estadounidense de cine de 84 años.
+
+
+En este punto, vamos a realizar una comprobación de cómo funciona el modelo entrenado de Stable Diffusion con personas en distintas fases de su vida. Lo que queremos testar es que responda bien en todas y cada una de las circunstancias, debido a que para la creación de historias de vida, necesitamos que la persona pueda incorporar imágenes de hechos significativos, que puedan evocar momentos especiales. Para eso se requiere que el modelo funcione bien en todas las etapas, para que la experiencia del usuario pueda ser lo más completa posible.
+
+Para realizar la simulación, vamos a necesitar realizar múltiples entrenamientos mediante Dreambooth sobre una persona conocida, mayor y que haya sido constantemente popular durante gran parte de su vida. Esto es porque, como recordatorio, se requiere crear un conjunto de 10 imágenes de cierta calidad por cada entrenamiento. 
+
+Vamos a crear 3 entrenamientos diferentes: uno de la persona en su juventud, otro de la persona en la edad adulta y otro de la persona en su edad anciana. Resaltamos que el hecho de que la persona esté incorporada en Stable Diffusion es indiferente, porque para realizar la prueba se va a nombrar de una manera distinta. Es un nombre que asignaremos que será único, con el fin de que el modelo identifique al elemento entrenado y pueda generar las imágenes personalizadas deseadas.
+
+El objetivo principal de esta tarea es simular una generación de imágenes para un libro de vida de un paciente. Por lo tanto, necesitamos generar fotografías con diversos elementos para cada etapa, para comprobar cómo puede funcionar en la terapia de reminiscencia, cuando se incluyan imágenes personales del paciente, y de lugares, personas y otros elementos importantes de su vida.
+
+
+Figura X: Dataset seleccionado de la persona joven
+
+
+jovenalp gentleman in light brown pinstripe double breasted suit, standing in a park
+
+A dumb and sad jovenalp, with a scar on the face. posing 7/11, wearing a leather trench, behing him a steampunk victorian city, while it rains. greyscale style, realistic, pencil sketch
+
+Dataset edad adulta:
+
+Dataset edad anciana:
+
+
+Mismo prompt para 3 modelos entrenados con una fase diferente de su vida: juventud, edad adulta, edad anciana.
+Close up studio photo of jovenalp (adultalp, 80alp), detail, studio lighting.
+
+Figura X: imagen generada por el modelo con un mismo prompt en diferentes fases
+
+Esto muestra cómo responde nuestro modelo a entrenar a una misma persona durante diferentes fases de su vida. Resulta muy útil dados nuestros objetivos iniciales del proyecto, dado que son imágenes que se pueden generar con los elementos que se desee para un libro de vida. Al igual que para el resto de pruebas realizadas, únicamente son necesarias 10 fotografías y se puede apreciar que los resultados son muy buenos y detallados, y lo más importante, se demuestra que el modelo es capaz de generar imágenes completamente diferentes a las que ya existía previamente sobre la persona. Esto es vital, porque de no ser así, el modelo no sería necesario, porque no aportaría ningún valor añadido.
+
+
+\section{Fase de la vida 1: Juventud}
+
+\section{Fase de la vida 2: Adultez}\\
+
+\section{Fase de la vida 3: Vejez}
+
