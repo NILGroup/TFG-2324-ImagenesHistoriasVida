@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ejcss.css') }}">
+
+</head>
+<body>
+
+    <!--Font Awesome CDN-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<a href="/" class="back-button">
+    <i class="fas fa-arrow-left" style="font-size: 2em; color: black;"></i>
+</a>
+
+<div class="container">
+
+    <div class="slide">
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/portada1.png');">
+            
+            <div class="content">
+                <div class="name"></div>
+                <div class="des"></div>
+            </div>
+        </div>
+
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/juventud1.png');">
+            
+            <div class="content">
+                <div class="name"></div>
+                <div class="des"></div>
+            </div>
+        </div>
+        
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/colmewinter.png');">
+            
+            <div class="content">
+                <div class="name">Basílica</div>
+                <div class="des">La basílica de su pueblo natal en invierno</div>
+                <button>See More</button>
+            </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/bas.png');">
+           
+            <div class="content">
+                <div class="name">Pintura</div>
+                <div class="des">La basílica de su pueblo, hecha por su pintor preferido</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/jov.png');">
+            
+            <div class="content">
+                <div class="name">Joven</div>
+                <div class="des">Retrato de cuando era joven, con su traje preferido</div>
+                <button>See More</button>
+            </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/alpa runin.png');">
+            
+            <div class="content">
+                <div class="name">Atletismo</div>
+                <div class="des">Siempre tuvo un gran amor por el deporte. Desde muy pequeño practicó altetismo, y competía en pruebas de resistencia.</div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/adultez1.png');">
+            
+            <div class="content">
+                <div class="name"></div>
+                <div class="des"></div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/adu.png');">
+            
+            <div class="content">
+                <div class="name">Adulto</div>
+                <div class="des">Retrato artístico a los 50 años de edad</div>
+                <button>See More</button>
+            </div>
+        </div>
+        
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/montaña.png');">
+            
+            <div class="content">
+                <div class="name">Afición: senderismo</div>
+                <div class="des">Retrato de Juan en la montaña, evocando una de sus aficiones favoritas</div>
+                <button>See More</button>
+            </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://huggingface.co/sergiollorente/trainedModels/resolve/main/vejez1.png');">
+            
+            <div class="content">
+                <div class="name"></div>
+                <div class="des"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='js/ejjavascript.js') }}"></script>
+</body>
+</html>
+
+
