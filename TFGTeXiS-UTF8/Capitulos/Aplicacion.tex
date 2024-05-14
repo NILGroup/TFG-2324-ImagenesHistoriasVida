@@ -1,8 +1,6 @@
 \chapter{Aplicación}
 \label{cap:descripcionTrabajo}
 
-**se puede cambiar el nombre
-
 \section{Back-end}
 Una parte muy importante de nuestro trabajo es brindar una aplicación con la cual, cualquier usuario tenga la capacidad de utilizar nuestros modelos entrenados, es decir que pueda generar imágenes personalizadas de cualquier elemento que desee. El objetivo es aportar un valor añadido a nuestro trabajo, para que los destinatarios puedan, no solo obtener la mejor manera de crear imágenes personalizadas, sino que dispongan de una plataforma donde poder obtener todos los resultados deseados.\\
 
@@ -40,7 +38,7 @@ Sin embargo, para poder utilizar nuestro propio modelo, se necesitaba un enlace 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width = 1
-	\textwidth]{Imagenes/Vectorial/appgen.png}
+	\textwidth]{Imagenes/Vectorial/genapp.png}
 	\caption{Aplicación generadora de imágenes}
 	\label{fig:appgen}
 \end{figure}
@@ -48,4 +46,27 @@ Sin embargo, para poder utilizar nuestro propio modelo, se necesitaba un enlace 
 
 
 
-\section{Front-end}
+\section{Ejecución de la aplicación}
+
+La manera de utilizar esta aplicación generadora de imágenes es muy sencilla, pero requiere de una explicación para que el usuario pueda hacer uso de ella. En primer lugar, cabe destacar que existe una serie de requisitos para poder utilizar este programa. El primero y más importante, es que, al igual que con la utilización de cualquier modelo de Stable Diffusion en local, se requiere una tarjeta gráfica con un mínimo de 3 gigabytes de memoria virtual. Este es un requisito indispensable, sin el cual se podría acceder a la aplicación pero, en ningún caso, se podría generar ninguna fotografía. Para los usuarios que cuenten con la memoria virtual indicada, se debe contar con una serie de requisitos mínimos, que incluyen las versiones de determinados programas y herramientas necesarias para el funcionamiento de la aplicación.\\
+
+Para saber cuáles eran estos requisitos, creamos un entorno virtual en el que incluimos todo lo relativo a la aplicación. Dentro de este entorno, se creó un archivo llamado dependencies.txt, con el objetivo de que los usuarios descarguen todo lo imprescindible ejecutando el siguiente comando en memoria: pip install -r dependencies.txt. Una vez instalado todo lo necesario, los usuarios deben seguir el proceso que se muestra en la siguiente imagen. En la consola, se debe acceder en primer lugar a la carpeta de nuestro trabajo, llamada tfg, y después al entorno virtual mencionado. Para arrancar el servidor, se debe ejecutar el comando “python app.py”, que como hemos explicado, es el script que recibe los parámetros introducidos por el usuario y los envía a la GPU para generar la imagen y posteriormente mostrarla. Cuando se ha iniciado el servidor, se notifica que está funcionando en el puerto localhost, al cual se puede acceder mediante el navegador, indicando “http://127.0.0.1:5000/”, según aparece indicado. \\
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/exeapp.png}
+	\caption{Ejecución de la app}
+	\label{fig:appexe}
+\end{figure}
+
+A continuación como se muestra en la figura \ref{fig:portadapp} se abrirá nuestra aplicación, donde se ven reflejados dos botones. El primero, para acceder a un libro de vida, donde un hipotético usuario registrado, podrá consultar un libro formado por imágenes generadas por nuestra aplicación, que relatan de manera gráfica momentos únicos, personales y emocionales de la vida del paciente. Es una manera de mostrar los resultados de nuestro proyecto, y lo que cualquier usuario podría conseguir si utiliza nuestra aplicación. \\
+
+El segundo botón accede a nuestra plataforma generadora de imágenes, es decir, lo que se muestra en la imagen anterior. En este caso, el usuario ya está listo para generar su imagen personalizada. Solo debe introducir la descripción, los pasos y la escala CFG, además del modelo entrenado, que incluirá el o los elementos correspondientes de los que se quiere generar la fotografía. Si es la primera vez que se utiliza un determinado modelo, al pulsar en generar imagen se descarga en el entorno, lo cual supone un tiempo de menos de 1 minuto con una conexión a internet aceptable. A continuación, se genera la imagen con una duración dependiente del número de pasos introducidos y de la tarjeta gráfica de cada usuario. En este caso, en nuestro equipo, la generación tiene una duración de entre 10 y 16 segundos por paso introducido, lo que supone un tiempo de unos 3 minutos en una imagen de 15 pasos, que nos aporta una calidad aceptable. Una vez generada la imagen aparecerá reflejada en la aplicación, y el usuario tendrá la posibilidad de descargarla con el nombre que desee.\\
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/portadapp.png}
+	\caption{Portada de la aplicación}
+	\label{fig:portadapp}
+\end{figure}
