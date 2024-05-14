@@ -374,3 +374,31 @@ El segundo parámetro es "Masked content" y las opciones que presenta son un poc
 
 Por último, el tercer parámetro "Denoising Strength" es un valor entre 0 y 1 que explica la fuerza en la que cambiará el área seleccionada en comparación la imagen original, siendo el 0 que no cambie nada y el 1 algo completamente diferente. 
 
+\section{Resultados de generación de imágenes}
+
+Este apartado muestra los pasos que se han llevado a cabo durante la realización del proyecto. Resulta significativo porque el contraste de lo que se podía hacer al principio con lo que se puede hacer ahora es muy elevado, y pone en valor el trabajo realizado.
+
+1. No se podían generar imágenes en local. No estaba instalado CUDA en el equipo, además de otras herramientas necesarias como Diffusers.
+
+2. Generación de imágenes en local por consola en Anaconda mediante el modelo de Stable Diffusion 1.5. Resultado generado en un archivo. Ejecución lenta y de poca calidad.
+
+3. Generación de imágenes en SDGUI. Buena interfaz que permite la ejecución de imágenes con Stable Diffusion 1.5. Mejor tiempo y calidad. Ya sabemos el modelo más óptimo para desarrollar nuestro proyecto.
+
+4. Se descubre que se pueden utilizar más modelos provenientes de Hugging Face en SDGUI. Se utiliza el Lykon Dreamshaper, basado en LCM, que proporciona alta calidad con muchos menos pasos. No obstante, tiene la limitación de que no se puede personalizar y desarrollar.
+
+5. Intento de generar imágenes personalizadas. Se probarán en SDGUI. Resultados aceptables con LORA. Se puede identificar al elemento entrenado, pero se puede mejorar.
+
+6. Nuevas vías de entrenamiento de modelos. Entrenamiento de Stable Diffusion con Dreambooth. Se identifica el elemento pero se aprecia deformidad.
+
+7. A base de prueba y error, se llega a la conclusión de que el mejor rendimiento se consigue con 2400 pasos de entrenamiento y un dataset de 10 imágenes. Buena calidad en las personas entrenadas, sin deformidad.
+
+8. Se consiguen buenos resultados también en lugares y animales, además de en personas. Se llega a la conclusión de que se puede entrenar cualquier elemento.
+
+9. Se quiere crear una aplicación que utilice esta IA generativa. Al principio se llega a una app con una interfaz poco visual, pero que genera buenas fotografías con el modelo Stable Diffusion 1.5.
+
+10. Versión mejorada de la aplicación, con un backend en Python y un frontend en HTML. Buena interfaz y buenos resultados con modelos pre entrenados, pero no con modelos personalizados.
+
+11. La aplicación ya puede utilizar cualquier modelo entrenado por nosotros mismos. Buenos resultados, con calidad y tiempo comparables a SDGUI.
+
+12. Creación de un libro de vida para la aplicación. Sirve de conexión entre la IA generativa de imágenes desarrollada por nosotros y la creación de historias narrativas con apoyo visual para la terapia de reminiscencia.
+
