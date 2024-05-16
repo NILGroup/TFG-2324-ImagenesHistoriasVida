@@ -3,47 +3,99 @@
 
 \chapterquote{Todo se hunde en la niebla del olvido pero cuando la niebla se despeja, el olvido está lleno de memoria}{Mario Benedetti}
 
-Nuestra vida se compone desde los primeros instantes en los tomamos nuestro primer aliento hasta que respiramos el último. Sin embargo, a la hora de relatar nuestra vida, esta historia estaría compuesta solamente de recuerdos. Desde nuestro primer recuerdo, que normalmente está comprendido entre los 2 y 4 años, debido a que la formación de nuevas neuronas impide que la corteza almacene recuerdos hasta esa edad, hasta el último, el cual puede darse el caso de ser distorsionado o borrado completamente debido al deterioro de nuestro cerebro y la imposibilidad de nuestras neuronas a realizar las conexiones posibles para ello. Este último caso es una enfermedad degenerativa comúnmente conocida como Alzheimer, que actualmente afecta a más de 55 millones de personas en todo el mundo. Sin embargo, no son sólo estas personas quiénes la sufren, sino todos sus allegados también. \\
+\section{Motivación}
 
+**extender para explicar para que se quieren generar las imagenes, por que y sus caracteristicas
 
-Para ayudar a combatir esta enfermedad existen métodos farmacológicos y no farmacológicos, en este proyecto nos centraremos en el segundo grupo, más concretamente, en la terapia de reminiscencia. En cuanto a los métodos que existen actualmente para realizar esta terapia se ha comprobado que la ayuda de apoyo visual es mucho más efectiva a entrevistas con muchas preguntas seguidas, ya que esta última puede provocar que el paciente se vea agobiado y abrumado. Es por este motivo, entre muchos otros, que nuestro proyecto está orientado a ser una herramienta de apoyo visual a la narración de libros de vida. Para ello haremos uso de Inteligencias artificiales que convierten entradas de texto a imágenes y de esta manera, podremos transformar recuerdos narrados por el paciente y convertirlos en imágenes. Lo interesante es poder dar la posibilidad de hacer estas imágenes más personales de forma que se puedan añadir una serie de imágenes propias,de familiares o de eventos importantes de la vida del paciente, para entrenar al modelo y que el resultado final sea único, especial y de gran ayuda para la persona que sufre de esta enfermedad. 
-
-\section{Motivos}
+Nuestra existencia se compone esencialmente de vivencias, momentos únicos y personales que marcan el recorrido en la vida de cada uno. L. Desde nuestro primer recuerdo, que normalmente está comprendido entre los 2 y 4 años (Alzheimers.gov, 2024), debido a que la formación de nuevas neuronas impide que el hipocampo almacene recuerdos hasta esa edad, hasta el último, el cual puede darse el caso de ser distorsionado o borrado completamente debido al deterioro de nuestro cerebro y la imposibilidad de nuestras neuronas a realizar las conexiones posibles para ello. Este último caso es una enfermedad degenerativa comúnmente conocida como Alzheimer, que actualmente afecta a más de 55 millones de personas en todo el mundo. Sin embargo, no son sólo estas personas quiénes la sufren, sino todos sus allegados también. \\
 
 El trabajo nace con base al proyecto CANTOR (Composición Automática de Narrativas personales como apoyo a Terapia Ocupacional basada en Reminiscencia, Plan Nacional de Investigación), una iniciativa planteada por investigadores de un conjunto de universidades españolas, entre ellas la Universidad Complutense de Madrid.
 
-La principal motivación de la creación de este proyecto es brindar la posibilidad a los pacientes de demencia causada por el Alzheimer a construir un libro compuesto por sus recuerdos más felices, brindándole la oportunidad de rememorarlos. Se ha demostrado que cuando los pacientes hablan sobre determinadas épocas de su vida y momentos vividos en el pasado, se genera un impacto positivo en su persona consiguiendo que aumente su confianza y sentido de la vida.\\
+La principal motivación de la creación de este proyecto es brindar la posibilidad a los pacientes con demencia causada por el Alzheimer a construir un libro compuesto por sus recuerdos más felices, brindándoles la oportunidad de rememorarlos. Se ha demostrado que cuando los pacientes hablan sobre determinadas épocas de su vida y momentos vividos en el pasado, se genera un impacto positivo en su persona consiguiendo que aumente su confianza y su identidad (Universidad Complutense de Madrid, 2020).\\
 
 El proyecto CANTOR está pensado para elaborarse en dos etapas: 
-La primera sería la parte técnica en la que se elabora una herramienta que, mediante Inteligencia Artificial, para automatizar la construcción del libro de vida. 
-
-La segunda etapa consiste en llevar la herramienta a los terapeutas y personas que asisten a los afectados para comprobar la funcionalidad y efectividad de la misma. 
+\begin{itemize}
+	\item La primera sería la parte técnica en la que se elabora una herramienta para automatizar la construcción del libro de vida mediante inteligencia artificial. 
+	\item La segunda etapa consiste en llevar la herramienta a los terapeutas y personas que asisten a los afectados para comprobar la funcionalidad y efectividad de la misma. 
+\end{itemize}
 
 Nosotros nos centraremos en abordar la primera etapa del proyecto, asegurándonos de implementar una herramienta capaz de generar imágenes a través de una inteligencia artificial especializada en ello, de manera que asegure la calidad máxima posible en los resultados y procurando una semejanza prácticamente total a la realidad.\\
+
+\section{¿Qué es el Alzheimer?}
+
+El Alzheimer es una enfermedad que destruye lentamente la memoria y que, además, también va deteriorando los pensamientos y la conducta, hasta que poco a poco se ven afectadas las funciones más básicas. El Alzheimer es la principal causa de la demencia (National Institute on Aging, 2023)\\
+
+El cerebro envía estímulos químicos a través de las neuronas creando conexiones cerebrales, y mediante miles de millones de estas conexiones, se obtienen nuestros recuerdos, sentimientos, pensamientos y capacidades locomotoras. Aunque todavía no se sabe con certeza el motivo que causa esta enfermedad en el cerebro, se ha investigado que hay dos proteínas en el cerebro que con el tiempo se vuelven tóxicas, tau y beta-amiloide, que se acumulan hasta obstruir la conexión entre las neuronas y provocar que estas mueran, como se puede ver en \ref{fig:tau}.  Con la destrucción de las neuronas, el cerebro se va encogiendo y con él también severamente, el hipocampo, que es una parte clave fundamental en nuestro cerebro a la hora de formar nuevos recuerdos y para el aprendizaje, lo que causa que nuestra memoria, nuestra capacidad para tomar decisiones y el habla, fallen. Para ayudar a combatir esta enfermedad existen métodos farmacológicos y no farmacológicos. En este proyecto nos centraremos en el segundo grupo, más concretamente, en la terapia de reminiscencia. \\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/proteina-tau.jpg}
+	\caption{Obstrucción de neuronas por la vitamina tau}
+	\label{fig:tau}
+\end{figure}
+
+
+\section{La terapia de reminiscencia}
+
+Afortunadamente, existen terapias que ayudan a mejorar la calidad de vida de las personas que padecen esta enfermedad. Entre ellas la estimulación cognitiva, orientación a la realidad, ejercicio terapéutico, musicoterapia, y estimulación multisensorial, entre otras. (Hospital Sant Andreu, 2024)\\
+
+Nuestro proyecto está ligado a la terapia de reminiscencia, que es un proceso que ayuda a la persona a evocar momentos y experiencias emocionales e integrarlos en el presente, lo cual puede mejorar la autoestima y la calidad de vida.(Gónzalez, 2022)\\
+
+En concreto, la técnica consiste en mostrar a la persona una herramienta o material visual, musical o incluso, olfativo, vinculado a su propia experiencia o hechos históricos. De esta manera se promoverá una revisión de la vida de la persona, de modo que se consiga una conexión con sus vivencias, con el fin de reconstruir un libro de vida y reforzar su identidad como persona.  Esta terapia se puede clasificar como un tipo de ensoñación que los lleva a su pasado, lo que les permite entrar en un estado de concentración con el fin de poder reforzar su memoria general, lo cual fortalece al cerebro y desarrolla sus capacidades sociales, estimula recuerdos a través de órganos sensoriales y activa su sentido de la identidad.\\
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width = 0.5 \textwidth]{Imagenes/Vectorial/terapiareminis.jpg}
+%	\caption{Terapia de reminiscencia}
+%	\label{fig:terapia}
+%\end{figure}
+
+Algunos de los beneficios de la creación del libro de vida y la terapia ocupacional de reminiscencia, entre muchos otros, son:\\
+\begin{itemize}
+	\item \underline{Bienestar emocional}: Se permite que las personas puedan recordar experiencias positivas y significativas de sus vidas, lo cual puede generar sensaciones satisfactorias, de alegría y felicidad.\\
+	\item \underline{Autoconocimiento}: Cuando una persona revisa y reflexiona sobre eventos pasados y logros personales, puede obtener una comprensión de sí misma. Mediante la interacción de sus recuerdos, ayudado de la guía de cuidadores y terapeutas, puede evocar aspectos de sus valores, fortalezas y debilidades que de otra manera no serían accesibles.
+	\item \underline{Sentido y propósito personal}: Mediante la rememoración de escenas significativas, las personas pueden encontrar una guía emocional que permite dar sentido y dirección a sus vidas, especialmente en momentos de confusión o desorientación.
+	\item \underline{Reducción del estrés}: Al enfocarse en recuerdos positivos, las personas experimentan una sensación de calma, de tranquilidad y de bienestar emocional, y encuentran un espacio para escapar del estrés y tensiones del presente.
+	\item \underline{Favorecer las relaciones sociales}: El hecho de compartir recuerdos y experiencias con otras personas, puede fortalecer los lazos sociales y fomentar una mayor conexión con cuidadores, familia y amigos, lo cual es altamente satisfactorio para el paciente.
+	\item \underline{Aumentar el desarrollo del lenguaje y la persona}: Al relatar experiencias pasadas, las personas mejoran su capacidad para comunicarse de manera efectiva, así como su expresión verbal, lo cual impulsa un crecimiento personal significativo a nivel emocional e intelectual.
+	\item \underline{Prevenir la incapacidad}: El hecho de potenciar las habilidades lingüísticas y de mantener la mente activa, puede ayudar a preservar la función cognitiva a lo largo del tiempo. 
+	\end{itemize}
+
+
+
+En resumen, se recomienda realizar actividades de terapia ocupacional porque suponen una mejora de la calidad de vida de los pacientes, debido a que se logra una satisfacción personal y por la vida, se estimula la atención, la memoria y el lenguaje, se reviven momentos significativos y emocionales y se fomenta la socialización. Todo esto, conlleva a retrasar posibles problemas cognitivos. (Hospital Sant Andreu, 2020).\\
+
+En cuanto a los métodos que existen actualmente para realizar esta terapia se ha comprobado que la ayuda de apoyo visual es mucho más efectiva a entrevistas con muchas preguntas seguidas, ya que esta última puede provocar que el paciente se vea agobiado y abrumado. Es por este motivo, entre muchos otros, que nuestro proyecto está orientado a ser una herramienta de apoyo visual a la narración de libros de vida. 
+**hablar sobre los libros de vida
+Para ello haremos uso de técnicas de inteligencia artificial que convierten entradas de texto a imágenes y de esta manera, podremos transformar recuerdos narrados por el paciente y convertirlos en imágenes. Lo interesante es poder dar la posibilidad de hacer estas imágenes más personales de forma que se puedan añadir una serie de imágenes propias,de familiares o de eventos importantes de la vida del paciente, para entrenar al modelo
+**explicar lo del modelo
+ y que el resultado final sea único, especial y de gran ayuda para la persona que sufre de esta enfermedad. 
 
 
 \section{Objetivos}
 
-- Utilizar la inteligencia artificial generativa para crear imágenes personales que ayuden a los pacientes a evocar momentos y experiencias emocionales e integrarlos en el presente.
-
-- Generar fotografías que respalden historias de los pacientes.
-
-- Brindar material de apoyo para la terapia de reminiscencia.
-
-- Elaborar un programa mediante el cual, un ayudante pueda incorporar imágenes propias al modelo.
+**añadir introduccion a los objetivos
+\begin{itemize}
+	\item Utilizar la inteligencia artificial generativa para crear imágenes personales que ayuden a los pacientes a evocar momentos y experiencias emocionales e integrarlos en el presente.
+	\item Generar fotografías que respalden historias de los pacientes.
+	\item Brindar material de apoyo para la terapia de reminiscencia.
+	\item Elaborar un programa mediante el cual, un ayudante pueda incorporar imágenes propias a un libro de vida. 
+\end{itemize} 
 
 Por ejemplo: un paciente recuerda cuando vio el mar por primera vez, pero no conoce detalles suficientes como para tener integrada una historia que contar en la mente, ni tomó ninguna fotografía en aquel entonces. El modelo puede generar una foto del paciente en el mar, y el hecho de evocar ese recuerdo, le provoca bienestar y felicidad.
 
 De esta manera, podemos aportar un material muy valioso para la terapia de reminiscencia, ya que se necesita material visual que permita crear una conexión con la vida del paciente, y este material en ocasiones puede ser muy limitado.
 
+**en este punto asegurar que quede claro el por qué y para qué del proyecto
+
 \section{Plan de trabajo}
 
-Una vez definidos los objetivos, se debe establecer un método para tratar de llegar a los resultados esperados. En primer lugar, se debe realizar una amplia investigación acerca de los tipos de inteligencia artificial que existen y cuál de todas es la que mejor se adapta a nuestro objeto de estudio. Pero antes de profundizar en las diferentes técnicas y modelos, debemos ser conscientes del motivo por el que realizamos este trabajo, es decir, quién es el destinatario y qué espera del producto final. Por tanto, necesitamos indagar en el foco del problema y saber cómo la inteligencia artificial puede ayudar a resolverlo, o bien a mitigarlo. 
+Una vez definidos los objetivos, se debe establecer un método para tratar de llegar a los resultados esperados. En primer lugar, se debe realizar una amplia investigación acerca de las distintas técnicas de inteligencia artificial que existen y cuál de todas es la que mejor se adapta a nuestro objeto de estudio. Pero antes de profundizar en las diferentes técnicas y modelos, debemos ser conscientes del motivo por el que realizamos este trabajo, es decir, quién es el destinatario y qué espera del producto final. Por tanto, necesitamos indagar en el foco del problema y saber cómo la inteligencia artificial puede ayudar a resolverlo, o bien a mitigarlo. 
 
-Sabiendo que para llegar a los resultados deseados necesitamos una inteligencia artificial generativa de imágenes a partir de texto, necesitamos conocer cuáles son las mejores que están a nuestra disposición, y si las podemos utilizar y trabajar sobre ellas. Por tanto, una parte importante de nuestro proyecto consiste en realizar pruebas de cada una de las inteligencias artificiales generativas y valorar cuál genera imágenes de mayor calidad y cuál la genera en un tiempo aceptable. Es necesario probarlas todas y cada una de las que estén disponibles, y saber cuál va a ser nuestro entorno de ejecución.
+Para obtener los resultados deseados necesitamos conocer cuáles son las mejores técnicas que están a nuestra disposición, y si las podemos utilizar y trabajar sobre ellas. Por tanto, una parte importante de nuestro proyecto consiste en realizar pruebas de cada una de ellas y valorar cuál genera imágenes de mayor calidad y en un tiempo aceptable. Es necesario probar todas y cada una de las que estén disponibles, y saber cuál va a ser nuestro entorno de ejecución.
 
-Una vez se haya decidido cuál va a ser el o los modelos que elijamos para desarrollar nuestro proyecto, llegará el momento de saber cómo vamos a desplegar las diferentes tecnologías y qué vamos a añadir para que sea algo útil y completamente novedoso para nuestros destinatarios. La idea es crear un programa, que contenga el modelo de inteligencia artificial elegido y una interfaz sencilla y eficaz para utilizarla en las terapias ocupacionales. Además, estos modelos deberán tener la posibilidad de ser personalizables, de manera que se puedan crear imágenes con los elementos o personas que se deseen. Para ello, se investigará sobre los distintos modos de entrenamiento, y realizando múltiples pruebas y analizando los diferentes resultados, se razonará cuál será el entrenamiento óptimo para nuestro proyecto.
+Una vez se haya decidido cuál va a ser el o los modelos que elijamos para desarrollar nuestro proyecto, llegará el momento de saber cómo vamos a desplegar las diferentes tecnologías y qué vamos a añadir para que sea algo útil y completamente novedoso para nuestros destinatarios. La idea es crear un programa, que contenga el modelo de inteligencia artificial elegido y una interfaz sencilla y eficaz para utilizarla en las terapias ocupacionales. Además, estos modelos deberán tener la posibilidad de ser personalizables, de manera que se puedan crear imágenes con los elementos o personas que se deseen. Para ello, se investigará sobre los distintos modos de entrenamiento, y realizando múltiples pruebas y analizando los diferentes resultados, se razonará cuál será el entrenamiento con mejor tiempo y calidad dentro de nuestras posibilidades para el proyecto.
 
-Cuando ya disponemos de un modelo de inteligencia artificial generativa de imágenes que otorgue buenos resultados, simularemos casos de uso que ejemplifiquen cómo los usuarios pueden tener una experiencia plenamente satisfactoria. A raíz de esto, podremos obtener una serie de conclusiones y anotar si se han cumplido las expectativas y si en un futuro los pacientes pueden ver su calidad de vida incrementada gracias a nuestra iniciativa y a nuestro trabajo.
+Cuando ya disponemos de un modelo de inteligencia artificial generativa de imágenes que otorgue buenos resultados, simularemos casos de uso que ejemplifiquen cómo los usuarios pueden tener una experiencia satisfactoria. A raíz de esto, podremos obtener una serie de conclusiones y anotar si se han cumplido las expectativas, además de evaluar si la iniciativa y el trabajo realizado podrían ser de utilidad para mejorar la  calidad de vida de los pacientes.
 
 
