@@ -69,7 +69,7 @@ Como hemos visto, las redes neuronales feedforward están habilitadas para que l
 ¿Y cómo es posible añadir memoria a las propias conexiones? Simplemente generalizando sus conexiones, es decir, alimentar a sus propias entradas o inputs con las salidas o outputs generados previamente por las conexiones anteriores provocando que el modo en el que fluyen las conexiones sea bidireccional. Es decir, incluyendo conexiones hacia atrás con las que se trabaja en una serie de pasos de tiempo, conocidos como \textit{timesteps}, donde se procesan los elementos de la secuencia uno por uno, manteniendo una memoria de los estados anteriores a medida que avanzan en la secuencia.\\
 
 El entrenamiento de redes neuronales de estas características se realiza contando con diferentes algoritmos y técnicas, la más básica y conocida en este tipo de red neuronal es el algoritmo de propagación de errores (back-propagation en inglés) formalizado en 1986 por Rumelhart, Hinton y Williams. Este método, en concreto, consiste en aplicar un patrón a la primera capa de la red, el cual se va propagando hacia las capas superiores con el objetivo de generar una salida que se pueda comparar con la salida deseada y así poder calcular el error para cada neurona de la salida obtenida en función de los diferentes parámetros de la red. En otras palabras, cómo varía el error en relación con la variación de los parámetros de la red neuronal. Si a este fenómeno le sumamos la variable del tiempo, se obtiene la técnica de retropropagación a través del tiempo (\textit{backpropagatio}n through time, BPTT), en la que después de analizarse la secuencia completa, calcular el error y cambiar los parámetros para minimizar el mismo, se propaga el error a través del tiempo desde la última capa hasta la superior en cada paso de tiempo con el fin de que la red aprenda de las secuencias y mejore su predicción futura (Berzal, 2018). 
-Este método combinado con la técnica del gradiente descendiente encargada de la optimización del error buscando los parámetros adecuados para poder reducirlo al mínimo es el modo de aprendizaje supervisado más popular que existe.  Aunque, como hemos visto anteriormente, no es el único, ya que coexiste con técnicas de entrenamiento como el aprendizaje no supervisado y el aprendizaje por refuerzo. \\
+Este método combinado con la técnica del gradiente descendente (en inglés \textit{gradient descent}) encargada de la optimización del error buscando los parámetros adecuados para poder reducirlo al mínimo es el modo de aprendizaje supervisado más popular que existe.  Aunque, como hemos visto anteriormente, no es el único, ya que coexiste con técnicas de entrenamiento como el aprendizaje no supervisado y el aprendizaje por refuerzo. \\
 
 Así que, podemos concluir en que las redes neuronales son idóneas para tareas de modelado de datos secuenciales y con dependencias temporales, como lo pueden ser el procesamiento de lenguaje natural, la generación de texto o la traducción automática, entre muchas otras.
 \begin{figure}[h]
@@ -82,11 +82,11 @@ Así que, podemos concluir en que las redes neuronales son idóneas para tareas 
 
 \subsection{Redes Neuronales LSTM} 
 
-Las redes neuronales Long Short-Term Memory surgen a partir de las redes neuronales recurrentes cuyo principal objetivo y propósito es ratificar el problema del desvanecimiento del gradiente (Hochreiter et al., 2016). \\
+Las redes neuronales Long Short-Term Memory surgen a partir de las redes neuronales recurrentes cuyo principal objetivo y propósito es ratificar el problema del desvanecimiento del gradiente o conocido en inglés como \textit{vanishing gradient problem} (Hochreiter et al., 2016). \\
 
 En primer lugar y para entender en qué consiste este problema, es necesario saber qué es exactamente un gradiente y a qué nos referimos cuando hablamos del desvanecimiento del mismo. Un gradiente es una medida que determina la variación de una función con respecto al cambio que se produce en sus variables, ya sea en términos de optimización, rapidez o maximización de la función objetivo (Sanderson, 2017). \\
 
-Matemáticamente, se puede entender como un vector multivariable cuyas variables son las derivadas parciales de dicha función. Se puede ver en el ejemplo de la figura \ref{fig:gradiente}. Geométricamente hablando, el gradiente indica la dirección en la que la función crece a mayor velocidad y, de esta manera, podemos concluir que el uso de los gradientes se hace con el fin de ajustar los parámetros para reducir al mínimo la diferencia entre los valores obtenidos y los deseados. Un claro ejemplo de ello son los modelos de predicción, en los que se busca reducir dichas predicciones con los valores reales. \\
+Matemáticamente, se puede entender como un vector multivariable cuyas variables son las derivadas parciales de dicha función. Se puede ver en el ejemplo de la figura \ref{fig:gradiente}. Geométricamente hablando, el gradiente indica la dirección en la que la función crece a mayor velocidad y, de esta manera, podemos concluir que el uso de algoritmo del  gradiente descendente (\textit{gradient descent}) se hace con el fin de ajustar los parámetros para reducir al mínimo la diferencia entre los valores obtenidos y los deseados. Un claro ejemplo de ello son los modelos de predicción, en los que se busca reducir dichas predicciones con los valores reales. \\
 
 \begin{figure}[h]
 	\centering
@@ -95,30 +95,30 @@ Matemáticamente, se puede entender como un vector multivariable cuyas variables
 	\label{fig:gradiente}
 \end{figure}
 
-Ahora bien, cuando hablamos del descenso del gradiente nos referimos al fenómeno que ocurre en la propagación hacia atrás, cuando a medida que se va produciendo la propagación en capas cada vez más profundas, el gradiente va disminuyendo hasta llegar a ser tan pequeño que las capas superiores sean incapaces de aprender de manera efectiva. Este tipo de problema es común en redes conformadas por una gran cantidad de capas, dado que se disminuye exponencialmente a medida que va recorriendo cada capa hasta impedir que los pesos se actualicen de manera correcta y que puedan tener un aprendizaje lo suficientemente eficiente para ser capaces de resolver patrones complejos.
+Ahora bien, cuando hablamos del desvanecimiento del gradiente (\textit{vanishing gradient problem}) nos referimos al fenómeno que ocurre en la propagación hacia atrás, cuando a medida que se va produciendo la propagación en capas cada vez más profundas, el gradiente va disminuyendo hasta llegar a ser tan pequeño que las capas superiores sean incapaces de aprender de manera efectiva. Este tipo de problema es común en redes conformadas por una gran cantidad de capas, dado que se disminuye exponencialmente a medida que va recorriendo cada capa hasta impedir que los pesos se actualicen de manera correcta y que puedan tener un aprendizaje lo suficientemente eficiente para ser capaces de resolver patrones complejos.
 La solución a este problema se abordó introduciendo nuevos componentes a la red que ayudan y controlan el flujo de información de la red, consiguiendo aumentar la memoria del conjunto de la red al almacenar la información durante periodos más largos de tiempo. Los componentes principales son los siguientes:
 \begin{itemize}
-	\item \textit{Memory cells o celdas de memoria}: contienen la información relevante  y actualizada a lo largo del tiempo.
+	\item \underline{Memory cells o celdas de memoria}: contienen la información relevante  y actualizada a lo largo del tiempo.
 	\item \underline{Input gates o puertas de entrad}a: son las encargadas de controlar la cantidad de información que entra a las celdas de memoria.
 	\item \underline{Forget gates o puertas de olvido}: seleccionan la información que debe ser eliminada de la celda, al no ser de utilidad.
 	\item \underline{Output gates o puertas de salida}: su tarea radica en seleccionar la información de la celda que va a pasar a la siguiente capa de la red, basándose en el estado oculto actual.
 \end{itemize}
  
 
-De este modo, se consigue erradicar el problema del desvanecimiento del gradiente y se consigue procesar grandes secuencias de datos durante largos periodos de tiempo. Es especialmente útil en tareas que requieren capturar grandes dependencias de datos temporales, ejemplo de ello son el procesado y/o reconocimiento de lenguaje natural, en la traducción automática y en la generación de texto.\\
+De este modo, se consigue erradicar el problema del desvanecimiento del gradiente (\textit{vanishing gradient problem}) y se consigue procesar grandes secuencias de datos durante largos periodos de tiempo. Es especialmente útil en tareas que requieren capturar grandes dependencias de datos temporales, ejemplo de ello son el procesado y/o reconocimiento de lenguaje natural, en la traducción automática y en la generación de texto.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/lstm.png}
-	\caption{Red neuronal Long Short Term Memory}
+	\caption{Red neuronal Long Short Term Memory (Casallas, 2020)}
 	\label{fig:lstm}
 \end{figure}
 
 
 
-\subsection{Redes Neuronales Convolutivas (CNN)}
+\subsection{Redes Neuronales Convolucionales (CNN)}
 
-Las redes neuronales convolucionales se introdujeron por primera vez en la década de los 50 por David Hubel y Torsten Wiesel cuando experimentaron con las neuronas biológicas, lo que le sirvió de inspiración a Kunihiko Fukushima en la década de los 80 para desarrollar el Neocognitron, una red neuronal que se conoce como la primera CNN. Este concepto fue cobrando forma con el paso de los años y el modelo tal y como lo conocemos hoy en día, fue obra de Yann LeCun en 1998 al introducir el aprendizaje a través de la técnica de backforwarding.	\\
+Las redes neuronales convolucionales se introdujeron por primera vez en la década de los 50 por David Hubel y Torsten Wiesel cuando experimentaron con las neuronas biológicas, lo que le sirvió de inspiración a Kunihiko Fukushima en la década de los 80 para desarrollar el Neocognitron, una red neuronal que se conoce como la primera CNN. Este concepto fue cobrando forma con el paso de los años y el modelo tal y como lo conocemos hoy en día, fue obra de Yann LeCun en 1998 al introducir el aprendizaje a través de la técnica de backforwarding (Berzal, 2018).	\\
 
 Las redes neuronales convolutivas están formadas por una secuencia de capas que podemos clasificar en tres tipos: capas convolutivas, capas de pooling y capas completamente conectadas.\\ 
 \begin{itemize}
@@ -130,12 +130,12 @@ Las redes neuronales convolutivas están formadas por una secuencia de capas que
 	
 	Finalmente, la suma de los diferentes productos escalares y el o los filtros utilizados, da como resultado final lo que se conoce como mapa de características. 
 	
-	Después de cada capa de convolución, se aplica una función de activación no lineal al mapa de características, a través de la ReLU (Rectified Linear Unit). El fin de esta función es introducir no linealidad a la red, lo que le permite mejorar la complejidad entre las diferentes características. \\
+	Después de cada capa de convolución, se aplica una función de activación no lineal al mapa de características, a través de la ReLU (Rectified Linear Unit). El fin de esta función es introducir no linealidad a la red, lo que le permite mejorar la complejidad entre las diferentes características (Krizhevsky et al., 2012). \\
 	
 \item	\underline{Capa de agrupación o pooling}: son capas dedicadas a reducir la dimensión del mapa a través de la disminución del número de parámetros de entrada.
 	Comúnmente, se utilizan dos técnicas conocidas como max pooling y average pooling. Max pooling consiste en seleccionar el pixel con mayor valor a medida que el filtro recorre la imagen para enviar el máximo a la matriz de salida, en cambio, average pooling lo que busca es calcular el valor medio del campo. El inconveniente que presenta esta capa es la gran pérdida de información que existe, sin embargo, presenta una gran ventaja a la hora de reducir la complejidad computacional y concentrarse en las características más importantes, lo que claramente, mejora el rendimiento del modelo y evita el riesgo de que se produzca un sobreajuste.\\
 	
-	\item \underline{Capa totalmente conectada}: en las últimas capas de la red los nodos están conectados con los de la capa anterior para producir la salida final incorporando las características extraídas y aprendidas de los procesos realizados en las capas anteriores. Las capas totalmente conectadas se preocupan de realizar las funciones de clasificación de la imagen y de regresión para producir el resultado deseado. \\
+	\item \underline{Capa totalmente conectada}: en las últimas capas de la red los nodos están conectados con los de la capa anterior para producir la salida final incorporando las características extraídas y aprendidas de los procesos realizados en las capas anteriores. Las capas totalmente conectadas se preocupan de realizar las funciones de clasificación de la imagen y de regresión para producir el resultado deseado (Krizhevsky et al., 2012). \\
 	
 
 \end{itemize}
@@ -144,13 +144,13 @@ Las redes neuronales convolutivas están formadas por una secuencia de capas que
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/cnn.png}
-	\caption{Red neuronal convolucional}
+	\caption{Red neuronal convolucional (Andrade, 2021)}
 	\label{fig:cnn}
 \end{figure}
 
 \subsection{Redes Generativas Adversarias (GAN)}
 
-Las redes GAN, del inglés, Generative Adversarial Networks son un tipo de redes neuronales profundas revolucionarias, que son relativamente novedosas, ya que surgieron en el año 2014 por primera vez por Ian Goodfellow y sus compañeros en la Universidad de Montréal. \\
+Las redes GAN, del inglés, Generative Adversarial Networks son un tipo de redes neuronales profundas relativamente novedosas, ya que surgieron en el año 2014 por primera vez por Ian Goodfellow y sus compañeros en la Universidad de Montréal (Berzal, 2018). \\
 
 El funcionamiento de este tipo de redes involucra a dos redes neuronales diferentes, en las que cada una se encarga de realizar una tarea específica y “competir” contra la otra, para así, cada vez ir mejorando más los resultados obtenidos. \\
 
@@ -161,14 +161,14 @@ Un clásico ejemplo llevado a la vida real de esto puede ser el caso de un falsi
 
 Matemáticamente, el discriminador tiene que generar una salida, expresada como D(x), basándose en la probabilidad de que la entrada sea sintética o real, suponiendo que en cuanto más cercana a 1 sea, la entrada es original. Y por el contrario y dada una muestra aleatoria z en función de cierta distribución de probabilidad, el generador tiene que producir una muestra, expresada como G(z), que el discriminador tiene que clasificar como cercana a 0, produciendo una salida del tipo D(G(z)) en la que el generador tiene que intentar que su probabilidad se aproxime a 1, justo al contrario que el discriminador. Suponiendo que entre todas las muestras del modelo, una mitad son auténticas y la otra mitad son falsas, se tiene que alcanzar el conocido como equilibrio de Nash en el que las muestras del modelo son igual a los datos y en las que la probabilidad del discriminador es D(x) 0,5 para todo x. \\
 
-Por último, cabe destacar que para el entrenamiento de este tipo de red se utilizan los métodos del gradiente descendente y backpropagation, vistos en redes neuronales anteriores. \\
+Por último, cabe destacar que para el entrenamiento de este tipo de red se utilizan los métodos del gradiente descendente (\textit{gradient descent}) y backpropagation, vistos en redes neuronales anteriores. \\
 
 Este tipo de redes son ideales para tareas que requieren creación de datos realistas y artísticos, como lo pueden ser la generación de imágenes, de música o incluso, síntesis de voz. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/gan.png}
-	\caption{Red neuronal generativa antagónica}
+	\caption{Red neuronal generativa antagónica (Franco, 2014)}
 	\label{fig:gan}
 \end{figure}
 
@@ -196,7 +196,7 @@ A raíz de este modelo, surgen técnicas innovadoras como el aprendizaje por tra
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.7 \textwidth]{Imagenes/Vectorial/transformer.png}
-	\caption{Red neuronal Transformer}
+	\caption{Red neuronal Transformer(Sotaquirá, 2020)}
 	\label{fig:transformer}
 \end{figure}
 
@@ -207,14 +207,14 @@ Estos suponen sólo algunos ejemplos de los tipos de redes neuronales más comun
 Como hemos visto, hay diferentes redes neuronales destinadas a la generación tanto de texto como de imágenes. En el caso de Stable Diffusion, el modelo de IA utilizado en nuestro proyecto, funciona con un modelo de difusión latente basado en CNNs y en Transformers. Ya visto el comportamiento y funcionamiento de ambas redes neuronales en apartados anteriores, analizaremos más en profundidad de qué manera se integran y complementan en el modelo que utilizaremos más adelante.\\
 
 
-Stable Diffusion es un modelo de Inteligencia Artificial generativa cuya principal función es transformar el texto a imagen, aunque también presenta otras funciones asombrosas como la transformación de imagen a imagen o incluso lo más novedoso hasta el momento, transformaciones de texto a vídeo. Las empresas desarrolladoras hicieron una colaboración conjunta entre CompVis LMU, Runway y Stability AI y el lanzamiento finalmente se produjo a mediados de 2022, es decir, esta poderosa herramienta relativamente nueva y los avances tecnológicos que ha alcanzado hasta la fecha son impresionantes. \\
+Stable Diffusion es un modelo de Inteligencia Artificial generativa cuya principal función es transformar el texto a imagen, aunque también presenta otras funciones asombrosas como la transformación de imagen a imagen o incluso lo más novedoso hasta el momento, transformaciones de texto a vídeo. Las empresas desarrolladoras hicieron una colaboración conjunta entre CompVis LMU, Runway y Stability AI y el lanzamiento finalmente se produjo a mediados de 2022. \\
 
 
 \subsection{Funcionamiento interno de Stable Diffusion}
 
 En principio, Stable Diffusion cuenta con un entrenamiento de más de 5 millones de imágenes proporcionado por el dataset Laion-5B que permite contar con una gran variedad de opciones de creación de imágenes, desde objetos, animales, paisajes y lugares, personas e incluso celebridades mundialmente conocidas con una calidad notable.\\ 
 
-Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente de su anterior. Este primer método se conoce como difusión directa hacia delante o forward diffusion.\\
+Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente del anterior. Este primer método se conoce como difusión directa hacia delante o \textit{forward diffusion}.\\
 
 \begin{figure}[h]
 	\centering
@@ -223,7 +223,7 @@ Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para
 	\label{fig:difusiondirecta}
 \end{figure}
 
-Así mismo, cuando se procesa una petición dado un prompt, se parte de una imagen únicamente hecha de ruido aleatorio, es decir, un imagen sin nada relevante ni identificable en ella. Partiendo de esta imagen llena de ruido, se intenta revertir lo hecho anteriormente para volver a la imagen original quitando el ruido gradualmente. El ruido es aleatorio, y su aleatoriedad depende de un parámetro llamado seed o semilla que asocia el ruido generado con un número aleatorio. Por lo tanto, si se repite la semilla se volverá a generar exactamente el mismo ruido y tendríamos como resultado una réplica de una imagen ya generada con esa misma semilla. Este proceso se conoce como difusión inversa y su objetivo principal es que el modelo aprenda a eliminar el ruido completamente. \\
+Así mismo, cuando se procesa una petición dado un \textit{prompt}, se parte de una imagen únicamente hecha de ruido aleatorio, es decir, un imagen sin nada relevante ni identificable en ella. Partiendo de esta imagen llena de ruido, se intenta revertir lo hecho anteriormente para volver a la imagen original quitando el ruido gradualmente. El ruido es aleatorio, y su aleatoriedad depende de un parámetro llamado \textit{seed} o semilla que asocia el ruido generado con un número aleatorio. Por lo tanto, si se repite la semilla se volverá a generar exactamente el mismo ruido y tendríamos como resultado una réplica de una imagen ya generada con esa misma semilla. Este proceso se conoce como difusión inversa y su objetivo principal es que el modelo aprenda a eliminar el ruido completamente. \\
 
 \begin{figure}[h]
 	\centering
@@ -232,9 +232,9 @@ Así mismo, cuando se procesa una petición dado un prompt, se parte de una imag
 	\label{fig:difusioninversa}
 \end{figure}
 
-Una vez tenemos la imagen llena de ruido y la forma de calcular el ruido que hay en cada imagen para poder eliminarlo, se empieza el proceso al que llamamos sampler o muestreo. Aquí es cuando entra un componente importante llamado noise scheduler, cuya función es determinar la cantidad de ruido que se debe suprimir en cada paso para alcanzar la forma óptima y que se puedan evitar cambios bruscos entre paso y paso, que sea de forma gradual y que los detalles se vayan puliendo conforme la imagen vaya cobrando más forma. El proceso de muestreo se repite la cantidad de steps o pasos especificada por el usuario. Y de esta manera, concluimos con el primer componente del modelo de difusión latente: la difusión.\\ 
+Una vez tenemos la imagen llena de ruido y la forma de calcular el ruido que hay en cada imagen para poder eliminarlo, se empieza el proceso al que llamamos \textit{sampler} o muestreo. Aquí es cuando entra un componente importante llamado \textit{noise scheduler}, cuya función es determinar la cantidad de ruido que se debe suprimir en cada paso para alcanzar la forma óptima y que se puedan evitar cambios bruscos entre paso y paso, que sea de forma gradual y que los detalles se vayan puliendo conforme la imagen vaya cobrando más forma. El proceso de muestreo se repite la cantidad de \textit{steps} o pasos especificada por el usuario. Y de esta manera, concluimos con el primer componente del modelo de difusión latente: la difusión.\\ 
 
-Pasemos a la segunda pieza del puzzle: el espacio latente. El proceso de difusión, por lo que hemos podido ver, es un proceso algo lento y costoso al tener que trabajar con los pixeles de una imagen. Si tenemos una imagen en color con la escala RGB de 512x512 píxeles, estamos hablando de una multiplicación de 3x512x512, es decir, un espacio de casi 80 mil dimensiones. Para solucionar este problema, se trabaja con el espacio latente que trata de reducir la imagen a una escala de 64x64 píxeles, asegurando mayor velocidad y una menor carga de trabajo al trabajar, de esta forma, con unas dimensiones más pequeñas de apenas 12 mil. 
+Pasemos a la segunda pieza del puzzle: el espacio latente. El proceso de difusión, por lo que hemos podido ver, es un proceso algo lento y costoso al tener que trabajar con los píxeles de una imagen. Si tenemos una imagen en color con la escala RGB de 512x512 píxeles, estamos hablando de una multiplicación de 3x512x512, es decir, un espacio de casi 80 mil dimensiones. Para solucionar este problema, se trabaja con el espacio latente que trata de reducir la imagen a una escala de 64x64 píxeles, asegurando mayor velocidad y una menor carga de trabajo al trabajar, de esta forma, con unas dimensiones más pequeñas de apenas 12 mil. 
 
 \begin{figure}[h]
 	\centering
@@ -244,25 +244,23 @@ Pasemos a la segunda pieza del puzzle: el espacio latente. El proceso de difusi�
 	\label{fig:latentspace}
 \end{figure}
 
-Ahora que entendemos el propósito y el funcionamiento de las dos variables del modelo de difusión latente, profundicemos más en cómo se lleva a cabo cada uno de estos dos procesos y qué mecanismos se utilizan para ello. El modelo se compone principalmente de 3 componentes:\\
-
-Un codificador de texto basado en redes transformer, una red U-Net compuesta de dos redes ResNet y un autocodificador variacional (VAE).\\
-
-\underline{Codificador de texto basado en Transformers}: para producir la imagen que deseamos, previamente es necesario escribir una descripción detallada de la imagen y es por tanto, el primer paso. Este texto que le introducimos al modelo se conoce como prompt y es de lo que se encarga de procesar el codificador de texto.  Lo primero que realiza el text-encoder de Stable Diffusion es a través de un modelo llamado CLIP (Contrastive Language-Image Pre-Training) que se encarga de ofrecer una descripción detallada de las imágenes a través de su propio tokenizador. El siguiente paso y como ya hemos visto en apartados anteriores, el transformer se encarga de realizar la fase de embedding en la que se transforman las palabras de texto en tokens que la red neuronal pueda entender y manejar, para que después, a través del método de self-attention, se decida qué palabras son las que más relevancia tienen.\\ 
- 
-Además, Stable Diffusion ha añadido a esto una pequeña variación y mejora que añade a esta última técnica, otra llamada cross-attention (o atención cruzada) con la que se permite crear relaciones entre los diferentes embedding y mejorar la precisión del resultado. Por ejemplo, si el prompt pedido es “unas flores pequeñas sobre una bicicleta azul”, solamente con la técnica de self-attention podría procesarse una imagen que fuera “una flor azul sobre una bicicleta pequeña”, lo cual es válido para esa arquitectura pero no es lo que el usuario ha pedido. En cambio, con la ayuda de la técnica de atención cruzada se crean relaciones que tienen más a menos distancia, en la que en este ejemplo la relación flores con azul tiene más distancia que la relación de flores con pequeña, y por tanto, es esta última la que se utilizaría al tener más relación y menos distancia.\\
-
-\underline{Red neuronal U-Net}: es una red neuronal convolucional entrenada para identificar e intentar predecir la cantidad de ruido contenida en una imagen. Consta de un codificador y un decodificador en los que cada uno de estos componentes son, a su vez, bloques ResNet, que son redes convolucionales profundas compuestas por una gran cantidad de capas. La función del codificador se basa en reducir la calidad de la resolución de la imagen mientras que  la función del decodificador es la contraria, generar la imagen en la máxima resolución posible. Entre ambos componentes se añaden conexiones de acceso directo para evitar la pérdida de información importante. Al final, lo que se pretende conseguir es que la red U-Net consiga determinar el ruido para posteriormente, poder conseguir una representación libre de ruido en la imagen final.
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width = 1
-	\textwidth]{Imagenes/Vectorial/u-net.png}
-	\caption{Arquitectura de una red U-Net}
-	\label{fig:unet}
-\end{figure}
-
-\underline{Autocodificador variacional VAE}: es un tipo de red neuronal que al igual que las redes U-Net consta de dos componentes: un codificador y un decodificador, sin embargo sus funciones distan mucho las unas de las otras. El primer componente del autocodificador variacional se encarga de uno de los primeros pasos que realiza Stable Diffusion, que es convertir el espacio de píxeles de la imagen en un tensor dentro del espacio latente de menores dimensiones sustrayendo las características más relevantes de la imagen original y comprimiéndolas en el tensor latente. Y al final del proceso de difusión, se parte del tensor del espacio latente con el que se ha trabajado, para transformarlo en la imagen final generada en una escala de 512x512 píxeles.
+Ahora que entendemos el propósito y el funcionamiento de las dos variables del modelo de difusión latente, profundicemos más en cómo se lleva a cabo cada uno de estos dos procesos y qué mecanismos se utilizan para ello. El modelo se compone principalmente de 3 componentes: un codificador de texto basado en redes transformer, una red U-Net compuesta de dos redes ResNet y un autocodificador variacional (VAE).\\
+\begin{itemize}
+	\item \underline{Codificador de texto basado en Transformers}: para producir la imagen que deseamos, previamente es necesario escribir una descripción detallada de la imagen y es por tanto, el primer paso. Este texto que le introducimos al modelo se conoce como \textit{prompt} y es de lo que se encarga de procesar el codificador de texto.  Lo primero que realiza el \textit{text-encoder} de Stable Diffusion es a través de un modelo llamado CLIP (\textit{Contrastive Language-Image Pre-Training}) que se encarga de ofrecer una descripción detallada de las imágenes a través de su propio tokenizador. El siguiente paso y como ya hemos visto en apartados anteriores, el transformer se encarga de realizar la fase de \textit{embedding} en la que se transforman las palabras de texto en \textit{tokens} que la red neuronal pueda entender y manejar, para que después, a través del método de \textit{self-attention}, se decida qué palabras son las que más relevancia tienen.\\ 
+	
+	Además, Stable Diffusion ha añadido a esto una pequeña variación y mejora que añade a esta última técnica, otra llamada \textit{cross-attention} (o atención cruzada) con la que se permite crear relaciones entre los diferentes \textit{embedding} y mejorar la precisión del resultado. Por ejemplo, si el \textit{prompt} pedido es “unas flores pequeñas sobre una bicicleta azul”, solamente con la técnica de \textit{self-attention} podría procesarse una imagen que fuera “una flor azul sobre una bicicleta pequeña”, lo cual es válido para esa arquitectura pero no es lo que el usuario ha pedido. En cambio, con la ayuda de la técnica de atención cruzada se crean relaciones que tienen más a menos distancia, en la que en este ejemplo la relación flores con azul tiene más distancia que la relación de flores con pequeña, y por tanto, es esta última la que se utilizaría al tener más relación y menos distancia.\\
+	\item \underline{Red neuronal U-Net}: es una red neuronal convolucional entrenada para identificar e intentar predecir la cantidad de ruido contenida en una imagen. Consta de un codificador y un decodificador en los que cada uno de estos componentes son, a su vez, bloques ResNet, que son redes convolucionales profundas compuestas por una gran cantidad de capas. La función del codificador se basa en reducir la calidad de la resolución de la imagen mientras que  la función del decodificador es la contraria, generar la imagen en la máxima resolución posible. Entre ambos componentes se añaden conexiones de acceso directo para evitar la pérdida de información importante. Al final, lo que se pretende conseguir es que la red U-Net consiga determinar el ruido para posteriormente, poder conseguir una representación libre de ruido en la imagen final.\\
+	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width = 1
+		\textwidth]{Imagenes/Vectorial/u-net.png}
+		\caption{Arquitectura de una red U-Net}
+		\label{fig:unet}
+	\end{figure}
+	\item \underline{Autocodificador variacional VAE}: es un tipo de red neuronal que al igual que las redes U-Net consta de dos componentes: un codificador y un decodificador, sin embargo sus funciones distan mucho las unas de las otras. El primer componente del autocodificador variacional se encarga de uno de los primeros pasos que realiza Stable Diffusion, que es convertir el espacio de píxeles de la imagen en un tensor dentro del espacio latente de menores dimensiones sustrayendo las características más relevantes de la imagen original y comprimiéndolas en el tensor latente. Y al final del proceso de difusión, se parte del tensor del espacio latente con el que se ha trabajado, para transformarlo en la imagen final generada en una escala de 512x512 píxeles.
+	
+\end{itemize}
 
 \begin{figure}[!hbt]
 	\centering
