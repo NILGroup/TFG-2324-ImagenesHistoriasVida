@@ -200,7 +200,27 @@ Visto el funcionamiento de la aplicación, vamos a analizar los resultados obten
 
 
 \subsection{Resultados con personas}
-buenassssss\\
+Una buena manera de mostrar el mejor resultado posible de una generación de imágenes personalizadas es estudiar cuál es el método que genera mejores fotografías. Para ello, hemos realizado un análisis comparativo de resultados con diferentes pasos de entrenamiento.
+
+El objetivo es comprobar cuál es el número de pasos del entrenamiento mediante Dreambooth que genera las imágenes con mayor calidad y precisión posible. Para ello, hemos realizado cuatro entrenamientos del mismo elemento, con el mismo \textit{dataset} de 10 fotografías, pero con un número de pasos diferente. Este número ha sido de 1600, 2000, 2400 y 3000 \textit{steps}. El tiempo de generación aproximada es de 1,38 iteraciones por segundo, lo cual conlleva una duración total de entrenamiento de 19, 24, 29 y 35 minutos aproximadamente, y es algo a tener en cuenta para seleccionar un modelo u otro.\\
+
+Para poder llegar a resultados concluyentes, se han de fijar todas las variables de la generación de imágenes en la aplicación SDGUI. Estas variables son la descripción de la fotografía, los pasos de generación, la escala CFG y la semilla de aleatoriedad. De esta manera, se tiene la capacidad de realizar una comparación precisa y de elegir el número más adecuado de pasos de entrenamiento. En este caso, dada nuestra experiencia al generar imágenes con Stable Diffusion, establecimos el número de pasos en 20 y la escala CFG en 7. Respecto a la semilla de aleatoriedad, tras la primera fotografía generada se fijaría para el resto, para que permanezca constante en nuestro análisis.\\
+
+Hemos optado por utilizar varios tipos de fotografía diferente para poder ampliar la calidad de la conclusión. La primera descripción de imagen trataba de generar un retrato de la persona lo más detallado posible, de manera que se pudiera comparar con qué pasos la capacidad de identificar al elemento entrenado era mayor. Con el segundo \textit{prompt}, se pretendía analizar la generación de las imágenes de la persona haciendo una acción determinada. En este caso, se optó por la lectura de un libro. De este modo, se podría afirmar cuál de los modelos tendría la capacidad de generar fotografías personalizadas de múltiples elementos, lo cual es algo bastante relevante para nuestro trabajo. Por tanto, en la siguiente tabla se refleja la imagen generada con cada número de pasos de entrenamiento, con las dos descripciones mencionadas.\\
+
+Figura X: Tabla comparativa \\
+
+
+Tras generar todas las fotografías, en primer lugar, se aprecia falta de entrenamiento en las dos imágenes con 1600 \textit{steps}, debido a que no se identifica bien a la persona, ni en el retrato, ni en la imagen con el libro. En la primera fotografía se puede observar una gran calidad, con mucho detalle y un ligero parecido con la persona entrenada, pero no es el nivel de similaridad que estamos buscando. En la imagen con el libro, la persona generada no se puede identificar con la real, y, además de eso, se aprecia deformidad en las manos, por lo que la fotografía generada no tiene el nivel de calidad deseado. \\
+
+En segundo lugar, al incrementar los \textit{steps} de entrenamiento a 2000, se puede apreciar una clara mejoría. En el retrato, existe un gran parecido con la imagen generada con 1600 pasos, pero se aprecia como la forma de la cara se asemeja más a la persona real. Respecto a la fotografía con el libro, en esta ocasión se han solucionado los errores de deformidad, y se ha generado a una persona de la edad correspondiente, aunque no se puede identificar a la persona real.\\
+
+Con 2400 pasos de entrenamiento, se puede decir que los resultados muestran calidad. En la primera fotografía, se puede identificar un gran parecido con la persona real. La imagen muestra un gran detalle y una definición muy buena, por lo que mejora en gran medida a los números de pasos menores. En la segunda fotografía, existe cierto parecido con la persona, pero se puede mejorar, debido a que falta detalle y definición y se muestra a alguien mucho más joven. A pesar de esto, sí que la forma de la cabeza y de la cara parecen ser correctas, por lo que lo único que faltaría para que la generación fuera adecuada es la edad, lo cual se podría arreglar con una descripción más precisa.\\
+
+Al incrementar los \textit{steps} a 3000, se puede apreciar sobreentrenamiento, debido a que en ambas imágenes se ha perdido el parecido con la persona real y se puede percibir algo de deformidad, sobre todo en la segunda fotografía. Respecto al retrato, ha variado la forma y el color de los ojos, y han aparecido más marcas que empeoran la calidad. En la imagen con el libro, se ha generado a una persona aún más joven que con 2400 pasos, y ha cambiado por completo la forma de la cara, por lo que la similitud con la persona real se ha desvanecido por completo. Además, si se amplía en detalle se puede apreciar deformidad en los ojos, por lo que se hace evidente el sobreentrenamiento. \\
+
+En conclusión, podemos decir que el entrenamiento que ha producido mejores resultados es el de 2400 pasos, que con menos se aprecia falta de entrenamiento y que con más \textit{steps} se percibe sobreentrenamiento y no se permite identificar a la persona real. En este estudio también se ha podido aprender que el prompt ha de ser lo más preciso posible para poder obtener imágenes de gran calidad, sobre todo cuando se trata de incluir más elementos. En este caso, la escala CFG debería ser mayor, para dar algo menos de libertad al modelo y que se centre más en lo que se pide en la descripción.
+
 
 \begin{figure}[!htb]
 	\centering
