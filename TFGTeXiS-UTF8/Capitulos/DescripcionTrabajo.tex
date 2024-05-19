@@ -208,33 +208,6 @@ Para poder llegar a resultados concluyentes, se han de fijar todas las variables
 
 Hemos optado por utilizar varios tipos de fotografía diferente para poder ampliar la calidad de la conclusión. La primera descripción de imagen trataba de generar un retrato de la persona lo más detallado posible, de manera que se pudiera comparar con qué pasos la capacidad de identificar al elemento entrenado era mayor. Con el segundo \textit{prompt}, se pretendía analizar la generación de las imágenes de la persona haciendo una acción determinada. En este caso, se optó por la lectura de un libro. De este modo, se podría afirmar cuál de los modelos tendría la capacidad de generar fotografías personalizadas de múltiples elementos, lo cual es algo bastante relevante para nuestro trabajo. Por tanto, en la siguiente tabla se refleja la imagen generada con cada número de pasos de entrenamiento, con las dos descripciones mencionadas.\\
 
- \begin{table}
-	\centering
-	\begin{tabular}{>{\centering\arraybackslash}m{5cm} >{\arraybackslash}m{5cm}>{\arraybackslash}m{5cm}}
-		\textbf{Pasos de entrenamiento} & \textbf{\textit{a portrait of 80alp, highly detailed, happy, old}} & \textbf{\textit{a picture of 80alp reading a book, serious, high definition}} \\
-		\hline
-		1600 & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/80alp1600.png & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/1600pasosbook.png}\\
-		\hline
-		2000 & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/80alp2000.png & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/2000pasosbook.png}\\
-		\hline
-		2400 & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/80alp2400.png & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/2400pasosbook.png}\\
-		\hline
-		3000 & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/80alp3000.png & \includegraphics[width = 0.3
-		\textwidth]{Imagenes/Vectorial/3000pasosbook.png}\\
-		\hline
-	\end{tabular}
-	\caption{Tabla de resultados obtenidos del Capítulo 1 de juventud del paciente.}
-	\label{tab:capitulo1librovida}
-\end{table}
-
-
 Tras generar todas las fotografías, en primer lugar, se aprecia falta de entrenamiento en las dos imágenes con 1600 \textit{steps}, debido a que no se identifica bien a la persona, ni en el retrato, ni en la imagen con el libro. En la primera fotografía se puede observar una gran calidad, con mucho detalle y un ligero parecido con la persona entrenada, pero no es el nivel de similaridad que estamos buscando. En la imagen con el libro, la persona generada no se puede identificar con la real, y, además de eso, se aprecia deformidad en las manos, por lo que la fotografía generada no tiene el nivel de calidad deseado. \\
 
 En segundo lugar, al incrementar los \textit{steps} de entrenamiento a 2000, se puede apreciar una clara mejoría. En el retrato, existe un gran parecido con la imagen generada con 1600 pasos, pero se aprecia como la forma de la cara se asemeja más a la persona real. Respecto a la fotografía con el libro, en esta ocasión se han solucionado los errores de deformidad, y se ha generado a una persona de la edad correspondiente, aunque no se puede identificar a la persona real.\\
