@@ -5,12 +5,12 @@
 
 Como hemos podido ver, Stable Diffusion es una herramienta potente y eficaz con una buena estructura que cuenta con una gran base de datos en la que podemos encontrar una inmensa variedad de imágenes. Estas características la convirtieron en nuestra elección final, pero veamos más en profundidad el proceso de elección de esta Inteligencia Artificial generativa en comparación con la amplia variedad de las que hay presentes actualmente en el mercado. 
 
-En primer lugar, para entender nuestra elección es necesario poner en contexto el gran abanico de posibilidades de IAs generativas que hay hoy en día, sus prestaciones, características, y sobre todo, su accesibilidad. 
+En primer lugar, para entender nuestra elección es necesario poner en contexto el gran abanico de posibilidades de técnicas de inteligencia artificial generativa que hay hoy en día, sus prestaciones, características, y sobre todo, su accesibilidad. 
 
-Las IAs generadoras de imágenes más potentes del mercado y las que consideramos para desarrollar la base de nuestro trabajo son Midjourney, DALL-E, Leonardo AI y Stable Diffusion, todas ellas producen unos resultados bastante satisfactorios. Sin embargo, descartamos rápidamente las dos primeras: Midjourney producida por un laboratorio independiente y,
-DALL-E producida por la famosa empresa creadora de ChatGPT, OpenAI. El motivo fue que al ser ambas de pago, no podíamos tener acceso a su modelo de forma tan amplia como las demás, siendo prácticamente imposible acceder a ellas y mucho menos a poder entrenarlas. 
+Los modelos generadores de imágenes más potentes del mercado y los que consideramos para desarrollar la base de nuestro trabajo son Midjourney, DALL-E, Leonardo AI y Stable Diffusion, todos ellos producen unos resultados bastante satisfactorios. Sin embargo, descartamos rápidamente los dos primeros: Midjourney producido por un laboratorio independiente y,
+DALL-E producido por la famosa empresa creadora de ChatGPT, OpenAI. El motivo fue que al ser ambos de pago, no podíamos tener acceso a su modelo de forma tan amplia como los demás, siendo prácticamente imposible acceder a ellos y mucho menos a poder entrenarlos. 
 
-Para acceder a los modelos utilizamos Hugging Face, la plataforma  que cuenta con una amplia gama de bases de datos de todo tipo y de modelos de IA generativa de texto a imagen, imagen a imagen, imagen a texto y un largo etcétera. Intentamos buscar modelos de ambas en la plataforma sin éxito ya que lo máximo que encontramos eran imitaciones o pequeñas demos que no alcanzaban el nivel de calidad requerido. \\
+Para acceder a los modelos utilizamos Hugging Face \footnote{https://huggingface.co}, la plataforma  que cuenta con una amplia gama de \textit{datasets} todo tipo y de modelos de inteligencia artificial generativa de texto a imagen, imagen a imagen, imagen a texto y un largo etcétera. Intentamos buscar modelos de DALL-E y Midjourney en la plataforma sin éxito ya que lo máximo que encontramos eran imitaciones o pequeñas demos que no alcanzaban el nivel de calidad requerido. \\
 
 
 Leonardo AI sí que es una opción algo más accesible ya que la plataforma sí que cuenta con un plan gratuito que te deja probar el modelo con una limitación de 150 imágenes a generar al día, lo cual está muy bien. Además, la calidad es bastante buena y permite ajustar gran variedad de parámetros, como por ejemplo, el número de imágenes que deseamos que se generen al mismo tiempo, el estilo, la paleta de colores que deseamos, tamaño e incluso la resolución. El inconveniente era la accesibilidad al modelo y la información sobre este mismo, ya que era escasa y en Hugging Face no había acceso. En comparación con Stable Diffusion, la incertidumbre era mucho más alta y había muchísimas limitaciones a la hora de utilizarlo. \\
@@ -23,22 +23,22 @@ Ahora expuestos todos los motivos de elección de Stable Diffusion, tanto en com
 
 \subsection{Versiones y métodos de entrenamiento}
 
-Stable Diffusion cuenta, hasta el momento, con 3 grandes versiones que, paulatinamente, han ido mejorando la calidad en las imágenes generadas. Todas ellas son totalmente gratuitas y de libre acceso, la primera versión que se presentó fue Stable Diffusion 1 (en sus variaciones 1.4 y 1.5), seguida por Stable Diffusion 2 (con sus respectivas variaciones 2.0 y 2.1) y por último, Stable Diffusion XL (que cuenta con su variación XL Turbo). 
+Stable Diffusion cuenta, hasta el momento, con 3 grandes versiones que, paulatinamente, han ido mejorando la calidad en las imágenes generadas. Todas ellas son totalmente gratuitas y de libre acceso. La primera versión que se presentó fue Stable Diffusion 1 (en sus variaciones 1.4 y 1.5), seguida por Stable Diffusion 2 (con sus respectivas variaciones 2.0 y 2.1) y por último, Stable Diffusion XL (que cuenta con su variación XL Turbo). 
 
 La diferencia principal entre las dos primeras versiones es el tamaño de resolución de las imágenes ya que las primeras versiones trabajaban en un espacio de 512x512 píxeles y en la versión 2 dicho tamaño aumentó a 768x768. Además, se introdujeron algunas correcciones y mejoras como la técnica de inpainting, que se trata de la restauración de algunas partes de la imagen mejorando la calidad y los detalles de la misma o incluso, reemplazando ese área por lo especificado por el usuario en el prompt.
 
 Con la última versión Stable Diffusion XL, se generan imágenes con una calidad excepcional, lo que supuso una gran mejora en el modelo al contar con un dataset mucho más extenso. El inconveniente con la versión XL, en nuestro caso, era la limitación de que requiere una tarjeta gráfica demasiado potente, con la que, por desgracia, no contamos en nuestro equipo. 
 
-Respecto a la versión 2, si bien es verdad que no requiere tanta GPU como la versión XL, sí que requiere más que en la primera versión, al ser las imágenes con mayor resolución y, viendo la comparación en la calidad que presentaban los resultados de ambas, optamos por utilizar la versión 1.5 ya que era la que mejor se adecuaba a nosotros en términos de calidad y tiempo.
+Respecto a la versión 2, si bien es verdad que no requiere tanta GPU (memoria gráfica) como la versión XL, sí que requiere más que en la primera versión, al ser las imágenes con mayor resolución y, viendo la comparación en la calidad que presentaban los resultados de ambas, optamos por utilizar la versión 1.5 ya que era la que mejor se adecuaba a nosotros en términos de calidad y tiempo.
 
 
-Ahora bien, existen varios métodos a través de los cuales se puede utilizar esta herramienta y hemos probado sus funcionalidades de diferentes maneras. En primer lugar, se puede utilizar mediante código escrito en Python a través de Google Colab, ya que la plataforma ofrece cuadernos en los que se trabaja de manera online y que además, proporciona una GPU en la nube a la que Google te da acceso. En concreto, esta GPU es la T4, que es la única opción que nos deja Google entre las que hay (A100 GPU, L4 GPU, V100 GPU) ya que se conoce que las demás son de pago. Otra alternativa es mediante la propia página de Stable Diffusion, que ofrece una demo para utilizar esta avanzada versión. Por último, ejecutar el modelo en local, consiguiéndolo descargar en la página Hugging Face, que incluye multitud de modelos de todo tipo, bases de datos, librerías y licencias para descargar y utilizar, por lo que hemos podido comprobar,presenta muy buenos resultados.\\
+Ahora bien, existen varios métodos a través de los cuales se puede utilizar esta herramienta y hemos probado sus funcionalidades de diferentes maneras. En primer lugar, se puede utilizar mediante código escrito en Python a través de Google Colab, ya que la plataforma ofrece cuadernos en los que se trabaja de manera online y que además, proporciona una GPU en la nube a la que Google te da acceso. En concreto, esta GPU es la T4, que es la única opción que nos deja Google entre las que hay (A100 GPU, L4 GPU, V100 GPU) ya que las demás son de pago. Otra alternativa es mediante la propia página de Stable Diffusion, que ofrece una demo para utilizar esta avanzada versión. Por último, ejecutar el modelo en local, consiguiéndolo descargar en la página Hugging Face, que incluye multitud de modelos de todo tipo, bases de datos, librerías y licencias para descargar y utilizar, por lo que hemos podido comprobar,presenta muy buenos resultados.\\
 
-El hecho de probar un modelo de inteligencia artificial en un servidor no es concordante con nuestros objetivos del proyecto, puesto que necesitamos entrenar un modelo e incluirlo en una aplicación, de manera que el usuario pueda interactuar y conseguir imágenes personalizadas en un tiempo aceptable, por ello descartamos la opción de utilizar la demo que se encuentra en la página de Stable Diffusion. \\
+El hecho de probar un modelo de inteligencia artificial en un servidor no es concordante con nuestros objetivos del proyecto, puesto que necesitamos entrenar un modelo e incluirlo en una aplicación, de manera que el usuario pueda interactuar y conseguir imágenes personalizadas en un tiempo aceptable, por ello descartamos la opción de utilizar la \textit{demo} que se encuentra en la página de Stable Diffusion. \\
 
 Una vez que tenemos el modelo de generación de imágenes elegido, se debe ejecutar en nuestro ordenador y ver cuál es el rendimiento real. Esto quiere decir que la imagen debe generarse de manera correcta y sin deformaciones, y debe incluir todos los elementos solicitados en la descripción introducida. Además, debe realizar esta generación en un tiempo adecuado.\\
 
-Para ello, el proceso más óptimo y que finalmente elegimos llevar a cabo tras gran cantidad de pruebas es, en primer lugar, realizando el entrenamiento de imágenes personales a través de la plataforma de Google Colab en internet y en segundo lugar, para la generación de imágenes desde nuestro ordenador optamos por la instalación de una interfaz, llamada NMKD Stable Diffusion GUI. Esta herramienta nos permite ejecutar localmente cualquier modelo de generación de imágenes a partir de texto, e incluso permite aceptar imágenes como input, es decir, generaciones de tipo imagen a imagen. 
+Para ello, el proceso más eficaz y que finalmente elegimos llevar a cabo tras gran cantidad de pruebas es, en primer lugar, realizando el entrenamiento de imágenes personales a través de la plataforma de Google Colab en internet y en segundo lugar, para la generación de imágenes desde nuestro ordenador optamos por la instalación de una interfaz, llamada NMKD Stable Diffusion GUI \footnote{https://nmkd.itch.io/t2i-gui}. Esta herramienta nos permite ejecutar localmente cualquier modelo de generación de imágenes a partir de texto, e incluso permite aceptar imágenes como \textit{input}, es decir, generaciones de tipo imagen a imagen. 
 
 El principal de los objetivos que establecimos en la realización del proyecto era generar imágenes personalizadas del paciente en cuestión, y para ello es estrictamente necesario entrenar el modelo elegido.
 
@@ -46,13 +46,13 @@ Como se ha dicho anteriormente, el método elegido fue un cuaderno en Google Col
 
 \subsection{Requisitos en las imágenes de entrenamiento}
 
-Para realizar el entrenamiento de una forma correcta, lo primero que tenemos que tener claro es  el elemento o token al que queremos dar una identidad. Por ejemplo, si seleccionamos una persona, debemos elegir unas imágenes en las que aparezca, de tal manera que, tras el entrenamiento, la IA pueda identificarla. 
+Para realizar el entrenamiento de una forma correcta, lo primero que tenemos que tener claro es  el elemento o \textit{token} al que queremos dar una identidad. Por ejemplo, si seleccionamos una persona, debemos elegir unas imágenes en las que aparezca, de tal manera que, tras el entrenamiento, la IA pueda identificarla. 
 
-Lo ideal es que se elija un número considerable de fotografías, a partir de 10, las cuales tienen que cumplir ciertas características. Deben ser fotografías de buena calidad, bajo diferentes ángulos, escenarios y luces, se recomienda que como mínimo hayan 1 o 2 fotografías en las que la persona aparezca de perfil, mostrando 3 cuartos de la cara, de frente y si es posible que en alguna esté sonriendo (para que la IA pueda reconocer la expresión), de cuerpo entero, cintura para arriba y del rostro de cerca. Además, es importante que la ropa no sea siempre la misma, sino al ser así, el modelo podría interpretar como que la ropa forma parte de la persona y siempre se la generaría con la misma, lo cual no queremos que ocurra. Idealmente, las fotografías deberían alternar la luz y estar hechas tanto en interiores como en exteriores. Por último y esto es fundamental, estas deberán tener un tamaño igual o mayor a 512 x 512 píxeles, y deberán llamarse exactamente de la misma manera, con el identificador del token al que hagamos referencia. Además, es preferible que todas las imágenes tengan la misma extensión, ya sea .jpg o .png. 
+Lo ideal es que se elija un número suficiente de fotografías, un mínimo de 10, las cuales tienen que cumplir ciertas características. Deben ser fotografías de buena calidad, bajo diferentes ángulos, escenarios y luces. Se recomienda que, como mínimo haya 1 o 2 fotografías en las que la persona aparezca de perfil, mostrando 3 cuartos de la cara y de frente. Si es posible, se debería incluir alguna en la que esté sonriendo (para que la inteligencia artificial pueda reconocer la expresión), de cuerpo entero, de cintura para arriba y del rostro de cerca. Además, es importante que la ropa no sea siempre la misma. De ser así, el modelo podría interpretar que la ropa forma parte de la persona y siempre se la generaría con la misma, lo cual no queremos que ocurra. Idealmente, las fotografías deberían alternar la luz y estar hechas tanto en interiores como en exteriores. Por último, y esto es fundamental, estas deberán tener un tamaño igual o mayor a 512 x 512 píxeles, y deberán llamarse exactamente de la misma manera, con el identificador del \textit{token} al que hagamos referencia. Además, es preferible que todas las imágenes tengan la misma extensión, ya sea .jpg o .png. 
 
 \subsection{Procedimiento de entrenamiento}
 
-En el ejemplo de la figura \ref{fig:datasethoyeon}  elegimos como persona de entrenamiento una que no fuese reconocida por nuestro modelo (al contar con un dataset de 5 mil millones de imágenes, ya de por sí reconoce a varias personas famosas sin necesidad de entrenarlas). En este caso, se trata de una actriz coreana llamada Jung Hoyeon, y el token que le otorgamos, como se puede ver, respondía bajo el nombre de ``sqgkhoju''. Lo ideal, es que la etiqueta no sea nombrada bajo una palabra que el modelo pueda reconocer, es decir, que el token no tenga significado. Si por un casual llamasemos al token ``mujer'', seguramente la IA no logre ni identificar ni asociar a la persona que hemos entrenado, y probablemente acabe generando la imagen de una mujer que no existe, que es justamente lo que queremos evitar. \\
+En el ejemplo de la figura \ref{fig:datasethoyeon}  elegimos como persona de entrenamiento una que no fuese reconocida por nuestro modelo (al contar con un dataset de 5 mil millones de imágenes, ya de por sí reconoce a varias personas famosas sin necesidad de entrenarlas). En este caso, se trata de una actriz coreana llamada Jung Hoyeon, y el token que le otorgamos, como se puede ver, respondía bajo el nombre de ``sqgkhoju''. Lo ideal es que la etiqueta no sea nombrada bajo una palabra que el modelo pueda reconocer, es decir, que el token no tenga significado. Si por un casual llamasemos al token ``mujer'', seguramente el modelo de inteligencia artificial no logre ni identificar ni asociar a la persona que hemos entrenado, y probablemente acabe generando la imagen de una mujer que no existe, que es justamente lo que queremos evitar. \\
 
 \begin{figure}[h]
 	\centering
@@ -63,13 +63,13 @@ En el ejemplo de la figura \ref{fig:datasethoyeon}  elegimos como persona de ent
 \end{figure}
 
 Una vez que las imágenes cumplan con todos los requisitos, debemos utilizar el código abierto en la plataforma Google Colab para realizar el entrenamiento. 
-El proceso que sigue el cuaderno es muy sencillo, en él sólo hace falta seguir una serie de pasos para completarlo. El primero es conectar el cuaderno a una cuenta de Google, para que se pueda guardar en el Drive asociado a esa cuenta una carpeta llamada ``Fast-Dreamboot'', en la que se guardaran todos los archivos que se generen durante el proceso. El siguiente paso es instalar las dependencias necesarias para ejecutar el código en python, seguido de establecer un nombre a la sesión en la que estamos trabajando, para que en un futuro cuando se hagan entrenamientos diferentes, se puedan distinguir unos de otros. En este paso se crea una carpeta llamada Sessions dentro de la carpeta mencionada recientemente. A su vez, esta carpeta contendrá otra bajo el nombre de la sesión que hayamos especificado en el cuaderno, y es ahí donde se guardaran todos los archivos que se creen en la ejecución. 
+El proceso que sigue el cuaderno es muy sencillo, en él sólo hace falta seguir una serie de pasos para completarlo. El primero es conectar el cuaderno a una cuenta de Google, para que se pueda guardar en el Drive asociado a esa cuenta una carpeta llamada ``Fast-Dreambooth'', en la que se guardaran todos los archivos que se generen durante el proceso. El siguiente paso es instalar las dependencias necesarias para ejecutar el código en Python, seguido de establecer un nombre a la sesión en la que estamos trabajando, para que en un futuro cuando se hagan entrenamientos diferentes, se puedan distinguir unos de otros. En este paso se crea una carpeta llamada ``\textit{Sessions}'' dentro de la carpeta mencionada recientemente. A su vez, esta carpeta contendrá otra bajo el nombre de la sesión que hayamos especificado en el cuaderno, y es ahí donde se guardarán todos los archivos que se creen en la ejecución. 
 
 A continuación, es turno de subir las imágenes previa y cuidadosamente seleccionadas. Ya sea seleccionándolas directamente desde la carpeta en la que las tengamos guardadas en local, o habiéndolas subido previamente a una carpeta de la cuenta de Google Drive, y proporcionar la ruta en la que están en la celda del cuaderno habilitada para ello. 
 
-El último paso, y uno de los más importantes, consiste en establecer algunos parámetros con los que se va a entrenar al modelo. El más importante y el único que nosotros hemos modificado, entre todos los que hay, es el número de steps. De modo que, en cuanto mayor sean, más tiempo tardará en generarse el archivo. Normalmente, se tardaba unos 20 o 25 minutos en terminar de entrenarse, lo cual hemos considerado que es bastante rápido. En el ejemplo de la figura \ref{fig:dreambooth} se puede ver la ejecución del progreso de entrenamiento en el que para una cantidad de 2000 pasos lleva 21 minutos y 36 segundos. 
+El último paso, y uno de los más importantes, consiste en establecer algunos parámetros con los que se va a entrenar al modelo. El más importante y el único que nosotros hemos modificado, entre todos los que hay, es el número de \textit{steps}. De modo que, cuanto mayor sean, más tiempo tardará en generarse el archivo. Normalmente, se tardaba unos 20 o 25 minutos en terminar de entrenarse, lo cual hemos considerado que es bastante rápido. En el ejemplo de la figura \ref{fig:dreambooth} se puede ver la ejecución del progreso de entrenamiento en el que para una cantidad de 2000 pasos lleva 21 minutos y 36 segundos. 
 
-Tras la finalización, se creará un archivo de alrededor de 2 giga bytes, que contendrá el modelo de Stable Diffusion 1.5, con una capa de entrenamiento más, puesto que incorporará el elemento deseado. Con esto ya tendríamos un elemento de inteligencia artificial personalizado.\\
+Tras la finalización, se creará un archivo de alrededor de 2 \textit{gigabytes}, que contendrá el modelo de Stable Diffusion 1.5, con una capa de entrenamiento más, puesto que incorporará el elemento deseado. Con esto ya tendríamos un modelo de inteligencia artificial que incluye un elemento personalizado.\\
 
 \begin{figure}[h]
 	\centering
@@ -81,38 +81,16 @@ Tras la finalización, se creará un archivo de alrededor de 2 giga bytes, que c
 
 Este archivo, en formato ckpt, se podrá utilizar en la aplicación NMKD SD GUI más adelante para generar imágenes, y contendrá el elemento entrenado bajo el token seleccionado. Si posteriormente se pretende incluir elementos al modelo ya entrenado, también se puede realizar empezando de nuevo el proceso de entrenamiento y utilizando de base el archivo en extensión ckpt anterior. Cuando se realice este segundo entrenamiento, se podrán generar imágenes acerca de ambos elementos, lo cuál es muy útil para nuestros objetivos, ya que en un mismo modelo enfocado a un paciente, debe haber múltiples elementos. Sin embargo, más adelante veremos que este último aspecto ha supuesto uno de los grandes fallos que experimenta el modelo en cuanto a múltiples capas de entrenamiento. \\
 
-Un aspecto muy importante a tener en cuenta, es que tras la realización de múltiples pruebas, los resultados óptimos que hemos obtenido ha sido seleccionando un conjunto de datos formado por 10 imágenes, y con 2400 pasos de entrenamiento. 
-%En la tabla \ref{tab:resultadosentrenamiento}\\
+Un aspecto muy importante a tener en cuenta, es que tras la realización de múltiples pruebas, los resultados más adecuados que hemos obtenido han sido seleccionando un conjunto de datos formado por 10 imágenes, y con 2400 pasos de entrenamiento. 
 
 
+Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. Esto es porque un modelo de inteligencia artificial debe ser capaz de identificar a todo tipo de elementos, con el fin de que podamos representar con precisión todo tipo de recuerdos de una persona, y conseguir que el estudio sea completo. \\
 
-%\subsection{Entrenamiento con Dreambooth}
-%\begin{table}
-%	\centering
-%	\begin{tabular}{c|c|c|c}
-%		\textbf{Intento} & \textbf{Número de imágenes} & \textbf{Número de pasos} & \textbf{Veredicto} \\
-%		\hline\hline
-%		1 & 20 & 4000 & \includegraphics[width = 0.3
-%			\textwidth]{Imagenes/Vectorial/dreambooth.png}\\
-%		2 & 20 & 3000 & \\
-%		3 & 15 & 3000 & \\
-%		4 & 15 & 2000 & \\
-%		5 & 10 & 3000 & \\
-%		6 & 10 & 2400 & \\
-%		\hline
-%	\end{tabular}
-%	\caption{Tabla de resultados obtenidos de entrenamiento}
-%	\label{tab:resultadosentrenamiento}
-%\end{table}
+Un requerimiento para entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no sería necesario realizar el entrenamiento. Podemos aseguramos de que no se encuentran integrados en el modelo intentando realizar varias generaciones de imágenes del elemento de manera fallida. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos en su memoria y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
 
+Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido e el modelo previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el \textit{token} otorgado.
 
-Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. \\
-
-El objetivo de entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no tendría sentido realizar el entrenamiento. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos en su memoria y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
-
-Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido e el modelo previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el token otorgado.
-
-Además, quisimos comprobar si el número de imágenes y steps establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente de Resultados.  
+Además, quisimos comprobar si el número de imágenes y \textit{steps} establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente de Resultados.  
 
 \begin{figure}[!htb]
 	\centering
@@ -196,10 +174,11 @@ La característica principal que debe cumplir un equipo y sin la cual no sería 
 
 \section{Resultados de generación de imágenes}
 
-Visto el funcionamiento de la aplicación, vamos a analizar los resultados obtenidos en comparación con los \textit{prompts} especificados y bajo las posibles diferentes técnicas y parámetros que se han contemplado. 
+Visto el funcionamiento de la aplicación, vamos a analizar los resultados obtenidos en comparación con los \textit{prompts} especificados y bajo las posibles diferentes técnicas y parámetros que se han contemplado.
 
 
-\subsection{Resultados con personas}
+\subsection{Maximización del rendimiento con Dreambooth}
+
 Una buena manera de mostrar el mejor resultado posible de una generación de imágenes personalizadas es estudiar cuál es el método que genera mejores fotografías. Para ello, hemos realizado un análisis comparativo de resultados con diferentes pasos de entrenamiento.
 
 El objetivo es comprobar cuál es el número de pasos del entrenamiento mediante Dreambooth que genera las imágenes con mayor calidad y precisión posible. Para ello, hemos realizado cuatro entrenamientos del mismo elemento, con el mismo \textit{dataset} de 10 fotografías, pero con un número de pasos diferente. Este número ha sido de 1600, 2000, 2400 y 3000 \textit{steps}. El tiempo de generación aproximada es de 1,38 iteraciones por segundo, lo cual conlleva una duración total de entrenamiento de 19, 24, 29 y 35 minutos aproximadamente, y es algo a tener en cuenta para seleccionar un modelo u otro.\\
@@ -207,6 +186,27 @@ El objetivo es comprobar cuál es el número de pasos del entrenamiento mediante
 Para poder llegar a resultados concluyentes, se han de fijar todas las variables de la generación de imágenes en la aplicación SDGUI. Estas variables son la descripción de la fotografía, los pasos de generación, la escala CFG y la semilla de aleatoriedad. De esta manera, se tiene la capacidad de realizar una comparación precisa y de elegir el número más adecuado de pasos de entrenamiento. En este caso, dada nuestra experiencia al generar imágenes con Stable Diffusion, establecimos el número de pasos en 20 y la escala CFG en 7. Respecto a la semilla de aleatoriedad, tras la primera fotografía generada se fijaría para el resto, para que permanezca constante en nuestro análisis.\\
 
 Hemos optado por utilizar varios tipos de fotografía diferente para poder ampliar la calidad de la conclusión. La primera descripción de imagen trataba de generar un retrato de la persona lo más detallado posible, de manera que se pudiera comparar con qué pasos la capacidad de identificar al elemento entrenado era mayor. Con el segundo \textit{prompt}, se pretendía analizar la generación de las imágenes de la persona haciendo una acción determinada. En este caso, se optó por la lectura de un libro. De este modo, se podría afirmar cuál de los modelos tendría la capacidad de generar fotografías personalizadas de múltiples elementos, lo cual es algo bastante relevante para nuestro trabajo. Por tanto, en la siguiente tabla se refleja la imagen generada con cada número de pasos de entrenamiento, con las dos descripciones mencionadas.\\
+
+
+\begin{table}
+	\centering
+	\begin{tabular}{>{\centering\arraybackslash}m{5cm} >{\centering\arraybackslash}m{5cm}>{\centering\arraybackslash}m{5cm}}
+		\textbf{Pasos de entrenamiento} & \textbf{\textit{a portrait of 80alp, highly detailed, happy, old}} & \textbf{\textit{a picture of 80alp reading a book, serious, high definition}} \\
+		\hline
+		1600 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/80alp1600.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/1600pasosbook.png} \\
+		\hline
+		2000 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/80alp2000.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/2000pasosbook.png} \\
+		\hline
+		2400 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/80alp2400.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/2400pasosbook.png} \\
+		\hline
+		3000 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/80alp3000.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/3000pasosbook.png} \\
+		\hline
+	\end{tabular}
+	\caption{Tabla comparativa de entrenamientos mediante Dreambooth.}
+	\label{tab:tabladifentr}
+\end{table}
+
+
 
 Tras generar todas las fotografías, en primer lugar, se aprecia falta de entrenamiento en las dos imágenes con 1600 \textit{steps}, debido a que no se identifica bien a la persona, ni en el retrato, ni en la imagen con el libro. En la primera fotografía se puede observar una gran calidad, con mucho detalle y un ligero parecido con la persona entrenada, pero no es el nivel de similaridad que estamos buscando. En la imagen con el libro, la persona generada no se puede identificar con la real, y, además de eso, se aprecia deformidad en las manos, por lo que la fotografía generada no tiene el nivel de calidad deseado. \\
 
@@ -227,8 +227,6 @@ En conclusión, podemos decir que el entrenamiento que ha producido mejores resu
 	\label{fig:hoyeonsd}
 \end{figure}
 
-que tallll\\
-
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width = 1
@@ -237,9 +235,6 @@ que tallll\\
 	\label{fig:imagshoyeon}
 \end{figure}
 
-\subsection{Resultados con lugares}
-
-Con diferentes estilos:\\
 
 \begin{figure}[!htb]
 	\centering
@@ -250,8 +245,6 @@ Con diferentes estilos:\\
 \end{figure}
 
 
-Añadiendo otros elementos:\\
-
 
 \begin{figure}[!htb]
 	\centering
@@ -261,8 +254,6 @@ Añadiendo otros elementos:\\
 	\label{fig:elementscolme}
 \end{figure}
 
-\subsection{Resultados con animales}
-hellloouuuuu\\
 
 \begin{figure}[!htb]
 	\centering
@@ -272,7 +263,45 @@ hellloouuuuu\\
 	\label{fig:detallehachi}
 \end{figure}
 
-heyyyyy\\
+\subsection{Comparativa de resultados}
+
+\textbf{\underline{Diferentes \textit{steps}}}
+
+Una vez se ha demostrado que la mejor forma de realizar un entrenamiento con Dreambooth es con 2400 pasos, el siguiente estudio consistió en valorar los resultados de imágenes generadas variando los \textit{steps} y la\textit{ CFG Scale}. El objetivo era identificar una combinación de estos valores que garantizase buenos resultados, de manera que cualquier usuario pueda generar las mejores imágenes posibles para utilizarlas en el libro de vida. Las fotografías han sido obtenidas a partir de nuestra aplicación, véase en el Capítulo \ref{cap:aplicacion}, lo cual también es una manera de mostrar los resultados en cuanto a calidad y tiempo que el programa puede ofrecer.
+
+Para el análisis comparativo, se han generado dos fotografías diferentes. La primera es un retrato donde únicamente se ha generado la persona como elemento, siendo el \textit{prompt} el siguiente: \textit{``a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic''}. La segunda es una imagen en la que aparecía la persona con múltiples elementos, con el objetivo de determinar si el hecho de que se solicite una imagen más diversa requiere un mayor número de pasos. El prompt utilizado para esta imagen es el siguiente: \textit{``a happy sqgkhoju playing tennis, sunny day, hd, full details''}. La persona utilizada para este estudio ha sido entrenada mediante Dreambooth, siendo el \textit{dataset} el que se  muestra en la figura \ref{fig:datasethoyeon}.
+
+En primer lugar, se fijó la escala CFG para poder estudiar cómo el aumento y la disminución de pasos modifica la calidad y el tiempo de generación. Según la teoría, un valor de CFG estándar que genera resultados de manera correcta es el 7, por lo que es el valor elegido para la primera fotografía. De otro modo, al aumentar los elementos de la imagen, también se debe aumentar este valor, por lo que hemos optado por un valor de 10 para el segundo grupo de fotografías. No obstante, después se fijaría el número de pasos para poder analizar la variación de la calidad de la imagen con la escala.
+
+
+
+\begin{table}
+	\centering
+	\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\centering\arraybackslash}m{4cm}>{\centering\arraybackslash}m{5cm}>{\centering\arraybackslash}m{3cm}}
+		\textbf{Pasos de entrenamiento} & \textbf{\textit{a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic}} & \textbf{\textit{a happy sqgkhoju playing tennis, sunny day, hd, full details}} & \textbf{Tiempo} \\
+		\hline
+		28 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/28sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/28sojungtennis.png} & 7 minutos y 3 segundos \\
+		\hline
+		24 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/24sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/24sojungtennis.png} & 5 minutos y 29 segundos\\
+		\hline
+		20 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/20sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/20sojungtennis.png} & 4 minutos y 18 segundos\\
+		\hline
+		16 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/16sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/16sojungtennis.png} & 3 minutos y 34 segundos\\
+		\hline
+		12 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/12sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/12sojungtennis.png} & 2 minutos y 27 segundos\\
+		\hline
+	\end{tabular}
+	\caption{Tabla comparativa de entrenamientos mediante Dreambooth.}
+	\label{tab:tabladifsteps}
+\end{table}
+
+************************************************************************
+
+
+
+
+************************************************************************
+
 
 \begin{figure}[!htb]
 	\centering

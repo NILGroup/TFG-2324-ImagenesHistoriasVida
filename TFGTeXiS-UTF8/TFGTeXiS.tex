@@ -64,7 +64,7 @@ constantes,guionado,Cascaras/bibliografia,config%
 \newcommand{\compilaApendice}[1]{%
 \includeonly{\ficherosBasicosTeXiS,\ficherosBasicosTexto,Apendices/#1}%
 }
-%\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\baselinestretch}{1}
 %- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 %            Preámbulo del documento. Configuraciones varias
 %- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -87,16 +87,17 @@ constantes,guionado,Cascaras/bibliografia,config%
 % "Metadatos" para el PDF
 %
 \ifpdf\hypersetup{%
-    pdftitle = {\titulo},
-    pdfsubject = {Plantilla de Tesis},
-    pdfkeywords = {Plantilla, LaTeX, tesis, trabajo de
-      investigación, trabajo de Master},
-    pdfauthor = {\textcopyright\ \autor},
-    pdfcreator = {\LaTeX\ con el paquete \flqq hyperref\frqq},
-    pdfproducer = {pdfeTeX-0.\the\pdftexversion\pdftexrevision},
-    }
-    \pdfinfo{/CreationDate (\today)}
+	pdftitle = {\titulo},
+	pdfsubject = {Plantilla de Tesis},
+	pdfkeywords = {Plantilla, LaTeX, tesis, trabajo de
+		investigación, trabajo de Master},
+	pdfauthor = {\textcopyright\ \autor},
+	pdfcreator = {\LaTeX\ con el paquete \flqq hyperref\frqq},
+	pdfproducer = {pdfeTeX-0.\the\pdftexversion\pdftexrevision},
+}
+\pdfinfo{/CreationDate (\today)}
 \fi
+
 
 
 %- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -198,6 +199,6 @@ constantes,guionado,Cascaras/bibliografia,config%
 %
 % Final
 %
-\include{Cascaras/fin}
+%\include{Cascaras/fin}
 %\end{otherlanguage}
 \end{document}
