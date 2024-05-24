@@ -9,13 +9,13 @@ En primer lugar, trataremos lo que es la Inteligencia Artificial y cómo funcion
 
 \section{¿Qué es la Inteligencia Artificial?}
 
-La Inteligencia Artificial es un campo de la Informática que trata la creación de herramientas, procedimientos, máquinas y computadores que simulen el proceso de inteligencia humana siendo capaces de realizar tareas como el aprendizaje, el razonamiento, la resolución de problemas, el reconocimiento de patrones, la comprensión del lenguaje natural, la percepción visual e incluso la creatividad (Google, 2024). Este proceso se lleva a cabo utilizando principalmente el análisis de datos y las estadísticas, la ingeniería de \textit{hardware} y \textit{software}, aunque también abarca disciplinas como la lingüística, la neurociencia y hasta la filosofía y la psicología.\\
+La Inteligencia Artificial es un campo de la Informática que trata la creación de herramientas, procedimientos, máquinas y computadores que simulen el proceso de inteligencia humana siendo capaces de realizar tareas como el aprendizaje, el razonamiento, la resolución de problemas, el reconocimiento de patrones, la comprensión del lenguaje natural, la percepción visual e incluso la creatividad \citep{GoogleIA}. Este proceso se lleva a cabo utilizando principalmente el análisis de datos y las estadísticas, la ingeniería de \textit{hardware} y \textit{software}, aunque también abarca disciplinas como la lingüística, la neurociencia y hasta la filosofía y la psicología.\\
 
 Ahora, existen dos tipos principales de inteligencia artificial: la débil, que se centra en tareas específicas y está diseñada para realizar funciones específicas sin poseer una inteligencia general. Y, por otro lado, la fuerte, que busca replicar la inteligencia humana de manera más completa, con capacidad para comprender, aprender y adaptarse a una amplia variedad de tareas, con el fin de percibir su entorno y aplicando los conocimientos y datos almacenados, tener la capacidad de tomar decisiones para lograr la consecución de objetivos proporcionados.\\
 
 Al hablar sobre inteligencia artificial, es muy importante mencionar los conceptos de aprendizaje automático (\textit{machine learning}) y aprendizaje profundo (\textit{deep learning}), que son subconjuntos de la inteligencia artificial que comparten la meta común de permitir a las máquinas aprender y mejorar su rendimiento en tareas específicas sin intervención humana.\\
 
-El aprendizaje automático es un enfoque que abarca diferentes técnicas en las que se crean modelos de entrenamiento a partir de datos para aplicar los conocimientos adquiridos con el fin de realizar predicciones o tomar decisiones en función de nuevos datos. Es decir, se utiliza para mejorar el rendimiento de la inteligencia artificial en tareas específicas a medida que se expone a mayor cantidad de datos, que en general requiere intervención humana de forma manual (Microsoft, 2024).\\
+El aprendizaje automático es un enfoque que abarca diferentes técnicas en las que se crean modelos de entrenamiento a partir de datos para aplicar los conocimientos adquiridos con el fin de realizar predicciones o tomar decisiones en función de nuevos datos. Es decir, se utiliza para mejorar el rendimiento de la inteligencia artificial en tareas específicas a medida que se expone a mayor cantidad de datos, que en general requiere intervención humana de forma manual \citep{MicrosoftIA}.\\
 
 Algunas categorías dentro del aprendizaje automático son:
 \begin{itemize}
@@ -25,18 +25,18 @@ Algunas categorías dentro del aprendizaje automático son:
 \end{itemize}
 
 
-El aprendizaje profundo, a lo que respecta, es una disciplina dentro del aprendizaje automático que utiliza redes neuronales profundas con múltiples capas, que contienen datos de entrada y salida, de manera que cada capa puede aprender de la anterior a partir de los datos transformados para realizar predicciones y aprender de manera automatizada, reduciendo gran parte de la intervención humana y permitiendo aumentar el conjunto de los datos a tratar (Microsoft, 2024).\\
+El aprendizaje profundo, a lo que respecta, es una disciplina dentro del aprendizaje automático que utiliza redes neuronales profundas con múltiples capas, que contienen datos de entrada y salida, de manera que cada capa puede aprender de la anterior a partir de los datos transformados para realizar predicciones y aprender de manera automatizada, reduciendo gran parte de la intervención humana y permitiendo aumentar el conjunto de los datos a tratar \citep{MicrosoftIA}.\\
 
 \section{Redes neuronales}
 
-Las redes neuronales fueron creadas con el objetivo de simular el comportamiento del cerebro humano para que las máquinas pudieran ser capaces de aprender tareas computacionales de forma similar a las neuronas de nuestro sistema nervioso \citep{gonzalez1995redes}. La forma más básica de una neurona artificial se puede definir a través del concepto de perceptrón. El concepto de perceptrón fue visto por primera vez en 1956 por Frank Rosenblatt, psicólogo estadounidense. Un perceptrón es una unidad de red neuronal que funciona a través de un algoritmo de clasificación que realiza determinados cálculos en el que se ponderan las entradas, sumándolas y generando así una salida binaria, de manera que permite separar los datos en dos categorías \citep{rosenblatt1958perceptron}. Para ello, cada entrada tiene asignada un peso que determina la relevancia de esta para su cálculo posterior en la suma ponderada, es decir, cada entrada se multiplica por su peso correspondiente para determinar su importancia relativa. La salida, además, se calcula aplicando una función de activación al resultado de la suma ponderada previamente calculada para así dictaminar la salida final (Berzal, 2018). Es decir, la función de activación es un método mediante el cual se decide la salida de la neurona teniendo en cuenta sus entradas.\\
+Las redes neuronales fueron creadas con el objetivo de simular el comportamiento del cerebro humano para que las máquinas pudieran ser capaces de aprender tareas computacionales de forma similar a las neuronas de nuestro sistema nervioso \citep{gonzalez1995redes}. La forma más básica de una neurona artificial se puede definir a través del concepto de perceptrón. El concepto de perceptrón fue visto por primera vez en 1956 por Frank Rosenblatt, psicólogo estadounidense. Un perceptrón es una unidad de red neuronal que funciona a través de un algoritmo de clasificación que realiza determinados cálculos en el que se ponderan las entradas, sumándolas y generando así una salida binaria, de manera que permite separar los datos en dos categorías \citep{rosenblatt1958perceptron}. Para ello, cada entrada tiene asignada un peso que determina la relevancia de esta para su cálculo posterior en la suma ponderada, es decir, cada entrada se multiplica por su peso correspondiente para determinar su importancia relativa. La salida, además, se calcula aplicando una función de activación al resultado de la suma ponderada previamente calculada para así dictaminar la salida final \citep{berzal2019redes}. Es decir, la función de activación es un método mediante el cual se decide la salida de la neurona teniendo en cuenta sus entradas.\\
 
 El perceptrón puede constar de una sola capa, que se compone de entrada y salida, o puede constar de múltiples capas, más conocidos como MLP (\textit{Multilayer Perceptrons}). A diferencia de los perceptrones simples, los MLP constan de unas capas ocultas adicionales, componiéndose así de múltiples neuronas conectadas que se dividen típicamente en tres capas: capa de entrada, capa oculta y capa de salida. En resumidas cuentas, los perceptrones son la forma más simple de una red neuronal.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/Perceptrones.jpeg}
-	\caption{Estructura del perceptrón (SilliconLotus, 2023)}
+	\caption{Estructura del perceptrón \citep{structpercep}}
 	\label{fig:perceptron}
 \end{figure}
 
@@ -49,14 +49,14 @@ Entre ellas, mencionaremos las más relevantes hoy en día y, analizaremos el fu
 
 \subsection{Redes Neuronales Feedforward (FNN)}
 
-Son un tipo de redes multicapa, que como hemos visto, están formadas por conjuntos de neuronas agrupadas en varios niveles o capas, en los que cada neurona está conectada y recibe señales de otras neuronas pertenecientes a la capa anterior, que a su vez, se encargan de transmitir información por señales a las neuronas de la capa posterior, en dirección a la salida de la red. De esta forma, las salidas de cada capa constituyen la entrada a la capa inmediatamente posterior (Russell y Norvig, 2010). En todo caso, las conexiones de la red fluyen exclusivamente en una sola y única dirección, de ahí el nombre feedforward, que traducido es hacia delante. Por norma general, la arquitectura típica que sigue una red neuronal multicapa consta de tres capas: capa de entrada, capa oculta y capa de salida (Berzal, 2018). \\
+Son un tipo de redes multicapa, que como hemos visto, están formadas por conjuntos de neuronas agrupadas en varios niveles o capas, en los que cada neurona está conectada y recibe señales de otras neuronas pertenecientes a la capa anterior, que a su vez, se encargan de transmitir información por señales a las neuronas de la capa posterior, en dirección a la salida de la red. De esta forma, las salidas de cada capa constituyen la entrada a la capa inmediatamente posterior \citep{russell2016artificial}. En todo caso, las conexiones de la red fluyen exclusivamente en una sola y única dirección, de ahí el nombre feedforward, que traducido es hacia delante. Por norma general, la arquitectura típica que sigue una red neuronal multicapa consta de tres capas: capa de entrada, capa oculta y capa de salida \citep{berzal2019redes}. \\
 
 Sin embargo, cabe la posibilidad de que haya más de una capa de cada tipo, y cuando se da el caso de que la red consta de más de una capa oculta, la red se califica como profunda, traducida al inglés como \textit{deep neural network}. Concretamente, añadir más de una capa oculta a la red permite crear un modelo interno que reconoce patrones y proporciona un mayor rendimiento en la interpretación y estructuración de diferentes propiedades de objetos. Por ello, estas redes fueron diseñadas específicamente para resolver problemas de clasificación, regresión y por supuesto, como hemos visto, realizar reconocimiento de patrones.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/feedforward.png}
-	\caption{Red neuronal feedforward (Berzal,2018)}
+	\caption{Red neuronal feedforward \citep{berzal2019redes}}
 	\label{fig:feedforward}
 \end{figure}
 
@@ -64,34 +64,34 @@ Sin embargo, cabe la posibilidad de que haya más de una capa de cada tipo, y cu
 
 \subsection{Redes Neuronales Recurrentes (RNN)} 
 
-Como hemos visto, las redes neuronales \textit{feedforward} están habilitadas para que la información fluya en una sola dirección. Sin embargo, cuando se les proporciona una memoria, el resultado que se obtiene son las redes neuronales recurrentes, o \textit{Recurrent Neural Networks} (RNN) en inglés. El origen de estas redes se popularizó en 1982 por el físico americano John Hopfield, en las que se destacan por su comportamiento dinámico y estable (Berzal, 2018). \\
+Como hemos visto, las redes neuronales \textit{feedforward} están habilitadas para que la información fluya en una sola dirección. Sin embargo, cuando se les proporciona una memoria, el resultado que se obtiene son las redes neuronales recurrentes, o \textit{Recurrent Neural Networks} (RNN) en inglés. El origen de estas redes se popularizó en 1982 por el físico americano John Hopfield, en las que se destacan por su comportamiento dinámico y estable \citep{berzal2019redes}. \\
 
 ¿Y cómo es posible añadir memoria a las propias conexiones? Simplemente generalizando sus conexiones, es decir, alimentar a sus propias entradas o inputs con las salidas o outputs generados previamente por las conexiones anteriores provocando que el modo en el que fluyen las conexiones sea bidireccional. Es decir, incluyendo conexiones hacia atrás con las que se trabaja en una serie de pasos de tiempo, conocidos como \textit{timesteps}, donde se procesan los elementos de la secuencia uno por uno, manteniendo una memoria de los estados anteriores a medida que avanzan en la secuencia.\\
 
-El entrenamiento de redes neuronales de estas características se realiza contando con diferentes algoritmos y técnicas, la más básica y conocida en este tipo de red neuronal es el algoritmo de propagación de errores (\textit{back-propagation} en inglés) formalizado en 1986 por Rumelhart, Hinton y Williams (Berzal, 2018). Este método, en concreto, consiste en aplicar un patrón a la primera capa de la red, el cual se va propagando hacia las capas superiores con el objetivo de generar una salida que se pueda comparar con la salida deseada y así poder calcular el error para cada neurona de la salida obtenida en función de los diferentes parámetros de la red. En otras palabras, cómo varía el error en relación con la variación de los parámetros de la red neuronal. Si a este fenómeno le sumamos la variable del tiempo, se obtiene la técnica de retropropagación a través del tiempo (\textit{backpropagatio}n through time, BPTT), en la que después de analizarse la secuencia completa, calcular el error y cambiar los parámetros para minimizar el mismo, se propaga el error a través del tiempo desde la última capa hasta la superior en cada paso de tiempo con el fin de que la red aprenda de las secuencias y mejore su predicción futura. 
+El entrenamiento de redes neuronales de estas características se realiza contando con diferentes algoritmos y técnicas, la más básica y conocida en este tipo de red neuronal es el algoritmo de propagación de errores (\textit{back-propagation} en inglés) formalizado en 1986 por Rumelhart, Hinton y Williams \citep{berzal2019redes}. Este método, en concreto, consiste en aplicar un patrón a la primera capa de la red, el cual se va propagando hacia las capas superiores con el objetivo de generar una salida que se pueda comparar con la salida deseada y así poder calcular el error para cada neurona de la salida obtenida en función de los diferentes parámetros de la red. En otras palabras, cómo varía el error en relación con la variación de los parámetros de la red neuronal. Si a este fenómeno le sumamos la variable del tiempo, se obtiene la técnica de retropropagación a través del tiempo (\textit{backpropagatio}n through time, BPTT), en la que después de analizarse la secuencia completa, calcular el error y cambiar los parámetros para minimizar el mismo, se propaga el error a través del tiempo desde la última capa hasta la superior en cada paso de tiempo con el fin de que la red aprenda de las secuencias y mejore su predicción futura. 
 Este método combinado con la técnica del gradiente descendente (en inglés \textit{gradient descent}) encargada de la optimización del error buscando los parámetros adecuados para poder reducirlo al mínimo es el modo de aprendizaje supervisado más popular que existe.  Aunque, como hemos visto anteriormente, no es el único, ya que coexiste con técnicas de entrenamiento como el aprendizaje no supervisado y el aprendizaje por refuerzo. \\
 
 Así que podemos concluir en que las redes neuronales son idóneas para tareas de modelado de datos secuenciales y con dependencias temporales, como lo pueden ser el procesamiento de lenguaje natural, la generación de texto o la traducción automática, entre muchas otras.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/recurrente.png}
-	\caption{Red neuronal recurrente (Sensio, 2020)}
+	\caption{Red neuronal recurrente \citep{rnn}}
 	\label{fig:rnn}
 \end{figure}
 
 
 \subsection{Redes Neuronales LSTM} 
 
-Las redes neuronales Long Short-Term Memory surgen a partir de las redes neuronales recurrentes cuyo principal objetivo y propósito es ratificar el problema del desvanecimiento del gradiente o conocido en inglés como \textit{vanishing gradient problem} (Hochreiter y Schmidhuber, 1997). \\
+Las redes neuronales Long Short-Term Memory surgen a partir de las redes neuronales recurrentes cuyo principal objetivo y propósito es ratificar el problema del desvanecimiento del gradiente o conocido en inglés como \textit{vanishing gradient problem} \citep{hochreiter1997long}. \\
 
-En primer lugar y para entender en qué consiste este problema, es necesario saber qué es exactamente un gradiente y a qué nos referimos cuando hablamos del desvanecimiento del mismo. Un gradiente es una medida que determina la variación de una función con respecto al cambio que se produce en sus variables, ya sea en términos de optimización, rapidez o maximización de la función objetivo (Sanderson, 2017). \\
+En primer lugar y para entender en qué consiste este problema, es necesario saber qué es exactamente un gradiente y a qué nos referimos cuando hablamos del desvanecimiento del mismo. Un gradiente es una medida que determina la variación de una función con respecto al cambio que se produce en sus variables, ya sea en términos de optimización, rapidez o maximización de la función objetivo \citep{gradiente}. \\
 
 Matemáticamente, se puede entender como un vector multivariable cuyas variables son las derivadas parciales de dicha función. Se puede ver en el ejemplo de la figura \ref{fig:gradiente}. Geométricamente hablando, el gradiente indica la dirección en la que la función crece a mayor velocidad y, de esta manera, podemos concluir que el uso de algoritmo del  gradiente descendente (\textit{gradient descent}) se hace con el fin de ajustar los parámetros para reducir al mínimo la diferencia entre los valores obtenidos y los deseados. Un claro ejemplo de ello son los modelos de predicción, en los que se busca reducir dichas predicciones con respecto a los valores reales. \\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.3 \textwidth]{Imagenes/Vectorial/gradiente.png}
-	\caption{Función matemática del gradiente (Universidad Miguel Hernández, 2020)}
+	\caption{Función matemática del gradiente \citep{vectgrad}}
 	\label{fig:gradiente}
 \end{figure}
 
@@ -110,7 +110,7 @@ De este modo, se consigue erradicar el problema del desvanecimiento del gradient
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/lstm.png}
-	\caption{Red neuronal Long Short Term Memory (Casallas, 2020)}
+	\caption{Red neuronal Long Short Term Memory \citep{fotolstm}}
 	\label{fig:lstm}
 \end{figure}
 
@@ -118,7 +118,7 @@ De este modo, se consigue erradicar el problema del desvanecimiento del gradient
 
 \subsection{Redes Neuronales Convolucionales (CNN)}
 
-Las redes neuronales convolucionales se introdujeron por primera vez en la década de los 50 por David Hubel y Torsten Wiesel cuando experimentaron con las neuronas biológicas, lo que le sirvió de inspiración a Kunihiko Fukushima en la década de los 80 para desarrollar el Neocognitron, una red neuronal que se conoce como la primera CNN. Este concepto fue cobrando forma con el paso de los años y el modelo tal y como lo conocemos hoy en día, fue obra de Yann LeCun en 1998 al introducir el aprendizaje a través de la técnica de backforwarding (Berzal, 2018).	\\
+Las redes neuronales convolucionales se introdujeron por primera vez en la década de los 50 por David Hubel y Torsten Wiesel cuando experimentaron con las neuronas biológicas, lo que le sirvió de inspiración a Kunihiko Fukushima en la década de los 80 para desarrollar el Neocognitron, una red neuronal que se conoce como la primera CNN. Este concepto fue cobrando forma con el paso de los años y el modelo tal y como lo conocemos hoy en día, fue obra de Yann LeCun en 1998 al introducir el aprendizaje a través de la técnica de backforwarding \citep{berzal2019redes}.	\\
 
 Las redes neuronales convolutivas están formadas por una secuencia de capas que podemos clasificar en tres tipos: capas convolutivas, capas de pooling y capas completamente conectadas.\\ 
 \begin{itemize}
@@ -130,12 +130,12 @@ Las redes neuronales convolutivas están formadas por una secuencia de capas que
 	
 	Finalmente, la suma de los diferentes productos escalares y el o los filtros utilizados, da como resultado final lo que se conoce como mapa de características. 
 	
-	Después de cada capa de convolución, se aplica una función de activación no lineal al mapa de características, a través de la ReLU (\textit{Rectified Linear Unit}). El fin de esta función es introducir no linealidad a la red, lo que le permite mejorar la complejidad entre las diferentes características (Krizhevsky et al., 2012). \\
+	Después de cada capa de convolución, se aplica una función de activación no lineal al mapa de características, a través de la ReLU (\textit{Rectified Linear Unit}). El fin de esta función es introducir no linealidad a la red, lo que le permite mejorar la complejidad entre las diferentes características \citep{krizhevsky2017imagenet}. \\
 	
 \item	\underline{Capa de agrupación o pooling}: son capas dedicadas a reducir la dimensión del mapa a través de la disminución del número de parámetros de entrada.
 	Comúnmente, se utilizan dos técnicas conocidas como \textit{max pooling} y \textit{average pooling}. \textit{Max pooling} consiste en seleccionar el pixel con mayor valor a medida que el filtro recorre la imagen para enviar el máximo a la matriz de salida, en cambio, average pooling lo que busca es calcular el valor medio del campo. El inconveniente que presenta esta capa es la gran pérdida de información que existe, sin embargo, presenta una gran ventaja a la hora de reducir la complejidad computacional y concentrarse en las características más importantes, lo que claramente, mejora el rendimiento del modelo y evita el riesgo de que se produzca un sobreajuste.\\ **explicar sobreajuste
 	
-	\item \underline{Capa totalmente conectada}: en las últimas capas de la red los nodos están conectados con los de la capa anterior para producir la salida final incorporando las características extraídas y aprendidas de los procesos realizados en las capas anteriores. Las capas totalmente conectadas se preocupan de realizar las funciones de clasificación de la imagen y de regresión para producir el resultado deseado (Krizhevsky et al., 2012). \\
+	\item \underline{Capa totalmente conectada}: en las últimas capas de la red los nodos están conectados con los de la capa anterior para producir la salida final incorporando las características extraídas y aprendidas de los procesos realizados en las capas anteriores. Las capas totalmente conectadas se preocupan de realizar las funciones de clasificación de la imagen y de regresión para producir el resultado deseado \citep{krizhevsky2017imagenet}. \\
 	
 
 \end{itemize}
@@ -144,13 +144,13 @@ Las redes neuronales convolutivas están formadas por una secuencia de capas que
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/cnn.png}
-	\caption{Red neuronal convolucional (Andrade, 2021)}
+	\caption{Red neuronal convolucional \citep{fotocnn}}
 	\label{fig:cnn}
 \end{figure}
 
 \subsection{Redes Generativas Adversarias (GAN)}
 
-Las redes GAN, del inglés, Generative Adversarial Networks son un tipo de redes neuronales profundas relativamente novedosas, ya que surgieron en el año 2014 por primera vez por Ian Goodfellow y sus compañeros en la Universidad de Montréal (Goodfellow et al., 2014). \\
+Las redes GAN, del inglés, Generative Adversarial Networks son un tipo de redes neuronales profundas relativamente novedosas, ya que surgieron en el año 2014 por primera vez por Ian Goodfellow y sus compañeros en la Universidad de Montréal \citep{goodfellow2014generative}. \\
 
 El funcionamiento de este tipo de redes involucra a dos redes neuronales diferentes, en las que cada una se encarga de realizar una tarea específica y “competir” contra la otra, para así, cada vez ir mejorando más los resultados obtenidos. \\
 
@@ -159,7 +159,7 @@ La primera red neuronal de este sistema se conoce como “Generador” y se enca
 La segunda red neuronal de la que se compone este sistema es el “Discriminador”, se dedica a analizar los resultados producidos por el Generador e identificar si son los reales o los creados por la red. A medida que va avanzando su entrenamiento, la capacidad del discriminador en distinguir entre un resultado real o falso dada una cierta entrada va mejorando cada vez más, haciendo que su predicción sea más certera. 
 Un clásico ejemplo llevado a la vida real de esto puede ser el caso de un falsificador de billetes y un detective, en el que el primero tiene como muestra cierta cantidad de billetes e intenta replicarlos para que más adelante el segundo agente intente detectar la copia del original. A medida que pasa el tiempo, cada uno de los dos individuos van mejorando en su tarea llegando a un nivel de equilibrio. \\
 
-Matemáticamente, el discriminador tiene que generar una salida, expresada como D(x), basándose en la probabilidad de que la entrada sea sintética o real, suponiendo que en cuanto más cercana a 1 sea, la entrada es original. Y por el contrario y dada una muestra aleatoria z en función de cierta distribución de probabilidad, el generador tiene que producir una muestra, expresada como G(z), que el discriminador tiene que clasificar como cercana a 0, produciendo una salida del tipo D(G(z)) en la que el generador tiene que intentar que su probabilidad se aproxime a 1, justo al contrario que el discriminador. Suponiendo que entre todas las muestras del modelo, una mitad son auténticas y la otra mitad son falsas, se tiene que alcanzar el conocido como equilibrio de Nash en el que las muestras del modelo son igual a los datos y en las que la probabilidad del discriminador es D(x) 0,5 para todo x (Berzal, 2016). \\
+Matemáticamente, el discriminador tiene que generar una salida, expresada como D(x), basándose en la probabilidad de que la entrada sea sintética o real, suponiendo que en cuanto más cercana a 1 sea, la entrada es original. Y por el contrario y dada una muestra aleatoria z en función de cierta distribución de probabilidad, el generador tiene que producir una muestra, expresada como G(z), que el discriminador tiene que clasificar como cercana a 0, produciendo una salida del tipo D(G(z)) en la que el generador tiene que intentar que su probabilidad se aproxime a 1, justo al contrario que el discriminador. Suponiendo que entre todas las muestras del modelo, una mitad son auténticas y la otra mitad son falsas, se tiene que alcanzar el conocido como equilibrio de Nash en el que las muestras del modelo son igual a los datos y en las que la probabilidad del discriminador es D(x) 0,5 para todo x (\citep{berzalgan}. \\
 
 Por último, cabe destacar que para el entrenamiento de este tipo de red se utilizan los métodos del gradiente descendente (\textit{gradient descent}) y backpropagation, vistos en redes neuronales anteriores. \\
 
@@ -168,7 +168,7 @@ Este tipo de redes son ideales para tareas que requieren creación de datos real
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1 \textwidth]{Imagenes/Vectorial/gan.png}
-	\caption{Red neuronal generativa antagónica (Franco, 2014)}
+	\caption{Red neuronal generativa antagónica \citep{gan}}
 	\label{fig:gan}
 \end{figure}
 
@@ -196,7 +196,7 @@ A raíz de este modelo, surgen técnicas innovadoras como el aprendizaje por tra
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.7 \textwidth]{Imagenes/Vectorial/transformer.png}
-	\caption{Red neuronal Transformer(Sotaquirá, 2020)}
+	\caption{Red neuronal Transformer \citep{transformers}}
 	\label{fig:transformer}
 \end{figure}
 
@@ -214,7 +214,7 @@ Stable Diffusion es un modelo de Inteligencia Artificial generativa cuya princip
 
 En principio, Stable Diffusion cuenta con un entrenamiento de más de 5 millones de imágenes proporcionado por el dataset Laion-5B que permite contar con una gran variedad de opciones de creación de imágenes, desde objetos, animales, paisajes y lugares, personas e incluso celebridades mundialmente conocidas con una calidad notable.\\ 
 
-Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente del anterior. Este primer método se conoce como difusión directa hacia delante o \textit{forward diffusion}.\\
+Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles \citep{SDW}. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente del anterior. Este primer método se conoce como difusión directa hacia delante o \textit{forward diffusion}.\\
 
 \begin{figure}[h]
 	\centering
@@ -223,7 +223,7 @@ Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para
 	\label{fig:difusiondirecta}
 \end{figure}
 
-Así mismo, cuando se procesa una petición dado un \textit{prompt}, se parte de una imagen únicamente hecha de ruido aleatorio, es decir, un imagen sin nada relevante ni identificable en ella. Partiendo de esta imagen llena de ruido, se intenta revertir lo hecho anteriormente para volver a la imagen original quitando el ruido gradualmente. El ruido es aleatorio, y su aleatoriedad depende de un parámetro llamado \textit{seed} o semilla que asocia el ruido generado con un número aleatorio. Por lo tanto, si se repite la semilla se volverá a generar exactamente el mismo ruido y tendríamos como resultado una réplica de una imagen ya generada con esa misma semilla. Este proceso se conoce como difusión inversa y su objetivo principal es que el modelo aprenda a eliminar el ruido completamente. \\
+Así mismo, cuando se procesa una petición dado un \textit{prompt}, se parte de una imagen únicamente hecha de ruido aleatorio, es decir, un imagen sin nada relevante ni identificable en ella. Partiendo de esta imagen llena de ruido, se intenta revertir lo hecho anteriormente para volver a la imagen original quitando el ruido gradualmente. El ruido es aleatorio, y su aleatoriedad depende de un parámetro llamado \textit{seed} o semilla que asocia el ruido generado con un número aleatorio. Por lo tanto, si se repite la semilla se volverá a generar exactamente el mismo ruido y tendríamos como resultado una réplica de una imagen ya generada con esa misma semilla. Este proceso se conoce como difusión inversa y su objetivo principal es que el modelo aprenda a eliminar el ruido completamente \citep{FelixSanzSD}). \\
 
 \begin{figure}[h]
 	\centering
@@ -234,13 +234,13 @@ Así mismo, cuando se procesa una petición dado un \textit{prompt}, se parte de
 
 Una vez tenemos la imagen llena de ruido y la forma de calcular el ruido que hay en cada imagen para poder eliminarlo, se empieza el proceso al que llamamos \textit{sampler} o muestreo. Aquí es cuando entra un componente importante llamado \textit{noise scheduler}, cuya función es determinar la cantidad de ruido que se debe suprimir en cada paso para alcanzar la forma óptima y que se puedan evitar cambios bruscos entre paso y paso, que sea de forma gradual y que los detalles se vayan puliendo conforme la imagen vaya cobrando más forma. El proceso de muestreo se repite la cantidad de \textit{steps} o pasos especificada por el usuario. Y de esta manera, concluimos con el primer componente del modelo de difusión latente: la difusión.\\ 
 
-Pasemos a la segunda pieza del puzzle: el espacio latente. El proceso de difusión, por lo que hemos podido ver, es un proceso algo lento y costoso al tener que trabajar con los píxeles de una imagen. Si tenemos una imagen en color con la escala RGB de 512x512 píxeles, estamos hablando de una multiplicación de 3x512x512, es decir, un espacio de casi 80 mil dimensiones. Para solucionar este problema, se trabaja con el espacio latente que trata de reducir la imagen a una escala de 64x64 píxeles, asegurando mayor velocidad y una menor carga de trabajo al trabajar, de esta forma, con unas dimensiones más pequeñas de apenas 12 mil. 
+Pasemos a la segunda pieza del puzzle: el espacio latente. El proceso de difusión, por lo que hemos podido ver, es un proceso algo lento y costoso al tener que trabajar con los píxeles de una imagen. Si tenemos una imagen en color con la escala RGB de 512x512 píxeles, estamos hablando de una multiplicación de 3x512x512, es decir, un espacio de casi 80 mil dimensiones. Para solucionar este problema, se trabaja con el espacio latente que trata de reducir la imagen a una escala de 64x64 píxeles, asegurando mayor velocidad y una menor carga de trabajo al trabajar, de esta forma, con unas dimensiones más pequeñas de apenas 12 mil \citep{rombach2022high}. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 1
 	\textwidth]{Imagenes/Vectorial/espaciolatente.png}
-	\caption{Representación gráfica del proceso de conversión al espacio latente}
+	\caption{Representación gráfica del proceso de conversión al espacio latente \citep{rombach2022high}}
 	\label{fig:latentspace}
 \end{figure}
 
@@ -255,7 +255,7 @@ Ahora que entendemos el propósito y el funcionamiento de las dos variables del 
 		\centering
 		\includegraphics[width = 1
 		\textwidth]{Imagenes/Vectorial/u-net.png}
-		\caption{Arquitectura de una red U-Net}
+		\caption{Arquitectura de una red U-Net \citep{unet}}
 		\label{fig:unet}
 	\end{figure}
 	\item \underline{Autocodificador variacional VAE}: es un tipo de red neuronal que al igual que las redes U-Net consta de dos componentes: un codificador y un decodificador, sin embargo sus funciones distan mucho las unas de las otras. El primer componente del autocodificador variacional se encarga de uno de los primeros pasos que realiza Stable Diffusion, que es convertir el espacio de píxeles de la imagen en un tensor dentro del espacio latente de menores dimensiones sustrayendo las características más relevantes de la imagen original y comprimiéndolas en el tensor latente. Y al final del proceso de difusión, se parte del tensor del espacio latente con el que se ha trabajado, para transformarlo en la imagen final generada en una escala de 512x512 píxeles.
@@ -266,29 +266,28 @@ Ahora que entendemos el propósito y el funcionamiento de las dos variables del 
 	\centering
 	\includegraphics[width = 0.9
 	\textwidth]{Imagenes/Vectorial/representacionvisualSD.png}
-	\caption{Representación gráfica del funcionamiento de Stable Diffusion}
+	\caption{Representación gráfica del funcionamiento de Stable Diffusion \citep{SDW}}
 	\label{fig:sd}
 \end{figure}
 
 \subsection{Herramientas de Inteligencia artificial generadoras de imágenes}
 
+El mercado de la generación de imágenes a través de inteligencia artificial es cada vez más amplio a medida que van surgiendo nuevas compañías y laboratorios independientes que tratan de implementar esta tecnología al mismo tiempo que tratan de diversificarse en el sector. Sin embargo, entre todas las existentes hay 3 que han adquirido gran importancia, presentando a su vez todas ellas características diferentes: Stable Diffusion, DALL-E y Midjourney. 
+
 \subsubsection{DALL-E}
 
-Cita 1 \cite{russell2016artificial}
+DALL-E surge del acrónimo entre Dalí, por el famoso pintor español y WALL-E, el robot de la película de Disney Pixar. La herramienta fue lanzada por la empresa OpenAI en 2021, y se creó de manera que representa el funcionamiento de una red neuronal cuyo modelo de lenguaje sigue el comportamiento de un decodificador Transformer y una red GAN, como hemos visto recientemente en el apartado que explica el funcionamiento de este tipos de redes neuronales. DALL-E incorpora la tecnología GPT para generar imágenes acorde con el texto pedido y es capaz de interpretar el texto y crear contenido jamás visto a partir de este. Entre las habilidades que presenta se incluyen la combinación de conceptos y mezcla de todo tipo de texturas, formas geométricas, cualidades y características, además de incorporar cierto conocimiento geográfico \citep{dalle}. \\
 
-Cita 2 \citep{goodfellow2014generative}
+Actualmente existen actualizaciones sobre el sistema de DALL-E, habiéndose alcanzado la versión 3 que incluye una mejora en la interpretación y representación de conceptos, de forma más detallada y precisa. Entre los principales beneficios que presenta el uso de DALL-E se incluye la rapidez en la generación de las imágenes y el alto realismo que presentan las mismas. \\
 
-Cita 3 \citet{hochreiter1997long}
-
-Cita 4 \cite{krizhevsky2017imagenet}
-
-Cita 5 \citep{berzal2019redes}
-
-Cita 6 \citet{berzalmodelos}
-
-Cita 7 \cite{rosenblatt1958perceptron}
-
-Cita 8 \citep{gonzalez1995redes}
-
+El modo de uso es mediante una versión Beta a través de su página web utilizando lo que se conoce como "Playground", es decir, una  web que funciona a través de un número limitado de peticiones, o mediante el modo diseñado para los desarrolladores que requiere la incorporación de una API, es decir, fragmentos de código en python que permiten implementar funciones de DALL-E que permiten generar imágenes en local. Ambas opciones son de pago en las que se cobra por cada generación y el código fuente no está disponible para los usuarios. 
 
 \subsubsection{Midjourney}
+
+Midjourney es un laboratorio independiente que surge cuando profesionales de éxito pertenecientes a diferentes campos se unieron para crear un servicio que pretende potenciar la creatividad a través de técnicas de inteligencia artificial. \\
+
+A diferencia de otras, tiene un modo particular de uso ya que funciona a través de la aplicación Discord. Discord es una aplicación de mensajería instantánea cuyo cometido es conectar a las personas a través de conversaciones de texto, voz o vídeo. Además, existen "servidores" que son comunidades de varias personas para cualquier propósito como grupos de trabajo o de videojuegos. Discord tiene la capacidad de añadir bots a los chats, un bot es un programa software diseñado para automatizar la ejecución de determinadas tareas de forma repetitiva y rápida, además tiene la capacidad de adaptarse a los cambios que puedan suceder en estas en función de lo que se necesite.\\
+
+Ahora bien, se dice que el modo de funcionamiento es diferente al de otras plataformas generativas de imágenes porque utiliza e implementa un bot en la aplicación Discord que es el encargado de procesar las peticiones de imágenes y generarlas. Midjourney, por defecto, se mostrarán 4 imágenes en la salida que se corresponden con lo pedido por el \textit{prompt}. Si se desea escoger una de ellas para seguir adaptándolo a lo que se quiere exactamente, es posible. Además, se puede elegir la escala de la imagen e incluso, seleccionar únicamente un área en específico de la misma para poder modificar y moldearla según se desee. \\
+
+Lo que caracteriza a Midjourney es la gran calidad y creatividad que presenta el contenido de sus imágenes, lo que sirve de gran ayuda como herramienta de apoyo para profesiones como la de diseñador gráfico. El inconveniente que presenta es el plan de pago al que hay que suscribirse en cualquier tipo de membresía mensual para poder utilizarla, y al ser de código cerrado, no se puede acceder a su funcionamiento interno para realizar entrenamientos propios, al igual que en el caso de DALL-E. \\
