@@ -143,6 +143,20 @@ Las secciones siguientes ``Learning'' de aprendizaje y ``Structure'' de estructu
 
 Finalmente, la sección ``Ready'' nos indica que está ya todo listo para poder empezar el entrenamiento con LORA. \\
 
+Tras el entrenamiento de LORA con el perro nombrado bajo el \textit{token} de ``hachiko'', podemos observar en la figura \ref{fig:comphachi}, la calidad de las imágenes generadas con tres diferentes archivos en formato ``safetensor'', correspondientes a los 1.000, 2.000 y 10.000 pasos. 
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/comparacion_hachiko.png}
+	\caption{Mismo prompt con 1000, 2000 y 10.000 pasos de entrenamiento}
+	\label{fig:comphachi}
+\end{figure}
+
+A la vista de los resultados podemos afirmar que 1000 pasos de entrenamiento o menos producen los mejores resultados en cuanto a calidad, ya que a partir de este número se empiezan a notar los efectos del sobreentrenamiento en cuanto a la deformidad y difusión de las imágenes producidas. \\
+
+En este punto, tenemos dos técnicas de entrenamiento mediante Stable Diffusion: Dreambooth y LORA. Por ello, quisimos analizar la diferencia que 
+
 Ahora podemos decir que hemos logrado entrenar un modelo de generación de imágenes incluyendo fotografías propias, y eso es algo que puede ser realmente útil para nuestros siguientes propósitos. Esto es porque podemos lograr que cualquier persona pueda incorporar las imágenes que considere oportunas para servir de apoyo al paciente. Lo cual consideramos un éxito en el desarrollo de nuestro trabajo. 
 
 
@@ -157,20 +171,20 @@ La característica principal que debe cumplir un equipo y sin la cual no sería 
 
 \subsection{Funcionamiento y detalles de la interfaz}
 
- Respecto al funcionamiento de SDGUI, esta plataforma tiene una interfaz muy sencilla para el usuario, a pesar de que hay que tener conocimientos previos acerca de ciertos parámetros para poder llevar a cabo la generación de de imágenes, además de realizar múltiples pruebas para saber qué función cumple cada elemento. La aplicación se presenta tal y como aparece en la siguiente imagen, y permite generar imágenes con modelos de Stable Diffusion, con modelos obtenidos de Hugging Face, con modelos entrenados y con LoRA. Esto ofrece una gran ventaja para nuestro trabajo, ya que ha sido el programa que nos ha permitido probar qué modelo era el más adecuado para nuestro estudio, y posteriormente testar los entrenamientos realizados. Ha sido fundamental, porque han sido miles de pruebas, ajustando todos los parámetros de múltiples maneras diferentes, y sin esta aplicación, avanzar y obtener resultados habría sido realmente complicado. Respecto a la estructura del programa, cuenta con una parte derecha de la pantalla, donde aparecen las imágenes generadas en un gran recuadro, se puede acceder a un historial de descripciones introducidas y se puede acceder a una carpeta que incluye todas las imágenes que han sido generadas por esta aplicación. Además, en la parte superior, se puede acceder a ajustes, donde es posible instalar nuevas versiones del programa u obtener nuevos modelos que poder utilizar para la generación de imágenes. \\
- 
- 
- \begin{figure}[h]
- 	\centering
- 	\includegraphics[width = 1
- 	\textwidth]{Imagenes/Vectorial/nmkdsdgui.png}
- 	\caption{Aplicación SDGUI, utilizada para probar todos los modelos generadores de imágenes }
- 	\label{fig:nmkdsdgui}
- \end{figure}
- 
- En la parte izquierda de la pantalla, podemos encontrar los parámetros realmente importantes que condicionan la manera en la que se creará la siguiente fotografía. En primer lugar, el tipo de inteligencia artificial utilizada. Esto es realmente relevante porque hace una distinción de cuatro tipos de IA generativa: dos son versiones estándar de Stable Diffusion (una para los sistemas que utilicen CUDA o Nvidia, y otra para los que utilicen AMD como tarjeta gráfica), la tercera es la versión XL de Stable Diffusion, que como recordatorio, requiere una tarjeta gráfica muy superior a la que dispone nuestro equipo, y por último, un modelo imagen a imagen. Resulta muy relevante hablar sobre esta IA, dado que a partir de una imagen de archivo, y una descripción, se puede generar una nueva imagen adaptada a esta petición. A pesar de que nuestro objeto de estudio abarca la inteligencia artificial generativa de imágenes a partir de texto, hemos realizado pruebas sobre el tipo de resultado obtenido, pero la calidad de la imagen de este modelo en concreto, resulta inferior a la que nos han otorgado modelos de texto a imagen. Centrándonos en el modelo básico de Stable Diffusion, en el apartado de \textit{model} / \textit{architecture}, se debe incluir el modelo, que puede ser uno pre entrenado o uno personalizado en formato \textit{checkpoint}. En este segundo, cabe destacar que tarda medio minuto más en generar la fotografía debido a la carga, pero no afecta de ninguna manera a la calidad de la imagen. \\
- 
- A continuación, se debe indicar la descripción, que se divide en dos partes en este caso. La primera es el \textit{prompt}, que guía a la inteligencia artificial para que incluya los elementos que se deseen. Un apunte relevante es que si se quiere hacer referencia a un elemento entrenado, se debe mencionar el nombre exacto del ítem para que se pueda realizar la generación de manera correcta. En segundo lugar, existe un \textit{negative prompt}, donde se deben indicar aquellos elementos que, a petición del usuario, se desee que no se vean reflejados en la creación de la fotografía. Cuando se desee testar un entrenamiento de LoRA, se debe hacer click en el archivo deseado, e introducir ese nombre en el \textit{prompt}. Por último, se deben ajustar unos parámetros explicados con anterioridad, como son los \textit{steps} o pasos de generación, la escala CFG y la \textit{seed}. Una vez conocidos estos pasos a seguir y cumplidos los requisitos mencionados, cualquier usuario debería tener la capacidad de generar imágenes mediante inteligencia artificial con este programa.\\ 
+Respecto al funcionamiento de SDGUI, esta plataforma tiene una interfaz muy sencilla para el usuario, a pesar de que hay que tener conocimientos previos acerca de ciertos parámetros para poder llevar a cabo la generación de de imágenes, además de realizar múltiples pruebas para saber qué función cumple cada elemento. La aplicación se presenta tal y como aparece en la siguiente imagen, y permite generar imágenes con modelos de Stable Diffusion, con modelos obtenidos de Hugging Face, con modelos entrenados y con LoRA. Esto ofrece una gran ventaja para nuestro trabajo, ya que ha sido el programa que nos ha permitido probar qué modelo era el más adecuado para nuestro estudio, y posteriormente testar los entrenamientos realizados. Ha sido fundamental, porque han sido miles de pruebas, ajustando todos los parámetros de múltiples maneras diferentes, y sin esta aplicación, avanzar y obtener resultados habría sido realmente complicado. Respecto a la estructura del programa, cuenta con una parte derecha de la pantalla, donde aparecen las imágenes generadas en un gran recuadro, se puede acceder a un historial de descripciones introducidas y se puede acceder a una carpeta que incluye todas las imágenes que han sido generadas por esta aplicación. Además, en la parte superior, se puede acceder a ajustes, donde es posible instalar nuevas versiones del programa u obtener nuevos modelos que poder utilizar para la generación de imágenes. \\
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/nmkdsdgui.png}
+	\caption{Aplicación SDGUI, utilizada para probar todos los modelos generadores de imágenes }
+	\label{fig:nmkdsdgui}
+\end{figure}
+
+En la parte izquierda de la pantalla, podemos encontrar los parámetros realmente importantes que condicionan la manera en la que se creará la siguiente fotografía. En primer lugar, el tipo de inteligencia artificial utilizada. Esto es realmente relevante porque hace una distinción de cuatro tipos de IA generativa: dos son versiones estándar de Stable Diffusion (una para los sistemas que utilicen CUDA o Nvidia, y otra para los que utilicen AMD como tarjeta gráfica), la tercera es la versión XL de Stable Diffusion, que como recordatorio, requiere una tarjeta gráfica muy superior a la que dispone nuestro equipo, y por último, un modelo imagen a imagen. Resulta muy relevante hablar sobre esta IA, dado que a partir de una imagen de archivo, y una descripción, se puede generar una nueva imagen adaptada a esta petición. A pesar de que nuestro objeto de estudio abarca la inteligencia artificial generativa de imágenes a partir de texto, hemos realizado pruebas sobre el tipo de resultado obtenido, pero la calidad de la imagen de este modelo en concreto, resulta inferior a la que nos han otorgado modelos de texto a imagen. Centrándonos en el modelo básico de Stable Diffusion, en el apartado de \textit{model} / \textit{architecture}, se debe incluir el modelo, que puede ser uno pre entrenado o uno personalizado en formato \textit{checkpoint}. En este segundo, cabe destacar que tarda medio minuto más en generar la fotografía debido a la carga, pero no afecta de ninguna manera a la calidad de la imagen. \\
+
+A continuación, se debe indicar la descripción, que se divide en dos partes en este caso. La primera es el \textit{prompt}, que guía a la inteligencia artificial para que incluya los elementos que se deseen. Un apunte relevante es que si se quiere hacer referencia a un elemento entrenado, se debe mencionar el nombre exacto del ítem para que se pueda realizar la generación de manera correcta. En segundo lugar, existe un \textit{negative prompt}, donde se deben indicar aquellos elementos que, a petición del usuario, se desee que no se vean reflejados en la creación de la fotografía. Cuando se desee testar un entrenamiento de LoRA, se debe hacer click en el archivo deseado, e introducir ese nombre en el \textit{prompt}. Por último, se deben ajustar unos parámetros explicados con anterioridad, como son los \textit{steps} o pasos de generación, la escala CFG y la \textit{seed}. Una vez conocidos estos pasos a seguir y cumplidos los requisitos mencionados, cualquier usuario debería tener la capacidad de generar imágenes mediante inteligencia artificial con este programa.\\ 
 
 \section{Resultados de generación de imágenes}
 
@@ -305,7 +319,7 @@ Respecto a la fotografía con múltiples elementos, se puede apreciar que la cal
 
 En resumen, la generación de imágenes en las que se quiera obtener la cara detallada de una persona, requiere un mínimo de 20 pasos, con la posibilidad de aumentarlos si se quiere perfeccionar la fotografía. No obstante, si la imagen solicitada contiene múltiples elementos, se recomienda subir los \textit{steps} por encima de 24 para obtener buenos resultados.
 
-Además de aumentar el número de pasos para producir imágenes más complejas, también se ha de elevar la escala CFG, como se ha visto teóricamente en el apartado REFERENCIA A LA SUBAPARTADO ESCALA CFG. No obstante, consideramos relevante para completar el análisis, demostrar cuál es el valor de la escala con el que se generan imágenes de mayor calidad. Para este caso, también se han utilizado dos tipos de fotografía, con el objeto de ver cómo incide este valor en la multiplicidad de elementos. La primera de las imágenes es un retrato detallado de la persona, donde el número de \textit{steps} se ha fijado en 20, ya que hemos visto en la tabla anterior que se producen buenos resultados. La segunda fotografía resultante incluye a la persona junto con una copa del mundo, donde los pasos se han establecido en 25, ya que en este caso se requiere mayor precisión. La persona a la que se hace referencia es a HACER REFERENCIA AL DATASET JOVENALP.
+Además de aumentar el número de pasos para producir imágenes más complejas, también se ha de elevar la escala CFG, como se ha visto teóricamente en el apartado REFERENCIA A LA SUBAPARTADO ESCALA CFG. No obstante, consideramos relevante para completar el análisis, demostrar cuál es el valor de la escala con el que se generan imágenes de mayor calidad. Para este caso, también se han utilizado dos tipos de fotografía, con el objeto de ver cómo incide este valor en la multiplicidad de elementos. La primera de las imágenes es un retrato detallado de la persona, donde el número de \textit{steps} se ha fijado en 20, ya que hemos visto en la tabla anterior que se producen buenos resultados. La segunda fotografía resultante incluye a la persona junto con una copa del mundo, donde los pasos se han establecido en 25, ya que en este caso se requiere mayor precisión. La persona a la que se hace referencia es a la entrenada en el Capítulo \ref{cap:librodevida} que veremos más adelante y que se aprecia en la figura \ref*{fig:datasetjovenalp}.
 
 Para este análisis no se ha considerado la duración, ya que es algo que no depende de la escala, sino del número de iteraciones. A continuación, se muestran los resultados obtenidos modificando la CFG Scale, para cada tipo de fotografía.
 
@@ -352,19 +366,54 @@ Por el contrario, si se solicitan varios elementos en una misma descripción, ad
 En conclusión, para ambos análisis realizados, consideramos que para imágenes en las que el \textit{prompt} es simple, es conveniente utilizar una escala CFG con un valor de entre 5 y 7, y respecto al número de pasos, con un valor de 20 sería suficiente para generar un resultado correcto, con una alta calidad y un gran parecido con la persona entrenada. Por otra parte, en el caso en el que se pretendan generar múltiples elementos, se requiere un mínimo de 24 iteraciones para poder obtener lo que se desee, y adicionalmente, se debería ajustar la escala CFG entre los 13 y los 15. Con esta combinación, tanto la persona entrenada como su entorno se mostrarían con un alto nivel de calidad.
 
 
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/comparacion_hachiko.png}
-%	\caption{Mismo prompt con 1000, 2000 y 10.000 pasos de entrenamiento}
-%	\label{fig:comphachi}
-%\end{figure}
-
 \subsection{Resultados con múltiples capas de entrenamiento}
 
 Una parte muy importante de nuestro trabajo es generar imágenes que puedan contener diferentes elementos de manera simultánea, puesto que consideramos que para crear un libro de vida de calidad, se deberían incluir fotografías de una persona en un determinado lugar, o que combinen varias personas diferentes. Durante la mayor parte del tiempo en la que realizamos este proyecto, teníamos la idea de que esto no sería posible, porque siempre que realizábamos pruebas, obteníamos resultados en los que se deformaban los elementos, o simplemente solo incluía uno de los dos elementos, o ninguno de los dos. 
 
 A pesar de esto, decidimos resistirnos a aceptar que no podía ser posible una generación de imágenes en la que se combinasen varios elementos. Como hemos afirmado en apartados anteriores, nuestro modelo de entrenamiento Dreambooth permite realizar un entrenamiento sobre otro previo, por lo que decidimos hacer la prueba y añadir una capa. Para el entrenamiento, utilizamos como base el archivo sqgkhoju.ckpt, el cual entrenó a la actriz Jung Hoyeon, y se entrenó con el salón de la serie \textit{Friends}. Como en el resto de pruebas con las que obtuvimos un resultado satisfactorio, incluimos un conjunto de 10 imágenes y realizamos el entrenamiento con 2400 pasos.\\
+
+\subsubsection{Ejemplos de resultados con personas, lugares y animales}
+
+Ejemplos de resultados:
+
+A raíz de las demostraciones de los apartados anteriores, cualquier usuario podría generar fotografías con el conocimiento suficiente de qué valores debe introducir en steps y CFG scale para obtener buenos resultados. Para poner en práctica este aprendizaje, vamos a comprobar la calidad de las imágenes generadas con más elementos que no estén basados en personas, como animales y lugares concretos.
+
+El primer ejemplo de mostrar resultados será con lugares. Este lugar es el HACER REFERENCIA A CVBASIL. 
+
+En primer lugar, se generará una fotografía de un único elemento, con 20 pasos y escala CFG de 7. El prompt es el siguiente: a picture of cvbasil, spring style, highly detailed, cloudy day, raining.
+
+
+Figura X: la basílica en primavera, en un día nublado y lluvioso
+
+Con este prompt, simplemente se está detallando cómo debe ser el elemento, en qué contexto se desea incluir. El resultado es bastante correcto y con una buena calidad, porque respeta en gran medida lo que se pide en el prompt. Incluye un árbol completamente cubierto como elemento primaveral, casas con un alto grado de detalle y con la perspectiva correcta y se refleja un día nublado, por lo que se puede decir que el resultado tiene una alta calidad y satisface las exigencias del usuario.
+
+Por el contrario, si se desea que el elemento entrenado contenga un entorno más desarrollado, es necesario elevar el número de pasos a 25 y la escala CFG a 13. 
+El prompt elegido para este tipo de imagen es el siguiente: a photograph of cvbasil in the Roman empire, surrounded by trees and people
+
+
+Figura X: la basílica junto con árboles y personas
+
+Respecto al resultado con este prompt, y con unos pasos y escala CFG avanzados, se puede decir que el rendimiento ha sido el esperado, y ha introducido los elementos deseados. Se pueden apreciar tanto los árboles como las personas, a la par que muestra un estilo que refleja antigüedad, por lo que la imagen satisface la descripción introducida.
+
+Podemos apreciar cómo ambas fotografías muestran calidad y se ajustan a lo que solicita la descripción, por lo que es una buena manera de poner en práctica cómo los parámetros que mejoran el rendimiento en humanos también lo hacen en lugares.
+
+El siguiente paso es mostrar los resultados con los parámetros escogidos para animales. En este caso hemos seleccionado el dataset HACER REFERENCIA A HACHIKO.
+
+Primera fotografía con un entorno simple. Prompt: a photograph of hachift80alp wearing a hat, hd. 20 pasos, escala CFG 7.
+
+
+
+Figura X: una fotografía de Hachiko con un gorro
+
+En esta fotografía se refleja al perro con una alta calidad, de manera que se pueden apreciar perfectamente todos sus rasgos sin ninguna deformidad. De esta manera, con el número de pasos y escala establecidos se ha generado un buen resultado.
+
+Segunda foto con un entorno complejo. 25 pasos y 13 de escala CFG.
+a picture of hachift80alp and a man, hd
+
+Figura X: una fotografía de hachiko con una persona
+
+En cuanto al resultado obtenido, muestra perfectamente al animal y también a la persona, sin ninguna deformidad y con una muy buena calidad. Se demuestra que se deben aumentar tanto los pasos como la escala para generar una buena fotografía. El resultado es más que satisfactorio y acorde a lo que se ha pedido en la descripción.
+
 
 \begin{figure}[!htb]
 	\centering
@@ -415,7 +464,7 @@ En cuanto a mezcla de personas: Para ampliar los horizontes de nuestro entrenami
 	\centering
 	\includegraphics[width = 0.5
 	\textwidth]{Imagenes/Vectorial/duplicidad_will.png}
-		\caption{Duplicidad de elementos}
+	\caption{Duplicidad de elementos}
 	\label{fig:willpor2}
 \end{figure}
 
@@ -504,5 +553,3 @@ Este apartado muestra los pasos que se han llevado a cabo durante la realizació
 11. La aplicación ya puede utilizar cualquier modelo entrenado por nosotros mismos. Buenos resultados, con calidad y tiempo comparables a SDGUI.
 
 12. Creación de un libro de vida para la aplicación. Sirve de conexión entre la IA generativa de imágenes desarrollada por nosotros y la creación de historias narrativas con apoyo visual para la terapia de reminiscencia.
-
-

@@ -214,7 +214,7 @@ Stable Diffusion es un modelo de Inteligencia Artificial generativa cuya princip
 
 En principio, Stable Diffusion cuenta con un entrenamiento de más de 5 millones de imágenes proporcionado por el dataset Laion-5B que permite contar con una gran variedad de opciones de creación de imágenes, desde objetos, animales, paisajes y lugares, personas e incluso celebridades mundialmente conocidas con una calidad notable.\\ 
 
-Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles \citep{SDW}. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente del anterior. Este primer método se conoce como difusión directa hacia delante o \textit{forward diffusion}.\\
+Comencemos entendiendo el funcionamiento del modelo de difusión latente, y para facilitar su explicación y comprensión,  lo diseccionaremos en dos partes: difusión y el espacio latente. El proceso de difusión que sigue la generación de una imagen es, en primer lugar y partiendo de las millones de imágenes del dataset mencionadas, se procede a añadir ruido gaussiano gradualmente a través de una serie de pasos hasta que las fotografías pierden todo valor y terminan siendo irreconocibles \citep{SDW2024}. Se podría decir que se comporta como una cadena de Markov, al ser el ruido gaussiano una variable aleatoria y al depender cada paso exclusivamente del anterior. Este primer método se conoce como difusión directa hacia delante o \textit{forward diffusion}.\\
 
 \begin{figure}[h]
 	\centering
@@ -266,7 +266,7 @@ Ahora que entendemos el propósito y el funcionamiento de las dos variables del 
 	\centering
 	\includegraphics[width = 0.9
 	\textwidth]{Imagenes/Vectorial/representacionvisualSD.png}
-	\caption{Representación gráfica del funcionamiento de Stable Diffusion \citep{SDW}}
+	\caption{Representación gráfica del funcionamiento de Stable Diffusion \citep{fotoSDW2022}}
 	\label{fig:sd}
 \end{figure}
 
