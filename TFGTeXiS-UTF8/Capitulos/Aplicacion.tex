@@ -1,14 +1,13 @@
 \chapter{Aplicación generativa de imágenes}
 \label{cap:aplicacion}
-
 \section{Back-end}
-Una parte muy importante de nuestro trabajo es crear una aplicación con la que cualquier usuario tenga la capacidad de utilizar nuestros modelos entrenados, es decir que pueda generar imágenes personalizadas de cualquier elemento que desee. El objetivo es aportar un valor añadido a nuestro trabajo, para que los destinatarios puedan no solo obtener la mejor manera de crear imágenes personalizadas, sino que dispongan de una plataforma donde poder obtener todos los resultados deseados.\\
+Una parte muy importante de nuestro trabajo es crear una aplicación con la que cualquier usuario tenga la capacidad de utilizar nuestros modelos entrenados, es decir que pueda generar imágenes personalizadas de cualquier elemento que desee. El objetivo es aportar un valor añadido a nuestro trabajo, para que los destinatarios puedan no solo obtener la mejor manera de crear imágenes personalizadas, sino que dispongan de una plataforma donde poder obtener todos los resultados deseados.
 
 Para la creación de la aplicación optamos por realizar el código de diferentes formas, la primera de ellas siendo todo en lenguaje Python. Con esto se logró un buen resultado a nivel de funcionalidad, pues generaba las imágenes deseadas en el mismo tiempo en el que se generan en la aplicación SDGUI. No obstante, no logramos que la aplicación tuviese una interfaz atractiva e intuitiva para el usuario.\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.5
+	\includegraphics[width = 0.3
 	\textwidth]{Imagenes/Vectorial/app1.png}
 	\caption{Prototipo de la aplicación en Python}
 	\label{fig:app1}
@@ -20,29 +19,29 @@ Esta aplicación ha tenido dos fases diferenciadas. En la primera, el modelo ún
 
 Para hacer funcionar un modelo de generación de imágenes en un dispositivo local, se necesitan dos librerías: \texttt{diffusers} y \texttt{torch}. La primera, es la que contiene los modelos de Stable Diffusion y derivados o entrenamientos del mismo. La segunda, es la que se encarga de enviar este modelo a la GPU del computador y hacer que se pueda iniciar la generación de la imagen si se encuentra disponible. \\
 
-%\begin{lstlisting}
-%	from diffusers import StableDiffusionPipeline
-%	import torch
-	%
-	%model id = "runawayml/stable-diffusion-v1-5"
-	%pipe = StableDiffsionPipeline.from_pretrained(model_id,
-	 %torch_dtype=torch.float16)
-	%pipe = pipe.to("cuda")
+\begin{lstlisting}
+from diffusers import StableDiffusionPipeline
+import torch
+
+model id = "runawayml/stable-diffusion-v1-5"
+pipe = StableDiffsionPipeline.from_pretrained(model_id,
+torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
 	
-	%prompt = "a photo of an astronaut riding a horse on mars"
-	%image = pipe(prompt).images[0]
+prompt = "a photo of an astronaut riding a horse on mars"
+image = pipe(prompt).images[0]
 	
-	%image.save("astronaut_rides_horse.png")
-%\end{lstlisting}
+image.save("astronaut_rides_horse.png")
+\end{lstlisting}
 
 
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width = 1
-	\textwidth]{Imagenes/Vectorial/codigoapp.png}
-	\caption{Funcionamiento de modelos de Stable Diffusion}
-	\label{fig:codigoapp}
-\end{figure}
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[width = 1
+%	\textwidth]{Imagenes/Vectorial/codigoapp.png}
+%	\caption{Funcionamiento de modelos de Stable Diffusion}
+%	\label{fig:codigoapp}
+%\end{figure}
 
 
 \texttt{Diffusers} contiene un método, llamado \texttt{from\_pretrained}, a través del cual, partiendo de un modelo de los que llamamos pre entrenados, crea una tubería con la lógica del funcionamiento del propio modelo para después ser ejecutado. Nuestro problema  en ese momento consistía en que este método \texttt{from\_pretrained} únicamente aceptaba modelos de la plataforma Hugging Face, pues como parámetro se incluye el \textit{PATH} de la Web donde se encuentra el modelo. Nosotros persistimos en incluir uno de nuestros modelos propios, pero la carga del archivo en formato .ckpt no era correcta con ninguno de los métodos utilizados, y no se creaba la tubería de manera satisfactoria. \\
@@ -53,13 +52,11 @@ Sin embargo, para poder utilizar nuestro propio modelo, se necesitaba un enlace 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 1
+	\includegraphics[width = 0.8
 	\textwidth]{Imagenes/Vectorial/genapp.png}
 	\caption{Aplicación generadora de imágenes}
 	\label{fig:appgen}
 \end{figure}
-
-
 
 
 \section{Ejecución de la aplicación}
@@ -75,14 +72,14 @@ Para saber cuáles eran estos requisitos, creamos un entorno virtual en el que i
 	\label{fig:appexe}
 \end{figure}
 
-A continuación como se muestra en la figura \ref{fig:portadapp} se abrirá nuestra aplicación, donde se ven reflejados dos botones. El primero, para acceder a un libro de vida, donde un hipotético usuario registrado, podrá consultar un libro formado por imágenes generadas por nuestra aplicación, que relatan de manera gráfica momentos únicos, personales y emocionales de la vida del paciente. Es una manera de mostrar los resultados de nuestro proyecto, y lo que cualquier usuario podría conseguir si utiliza nuestra aplicación. \\
+A continuación como se muestra en la figura \ref{fig:portadaapp} se abrirá nuestra aplicación, donde se ven reflejados dos botones. El primero, para acceder a un libro de vida, donde un hipotético usuario registrado, podrá consultar un libro formado por imágenes generadas por nuestra aplicación, que relatan de manera gráfica momentos únicos, personales y emocionales de la vida del paciente. Es una manera de mostrar los resultados de nuestro proyecto, y lo que cualquier usuario podría conseguir si utiliza nuestra aplicación. \\
 
 El segundo botón accede a nuestra plataforma generadora de imágenes, es decir, lo que se muestra en la imagen anterior. En este caso, el usuario ya está listo para generar su imagen personalizada. Solo debe introducir la descripción, los pasos y la escala CFG, además del modelo entrenado, que incluirá el o los elementos correspondientes de los que se quiere generar la fotografía. Si es la primera vez que se utiliza un determinado modelo, al pulsar en generar imagen se descarga en el entorno, lo cual supone un tiempo de menos de 1 minuto con una conexión a internet aceptable. A continuación, se genera la imagen con una duración dependiente del número de pasos introducidos y de la tarjeta gráfica de cada usuario. En este caso, en nuestro equipo, la generación tiene una duración de entre 10 y 16 segundos por paso introducido, lo que supone un tiempo de unos 3 minutos en una imagen de 15 pasos, que nos aporta una calidad aceptable. Una vez generada la imagen aparecerá reflejada en la aplicación, y el usuario tendrá la posibilidad de descargarla con el nombre que desee.\\
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 1
+	\includegraphics[width = 0.9
 	\textwidth]{Imagenes/Vectorial/portadapp.png}
 	\caption{Portada de la aplicación}
-	\label{fig:portadapp}
+	\label{fig:portadaapp}
 \end{figure}

@@ -62,12 +62,13 @@ En el ejemplo de la figura \ref{fig:datasethoyeon}  elegimos como persona de ent
 	\label{fig:datasethoyeon}
 \end{figure}
 
-Una vez que las imágenes cumplan con todos los requisitos, debemos utilizar el código abierto en la plataforma Google Colab \footnote{\url{https://colab.research.google.com/github/hollowstrawberry/kohya-colab/blob/main/Lora_Trainer.ipynb#scrollTo=OglZzI_ujZq-}} para realizar el entrenamiento. 
-El proceso que sigue el cuaderno es muy sencillo, en él sólo hace falta seguir una serie de pasos para completarlo. El primero es conectar el cuaderno a una cuenta de Google, para que se pueda guardar en el Drive asociado a esa cuenta una carpeta llamada ``Fast-Dreambooth'', en la que se guardaran todos los archivos que se generen durante el proceso. El siguiente paso es instalar las dependencias necesarias para ejecutar el código en Python, seguido de establecer un nombre a la sesión en la que estamos trabajando, para que en un futuro cuando se hagan entrenamientos diferentes, se puedan distinguir unos de otros. En este paso se crea una carpeta llamada ``\textit{Sessions}'' dentro de la carpeta mencionada recientemente. A su vez, esta carpeta contendrá otra bajo el nombre de la sesión que hayamos especificado en el cuaderno, y es ahí donde se guardarán todos los archivos que se creen en la ejecución. 
+Una vez que las imágenes cumplan con todos los requisitos, debemos utilizar el código abierto en la plataforma Google Colab \footnote{\url{https://colab.research.google.com/github/hollowstrawberry/kohya-colab/blob/main/Lora_Trainer.ipynb#scrollTo=OglZzI_ujZq-}} para realizar el entrenamiento. \\
 
-A continuación, es turno de subir las imágenes previa y cuidadosamente seleccionadas. Ya sea seleccionándolas directamente desde la carpeta en la que las tengamos guardadas en local, o habiéndolas subido previamente a una carpeta de la cuenta de Google Drive, y proporcionar la ruta en la que están en la celda del cuaderno habilitada para ello. 
+El proceso que sigue el cuaderno es muy sencillo, en él sólo hace falta seguir una serie de pasos para completarlo. El primero es conectar el cuaderno a una cuenta de Google, para que se pueda guardar en el Drive asociado a esa cuenta una carpeta llamada ``Fast-Dreambooth'', en la que se guardaran todos los archivos que se generen durante el proceso. El siguiente paso es instalar las dependencias necesarias para ejecutar el código en Python, seguido de establecer un nombre a la sesión en la que estamos trabajando, para que en un futuro cuando se hagan entrenamientos diferentes, se puedan distinguir unos de otros. En este paso se crea una carpeta llamada ``\textit{Sessions}'' dentro de la carpeta mencionada recientemente. A su vez, esta carpeta contendrá otra bajo el nombre de la sesión que hayamos especificado en el cuaderno, y es ahí donde se guardarán todos los archivos que se creen en la ejecución. \\
 
-El último paso, y uno de los más importantes, consiste en establecer algunos parámetros con los que se va a entrenar al modelo. El más importante y el único que nosotros hemos modificado, entre todos los que hay, es el número de \textit{steps}. De modo que, cuanto mayor sean, más tiempo tardará en generarse el archivo. Normalmente, se tardaba unos 20 o 25 minutos en terminar de entrenarse, lo cual hemos considerado que es bastante rápido. En el ejemplo de la figura \ref{fig:dreambooth} se puede ver la ejecución del progreso de entrenamiento en el que para una cantidad de 2000 pasos lleva 21 minutos y 36 segundos. 
+A continuación, es turno de subir las imágenes previa y cuidadosamente seleccionadas. Ya sea seleccionándolas directamente desde la carpeta en la que las tengamos guardadas en local, o habiéndolas subido previamente a una carpeta de la cuenta de Google Drive, y proporcionar la ruta en la que están en la celda del cuaderno habilitada para ello.
+
+El último paso, y uno de los más importantes, consiste en establecer algunos parámetros con los que se va a entrenar al modelo. El más importante y el único que nosotros hemos modificado, entre todos los que hay, es el número de \textit{steps}. De modo que, cuanto mayor sean, más tiempo tardará en generarse el archivo. Normalmente, se tardaba unos 20 o 25 minutos en terminar de entrenarse, lo cual hemos considerado que es bastante rápido. En el ejemplo de la figura \ref{fig:dreambooth} se puede ver la ejecución del progreso de entrenamiento en el que para una cantidad de 2000 pasos lleva 21 minutos y 36 segundos. \\
 
 Tras la finalización, se creará un archivo de alrededor de 2 \textit{gigabytes}, que contendrá el modelo de Stable Diffusion 1.5, con una capa de entrenamiento más, puesto que incorporará el elemento deseado. Con esto ya tendríamos un modelo de inteligencia artificial que incluye un elemento personalizado.\\
 
@@ -79,18 +80,33 @@ Tras la finalización, se creará un archivo de alrededor de 2 \textit{gigabytes
 	\label{fig:dreambooth}
 \end{figure}
 
-Este archivo, en formato ckpt, se podrá utilizar en la aplicación NMKD SD GUI más adelante para generar imágenes, y contendrá el elemento entrenado bajo el token seleccionado. Si posteriormente se pretende incluir elementos al modelo ya entrenado, también se puede realizar empezando de nuevo el proceso de entrenamiento y utilizando de base el archivo en extensión ckpt anterior. Cuando se realice este segundo entrenamiento, se podrán generar imágenes acerca de ambos elementos, lo cuál es muy útil para nuestros objetivos, ya que en un mismo modelo enfocado a un paciente, debe haber múltiples elementos. Sin embargo, más adelante veremos que este último aspecto ha supuesto uno de los grandes fallos que experimenta el modelo en cuanto a múltiples capas de entrenamiento. \\
+Este archivo, en formato ckpt, se podrá utilizar en la aplicación NMKD SD GUI más adelante para generar imágenes como la que se puede ver en el ejemplo de la figura \ref{fig:hoyeonsd}, que contiene el elemento entrenado bajo el token seleccionado. Si posteriormente se pretende incluir elementos al modelo ya entrenado, también se puede realizar empezando de nuevo el proceso de entrenamiento y utilizando de base el archivo en extensión ckpt anterior. Cuando se realice este segundo entrenamiento, se podrán generar imágenes acerca de ambos elementos, lo cuál es muy útil para nuestros objetivos, ya que en un mismo modelo enfocado a un paciente, debe haber múltiples elementos. Sin embargo, más adelante veremos que este último aspecto ha supuesto uno de los grandes fallos que experimenta el modelo en cuanto a múltiples capas de entrenamiento. \\
 
-Un aspecto muy importante a tener en cuenta, es que tras la realización de múltiples pruebas, los resultados más adecuados que hemos obtenido han sido seleccionando un conjunto de datos formado por 10 imágenes, y con 2400 pasos de entrenamiento. 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/hoyeon1.png}
+	\caption{Resultados de entrenamiento de una persona con aplicación NMKD GUI}
+	\label{fig:hoyeonsd}
+\end{figure}
 
+Un aspecto muy importante a tener en cuenta, es que tras la realización de múltiples pruebas, los resultados más adecuados que hemos obtenido han sido seleccionando un conjunto de datos formado por 10 imágenes, y con 2400 pasos de entrenamiento.  Se ha visto que estos parámetros son los más adecuados para la generación de forma correcta de diferentes tipos de imágenes. En lo que puede destacar la capacidad de creación de diferentes estilos, ya sean imágenes más realistas o en forma de animación, y la total representación a la realidad de personas y elementos. En la figura \ref{fig:imagshoyeon} se pueden ver 3 perfectos ejemplos de ello en los que se puede apreciar la calidad y versatilidad del modelo. \\
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/hoyeon_results.png}
+	\caption{Resultados de entrenamiento de una persona con diferentes estilos}
+	\label{fig:imagshoyeon}
+\end{figure}
 
 Hemos querido poner a prueba, no sólo las capacidades del modelo de entrenar a personas, ya que hemos podido comprobar sus puntos fuertes y débiles en la generación de seres humanos (los cuales podremos ver más adelante), sino de elementos que consideramos que también son de suma importancia a la hora de representar recuerdos: animales y lugares. Esto es porque un modelo de inteligencia artificial debe ser capaz de identificar a todo tipo de elementos, con el fin de que podamos representar con precisión todo tipo de recuerdos de una persona, y conseguir que el estudio sea completo. \\
 
-Un requerimiento para entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no sería necesario realizar el entrenamiento. Podemos aseguramos de que no se encuentran integrados en el modelo intentando realizar varias generaciones de imágenes del elemento de manera fallida. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos en su memoria y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. 
+Un requerimiento para entrenar al modelo con lugares es que estos no se encuentren en la base de datos de imágenes de Stable Diffusion, puesto que de ser así, no sería necesario realizar el entrenamiento. Podemos aseguramos de que no se encuentran integrados en el modelo intentando realizar varias generaciones de imágenes del elemento de manera fallida. De este modo, podremos lograr que el paciente pueda rememorar sitios emblemáticos en su memoria y que las imágenes generadas que emulan recuerdos consigan ser aún más personales. Por ejemplo, el parque de su vecindario, la casa de sus padres o incluso, su propio salón. \\
 
-Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido e el modelo previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el \textit{token} otorgado.
+Las primeras pruebas que realizamos sobre un lugar se trataba de un edificio característico, que por supuesto no estaba incluido e el modelo previamente. Hablamos de la basílica de Colmenar Viejo, Madrid. Las imágenes seleccionadas estaban hechas desde diferentes ángulos, alturas, luces y lejanías. En la figura \ref{fig:datasetcolme} se pueden apreciar las características que reúnen las fotografías en cuestión y el \textit{token} otorgado.\\
 
-Además, quisimos comprobar si el número de imágenes y \textit{steps} establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente de Resultados.  
+Además, quisimos comprobar si el número de imágenes y \textit{steps} establecidos para las personas, producía resultados igual de satisfactorios para lugares. Y efectivamente, corroboramos la hipótesis de manera airosa. Ejemplos de ello, lo podemos ver en el apartado siguiente de Resultados.  \\
 
 \begin{figure}[!htb]
 	\centering
@@ -103,9 +119,9 @@ Además, quisimos comprobar si el número de imágenes y \textit{steps} establec
 
 \subsection{Entrenamiento con la técnica de LORA}
 
-Para el entrenamiento de animales, seleccionamos 10 fotografías de un perro de la raza Shiba Inu bajo diferentes perspectivas, escenarios y mostrando distintas expresiones para comprobar si la inteligencia artificial permitía entrenar con animales. Sin embargo, a la luz de los resultados vistos en personas y lugares quisimos comprobar la técnica de LORA que presenta Stable Diffusion. Las siglas LORA hacen referencia a \textit{Low-Rank Adaptation of Large Language Models}, del inglés. Esta técnica favorece un equilibrio entre el tamaño del archivo y la eficiencia del propio entrenamiento que ha presentado imágenes de gran calidad en un tiempo excepcional. 
+Para el entrenamiento de animales, seleccionamos 10 fotografías de un perro de la raza Shiba Inu bajo diferentes perspectivas, escenarios y mostrando distintas expresiones para comprobar si la inteligencia artificial permitía entrenar con animales. Sin embargo, a la luz de los resultados vistos en personas y lugares quisimos comprobar la técnica de LORA que presenta Stable Diffusion. Las siglas LORA hacen referencia a \textit{Low-Rank Adaptation of Large Language Models}, del inglés. Esta técnica favorece un equilibrio entre el tamaño del archivo y la eficiencia del propio entrenamiento que ha presentado imágenes de gran calidad en un tiempo excepcional. \\
 
-En la figura \ref{fig:datasethachi} se pueden ver más en detalle las imágenes seleccionadas para las pruebas con LORA en animales.
+En la figura \ref{fig:datasethachi} se pueden ver más en detalle las imágenes seleccionadas para las pruebas con LORA en animales.\\
 
 \begin{figure}[h]
 	\centering
@@ -157,10 +173,21 @@ A la vista de los resultados podemos afirmar que 1000 pasos de entrenamiento o m
 
 En este punto, tenemos dos técnicas de entrenamiento mediante Stable Diffusion: Dreambooth y LORA. Por ello, quisimos analizar la diferencia que existe en cuanto a resultados utilizando ambas técnicas por separado. \\
 
+En la figura \ref{fig:hachiloradreambooth} se puede ver los diferentes resultados que produce cada técnica bajo las mismas características. Es decir, el \textit{prompt} especificado fue "\textit{a happy hachiko in the woods, hd}", el número de pasos fueron 20 y la escala CFG fue fijada a 8. \\
 
-Ahora podemos decir que hemos logrado entrenar un modelo de generación de imágenes incluyendo fotografías propias, y eso es algo que puede ser realmente útil para nuestros siguientes propósitos. Esto es porque podemos lograr que cualquier persona pueda incorporar las imágenes que considere oportunas para servir de apoyo al paciente. Lo cual consideramos un éxito en el desarrollo de nuestro trabajo. 
+A la derecha de la figura podemos ver el resultado que se generó con la técnica de LORA. Como se puede ver tiene menos calidad y correspondencia al animal entrenado a partir de las fotos proporcionadas en el \textit{dataset} de ``hachiko'' de la figura \ref{fig:datasethachi}, ya que el color del pelaje del perro entrenado es diferente al del perro generado en la fotografía, la falta de detalle en la cara del canino es notable e incluso, se puede ver la ausencia de la pata trasera derecha y un fondo que no se sabe con exactitud lo que es. En cambio, en la imagen de la izquierda de la figura \ref{fig:hachiloradreambooth}, la cual fue generada con la técnica de Dreambooth, resulta totalmente identificable el animal con el especificado en el dataset. El pelaje es muy similar y con texturas bastante detalladas, no se aprecia ninguna deformidad y cumple exactamente con todo lo especificado en el prompt de entrada, ya que se puede apreciar claramente cómo se encuentra en el bosque con árboles de fondo, césped y sentado sobre un trozo de madera con trozos de musgo que se aprecian a simple vista.\\
 
+Por ello, y a la vista de los resultados, la técnica de Dreambooth es notablemente mejor en términos de calidad y tiempo. Es por este motivo por el que decidimos descartar la técnica de LORA para la generación de todas las imágenes a crear durante la etapa de pruebas del modelo de Stable Diffusion y continuar con Dreambooth para crear los recuerdos de forma visual a través de una descripción de los mismos. Se ha demostrado que Dreambooth es capaz de generar imágenes representativas a la realidad y con gran cantidad de detalles a partir de \textit{prompts} muy sencillos y es por ello que continuamos elaborando imágenes con esta técnica durante todo el proyecto.\\
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 1
+	\textwidth]{Imagenes/Vectorial/hachidreamboothlora.png}
+	\caption{Mismo \textit{prompt} y pasos para la generación de un perro con las técnicas de Dreambooth y LORA}
+	\label{fig:hachiloradreambooth}
+\end{figure}
+
+Ahora podemos decir que hemos logrado entrenar un modelo de generación de imágenes incluyendo fotografías propias, y eso es algo que puede ser realmente útil para nuestros siguientes propósitos. Esto es porque podemos lograr que cualquier persona pueda incorporar las imágenes que considere oportunas para servir de apoyo al paciente. Lo cual consideramos un éxito en el desarrollo de nuestro trabajo. \\
 \section{Interfaz de Stable Diffusion}
 
 \subsection{Requisitos de instalación}
@@ -187,17 +214,17 @@ En la parte izquierda de la pantalla, podemos encontrar los parámetros realment
 
 A continuación, se debe indicar la descripción, que se divide en dos partes en este caso. La primera es el \textit{prompt}, que guía a la inteligencia artificial para que incluya los elementos que se deseen. Un apunte relevante es que si se quiere hacer referencia a un elemento entrenado, se debe mencionar el nombre exacto del ítem para que se pueda realizar la generación de manera correcta. Por ejemplo si queremos generar una imagen del animal entrenado en el campo se tendría que especificar en el \textit{prompt} ``hachiko corriendo feliz en el campo'' . En segundo lugar, existe un \textit{negative prompt}, donde se deben indicar aquellos elementos que, a petición del usuario, se desee que no se vean reflejados en la creación de la fotografía. Cuando se desee testar un entrenamiento de LoRA, se debe hacer click en el archivo deseado, e introducir ese nombre en el \textit{prompt}. Por último, se deben ajustar unos parámetros explicados con anterioridad, como son los \textit{steps} o pasos de generación, la escala CFG y la \textit{seed}. Una vez conocidos estos pasos a seguir y cumplidos los requisitos mencionados, cualquier usuario debería tener la capacidad de generar imágenes con este programa.\\ 
 
-La escala CFG, o \textit{Classifier Free Guidance}, es un parámetro de Stable Diffusion que controla la medida en la que la generación de imágenes se ciñe a la descripción introducida por el usuario. Esto significa que, si se establece un CFG más bajo, la inteligencia artificial tiene una mayor libertad para ser más creativa, mientras que un nivel más alto obliga a seguir en mayor medida las indicaciones  \citep{FelixSanzSD}. A nivel de calidad de imagen puede tener diversos efectos. Este nivel debe ajustarse en función del \textit{prompt} indicado. Para indicaciones breves es preferible elegir un CFG más bajo, de entre 2 y 6, mientras que en el caso en el que se pretenda una descripción muy precisa, se necesitará un nivel algo más alto, de entre 10 y 15. No obstante, lo más recomendable es ajustar este nivel entre 7 y 10, puesto que se encontrará un equilibrio entre creatividad y precisión.
+La escala CFG, o \textit{Classifier Free Guidance}, es un parámetro de Stable Diffusion que controla la medida en la que la generación de imágenes se ciñe a la descripción introducida por el usuario. Esto significa que, si se establece un CFG más bajo, la inteligencia artificial tiene una mayor libertad para ser más creativa, mientras que un nivel más alto obliga a seguir en mayor medida las indicaciones  \citep{FelixSanzSD}. A nivel de calidad de imagen puede tener diversos efectos. Este nivel debe ajustarse en función del \textit{prompt} indicado. Para indicaciones breves es preferible elegir un CFG más bajo, de entre 2 y 6, mientras que en el caso en el que se pretenda una descripción muy precisa, se necesitará un nivel algo más alto, de entre 10 y 15. No obstante, lo más recomendable es ajustar este nivel entre 7 y 10, puesto que se encontrará un equilibrio entre creatividad y precisión.\\
 
 
 \section{Resultados de generación de imágenes}
 
-Visto el funcionamiento de la aplicación, vamos a analizar los resultados obtenidos en comparación con los \textit{prompts} especificados y bajo las posibles diferentes técnicas y parámetros que se han contemplado.
+Visto el funcionamiento de la aplicación, vamos a analizar los resultados obtenidos en comparación con los \textit{prompts} especificados y bajo las posibles diferentes técnicas y parámetros que se han contemplado.\\
 
 
 \subsection{Maximización del rendimiento con Dreambooth}
 
-Una buena manera de mostrar el mejor resultado posible de una generación de imágenes personalizadas es estudiar cuál es el método que genera mejores fotografías. Para ello, hemos realizado un análisis comparativo de resultados con diferentes pasos de entrenamiento.
+Una buena manera de mostrar el mejor resultado posible de una generación de imágenes personalizadas es estudiar cuál es el método que genera mejores fotografías. Para ello, hemos realizado un análisis comparativo de resultados con diferentes pasos de entrenamiento.\\
 
 El objetivo es comprobar cuál es el número de pasos del entrenamiento mediante Dreambooth que genera las imágenes con mayor calidad y precisión posible. Para ello, hemos realizado cuatro entrenamientos del mismo elemento, con el mismo \textit{dataset} de 10 fotografías, pero con un número de pasos diferente. Este número ha sido de 1600, 2000, 2400 y 3000 \textit{steps}. El tiempo de generación aproximada es de 1,38 iteraciones por segundo, lo cual conlleva una duración total de entrenamiento de 19, 24, 29 y 35 minutos aproximadamente, y es algo a tener en cuenta para seleccionar un modelo u otro.\\
 
@@ -234,68 +261,24 @@ Con 2400 pasos de entrenamiento, se puede decir que los resultados muestran cali
 
 Al incrementar los \textit{steps} a 3000, se puede apreciar sobreentrenamiento, debido a que en ambas imágenes se ha perdido el parecido con la persona real y se puede percibir algo de deformidad, sobre todo en la segunda fotografía. Respecto al retrato, ha variado la forma y el color de los ojos, y han aparecido más marcas que empeoran la calidad. En la imagen con el libro, se ha generado a una persona aún más joven que con 2400 pasos, y ha cambiado por completo la forma de la cara, por lo que la similitud con la persona real se ha desvanecido por completo. Además, si se amplía en detalle se puede apreciar deformidad en los ojos, por lo que se hace evidente el sobreentrenamiento. \\
 
-En conclusión, podemos decir que el entrenamiento que ha producido mejores resultados es el de 2400 pasos, que con menos se aprecia falta de entrenamiento y que con más \textit{steps} se percibe sobreentrenamiento y no se permite identificar a la persona real. En este estudio también se ha podido aprender que el \textit{prompt} ha de ser lo más preciso posible para poder obtener imágenes de gran calidad, sobre todo cuando se trata de incluir más elementos. En este caso, la escala CFG debería ser mayor, para dar algo menos de libertad al modelo y que se centre más en lo que se pide en la descripción.
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/hoyeon1.png}
-%	\caption{Resultados de entrenamiento de una persona con Dreambooth}
-%	\label{fig:hoyeonsd}
-%\end{figure}
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/hoyeon_results.png}
-%	\caption{Resultados de entrenamiento de una persona con diferentes estilos}
-%	\label{fig:imagshoyeon}
-%\end{figure}
-
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/colmenar_styles.png}
-%	\caption{Resultados de imagenes del lugar entrenado al estilo Van Gogh y viñeta}
-%	\label{fig:colmestyles}
-%\end{figure}
-
-
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/colmenar_elements.png}
-%	\caption{Resultados de imágenes del lugar en invierno y con una persona}
-%	\label{fig:elementscolme}
-%\end{figure}
-
-
-%\begin{figure}[!htb]
-%	\centering
-%	\includegraphics[width = 1
-%	\textwidth]{Imagenes/Vectorial/hachiko_detallada.png}
-%	\caption{Imagen generada con el modelo Stable Diffusion 1.5, Lora Hachiko}
-%	\label{fig:detallehachi}
-%\end{figure}
+En conclusión, podemos decir que el entrenamiento que ha producido mejores resultados es el de 2400 pasos, que con menos se aprecia falta de entrenamiento y que con más \textit{steps} se percibe sobreentrenamiento y no se permite identificar a la persona real. En este estudio también se ha podido aprender que el \textit{prompt} ha de ser lo más preciso posible para poder obtener imágenes de gran calidad, sobre todo cuando se trata de incluir más elementos. En este caso, la escala CFG debería ser mayor, para dar algo menos de libertad al modelo y que se centre más en lo que se pide en la descripción.\\
 
 \subsection{Comparativa de resultados}
 
 \textbf{\underline{Diferentes \textit{steps}}}
 
-Una vez se ha demostrado que la mejor forma de realizar un entrenamiento con Dreambooth es con 2400 pasos, el siguiente estudio consistió en valorar los resultados de imágenes generadas variando los \textit{steps} y la\textit{ CFG Scale}. El objetivo era identificar una combinación de estos valores que garantizase buenos resultados, de manera que cualquier usuario pueda generar las mejores imágenes posibles para utilizarlas en el libro de vida. Las fotografías han sido obtenidas a partir de nuestra aplicación, véase en el Capítulo \ref{cap:aplicacion}, lo cual también es una manera de mostrar los resultados en cuanto a calidad y tiempo que el programa puede ofrecer.
+Una vez se ha demostrado que la mejor forma de realizar un entrenamiento con Dreambooth es con 2400 pasos, el siguiente estudio consistió en valorar los resultados de imágenes generadas variando los \textit{steps} y la\textit{ CFG Scale}. El objetivo era identificar una combinación de estos valores que garantizase buenos resultados, de manera que cualquier usuario pueda generar las mejores imágenes posibles para utilizarlas en el libro de vida. Las fotografías han sido obtenidas a partir de nuestra aplicación, véase en el Capítulo \ref{cap:aplicacion}, lo cual también es una manera de mostrar los resultados en cuanto a calidad y tiempo que el programa puede ofrecer.\\
 
-Para el análisis comparativo, se han generado dos fotografías diferentes. La primera es un retrato donde únicamente se ha generado la persona como elemento, siendo el \textit{prompt} el siguiente: \textit{``a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic''}. La segunda es una imagen en la que aparecía la persona con múltiples elementos, con el objetivo de determinar si el hecho de que se solicite una imagen más diversa requiere un mayor número de pasos. El \textit{prompt} utilizado para esta imagen es el siguiente: \textit{``a happy sqgkhoju playing tennis, sunny day, hd, full details''}. La persona utilizada para este estudio ha sido entrenada mediante Dreambooth, siendo el \textit{dataset} el que se  muestra en la figura \ref{fig:datasethoyeon}.
+Para el análisis comparativo, se han generado dos fotografías diferentes. La primera es un retrato donde únicamente se ha generado la persona como elemento, siendo el \textit{prompt} el siguiente: \textit{``a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic''}. La segunda es una imagen en la que aparecía la persona con múltiples elementos, con el objetivo de determinar si el hecho de que se solicite una imagen más diversa requiere un mayor número de pasos. El \textit{prompt} utilizado para esta imagen es el siguiente: \textit{``a happy sqgkhoju playing tennis, sunny day, hd, full details''}. La persona utilizada para este estudio ha sido entrenada mediante Dreambooth, siendo el \textit{dataset} el que se  muestra en la figura \ref{fig:datasethoyeon}.\\
 
-En primer lugar, se fijó la escala CFG para poder estudiar cómo el aumento y la disminución de pasos modifica la calidad y el tiempo de generación. Según la teoría, un valor de CFG estándar que genera resultados de manera correcta es el 7, por lo que es el valor elegido para la primera fotografía. De otro modo, al aumentar los elementos de la imagen, también se debe aumentar este valor, por lo que hemos optado por un valor de 10 para el segundo grupo de fotografías. No obstante, después se fijaría el número de pasos para poder analizar la variación de la calidad de la imagen con la escala.
+En primer lugar, se fijó la escala CFG para poder estudiar cómo el aumento y la disminución de pasos modifica la calidad y el tiempo de generación. Según la teoría, un valor de CFG estándar que genera resultados de manera correcta es el 7, por lo que es el valor elegido para la primera fotografía. De otro modo, al aumentar los elementos de la imagen, también se debe aumentar este valor, por lo que hemos optado por un valor de 10 para el segundo grupo de fotografías. No obstante, después se fijaría el número de pasos para poder analizar la variación de la calidad de la imagen con la escala.\\
 
 
 
 \begin{table}
 	\centering
 	\begin{tabular}{>{\centering\arraybackslash}m{3cm} >{\centering\arraybackslash}m{4cm}>{\centering\arraybackslash}m{5cm}>{\centering\arraybackslash}m{3cm}}
-		\textbf{Pasos de entrenamiento} & \textbf{\textit{a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic}} & \textbf{\textit{a happy sqgkhoju playing tennis, sunny day, hd, full details}} & \textbf{Tiempo} \\
+		\textbf{Pasos de generación} & \textbf{\textit{a close up portrait of sqgkhoju, highly detailed, beautiful, fantastic}} & \textbf{\textit{a happy sqgkhoju playing tennis, sunny day, hd, full details}} & \textbf{Tiempo} \\
 		\hline
 		28 & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/28sojungclose.png} & \includegraphics[width = 0.3\textwidth]{Imagenes/Vectorial/28sojungtennis.png} & 7 minutos y 3 segundos \\
 		\hline
@@ -325,9 +308,9 @@ En resumen, la generación de imágenes en las que se quiera obtener la cara det
 
 \textbf{\underline{Diferente escala CFG}}
 
-Además de aumentar el número de pasos para producir imágenes más complejas, también se ha de elevar la escala CFG. No obstante, consideramos relevante para completar el análisis, demostrar cuál es el valor de la escala con el que se generan imágenes de mayor calidad. Para este caso, también se han utilizado dos tipos de fotografía, con el objeto de ver cómo incide este valor en la multiplicidad de elementos. La primera de las imágenes es un retrato detallado de la persona, donde el número de \textit{steps} se ha fijado en 20, ya que hemos visto en la tabla anterior que se producen buenos resultados. La segunda fotografía resultante incluye a la persona junto con una copa del mundo, donde los pasos se han establecido en 25, ya que en este caso se requiere mayor precisión. La persona a la que se hace referencia es a la entrenada en el Capítulo \ref{cap:librodevida} que veremos más adelante y que se aprecia en la figura \ref*{fig:datasetjovenalp}.
+Además de aumentar el número de pasos para producir imágenes más complejas, también se ha de elevar la escala CFG. No obstante, consideramos relevante para completar el análisis, demostrar cuál es el valor de la escala con el que se generan imágenes de mayor calidad. Para este caso, también se han utilizado dos tipos de fotografía, con el objeto de ver cómo incide este valor en la multiplicidad de elementos. La primera de las imágenes es un retrato detallado de la persona, donde el número de \textit{steps} se ha fijado en 20, ya que hemos visto en la tabla anterior que se producen buenos resultados. La segunda fotografía resultante incluye a la persona junto con una copa del mundo, donde los pasos se han establecido en 25, ya que en este caso se requiere mayor precisión. La persona a la que se hace referencia es a la entrenada en el Capítulo \ref{cap:librodevida} que veremos más adelante y que se aprecia en la figura \ref*{fig:datasetjovenalp}.\\
 
-Para este análisis no se ha considerado la duración, ya que es algo que no depende de la escala, sino del número de iteraciones. A continuación, se muestran los resultados obtenidos modificando la CFG Scale, para cada tipo de fotografía.
+Para este análisis no se ha considerado la duración, ya que es algo que no depende de la escala, sino del número de iteraciones. A continuación, se muestran los resultados obtenidos modificando la CFG Scale, para cada tipo de fotografía.\\
 
 \begin{table}
 	\centering
@@ -363,22 +346,22 @@ Para este análisis no se ha considerado la duración, ya que es algo que no dep
 	\label{tab:tablacfgscale}
 \end{table}
 
-Después de haber obtenido todas las fotografías, podemos apreciar que se cumplen las hipótesis iniciales. Es decir, lo que se había indicado de manera teórica se ha podido comprobar de manera gráfica. Estas hipótesis afirmaban que para imágenes o mensajes simples, los mejores resultados se obtienen con una escala CFG mediana, de alrededor de 7, pero que las imágenes también podrían tener una escala menor y mantener el nivel de calidad. Por el contrario, si el nivel de detalle exigido en el \textit{prompt} es mayor, es necesaria una escala CFG más elevada, y así lo hemos podido comprobar con ambos tipos de fotografía. 
+Después de haber obtenido todas las fotografías, podemos apreciar que se cumplen las hipótesis iniciales. Es decir, lo que se había indicado de manera teórica se ha podido comprobar de manera gráfica. Estas hipótesis afirmaban que para imágenes o mensajes simples, los mejores resultados se obtienen con una escala CFG mediana, de alrededor de 7, pero que las imágenes también podrían tener una escala menor y mantener el nivel de calidad. Por el contrario, si el nivel de detalle exigido en el \textit{prompt} es mayor, es necesaria una escala CFG más elevada, y así lo hemos podido comprobar con ambos tipos de fotografía. \\
 
-En cuanto al retrato de la persona, todas las fotografías muestran un alto nivel de parecido con la persona entrenada. No obstante, sí se puede apreciar que a medida que aumenta el valor CFG, lo hace también el exceso de marcas y de intensidad de la imagen, haciendo que pierdan un grado de calidad. Por tanto, si lo que se solicita en la descripción es un retrato de una persona, lo que se recomienda es utilizar una escala CFG de entre 5 y 7. Proporciona un resultado con claridad, gran definición y, por supuesto, se identifica a la persona que se pide en el \textit{prompt}.
+En cuanto al retrato de la persona, todas las fotografías muestran un alto nivel de parecido con la persona entrenada. No obstante, sí se puede apreciar que a medida que aumenta el valor CFG, lo hace también el exceso de marcas y de intensidad de la imagen, haciendo que pierdan un grado de calidad. Por tanto, si lo que se solicita en la descripción es un retrato de una persona, lo que se recomienda es utilizar una escala CFG de entre 5 y 7. Proporciona un resultado con claridad, gran definición y, por supuesto, se identifica a la persona que se pide en el \textit{prompt}.\\
 
-Por el contrario, si se solicitan varios elementos en una misma descripción, además de necesitar un número mayor de iteraciones (en este caso utilizamos 25), también se requiere una mayor precisión con la que el modelo de inteligencia artificial ejecute la petición, es decir una CFG Scale más elevada. En este caso, se refleja algo parecido a lo mencionado en el párrafo anterior con respecto a la cara de la persona. No obstante, el detalle con el que se genera a los dos elementos principales en conjunto es mayor conforme aumenta la escala. El trofeo muestra una gran evolución desde el valor 5 hasta el 15, donde se puede decir que la calidad es perfecta.
+Por el contrario, si se solicitan varios elementos en una misma descripción, además de necesitar un número mayor de iteraciones (en este caso utilizamos 25), también se requiere una mayor precisión con la que el modelo de inteligencia artificial ejecute la petición, es decir una CFG Scale más elevada. En este caso, se refleja algo parecido a lo mencionado en el párrafo anterior con respecto a la cara de la persona. No obstante, el detalle con el que se genera a los dos elementos principales en conjunto es mayor conforme aumenta la escala. El trofeo muestra una gran evolución desde el valor 5 hasta el 15, donde se puede decir que la calidad es perfecta.\\
 
-En conclusión, para ambos análisis realizados, consideramos que para imágenes en las que el \textit{prompt} es simple, es conveniente utilizar una escala CFG con un valor de entre 5 y 7, y respecto al número de pasos, con un valor de 20 sería suficiente para generar un resultado correcto, con una alta calidad y un gran parecido con la persona entrenada. Por otra parte, en el caso en el que se pretendan generar múltiples elementos, se requiere un mínimo de 24 iteraciones para poder obtener lo que se desee, y adicionalmente, se debería ajustar la escala CFG entre los 13 y los 15. Con esta combinación, tanto la persona entrenada como su entorno se mostrarían con un alto nivel de calidad.
+En conclusión, para ambos análisis realizados, consideramos que para imágenes en las que el \textit{prompt} es simple, es conveniente utilizar una escala CFG con un valor de entre 5 y 7, y respecto al número de pasos, con un valor de 20 sería suficiente para generar un resultado correcto, con una alta calidad y un gran parecido con la persona entrenada. Por otra parte, en el caso en el que se pretendan generar múltiples elementos, se requiere un mínimo de 24 iteraciones para poder obtener lo que se desee, y adicionalmente, se debería ajustar la escala CFG entre los 13 y los 15. Con esta combinación, tanto la persona entrenada como su entorno se mostrarían con un alto nivel de calidad.\\
 
 \subsection{Ejemplos de resultados con diferentes elementos}
 
 
-A raíz de las demostraciones de los apartados anteriores, cualquier usuario podría generar fotografías con el conocimiento suficiente de qué valores debe introducir en steps y CFG scale para obtener buenos resultados. Para poner en práctica este aprendizaje, vamos a comprobar la calidad de las imágenes generadas con más elementos que no estén basados en personas, como animales y lugares concretos.
+A raíz de las demostraciones de los apartados anteriores, cualquier usuario podría generar fotografías con el conocimiento suficiente de qué valores debe introducir en steps y CFG scale para obtener buenos resultados. Para poner en práctica este aprendizaje, vamos a comprobar la calidad de las imágenes generadas con más elementos que no estén basados en personas, como animales y lugares concretos.\\
 
-El primer ejemplo de mostrar resultados será con lugares. Este lugar es el entrenado con el dataset que se ve en la figura \ref{fig:datasetcolme}, al que se le identifica con el token ``cvbasil''. 
+El primer ejemplo de mostrar resultados será con lugares. Este lugar es el entrenado con el dataset que se ve en la figura \ref{fig:datasetcolme}, al que se le identifica con el token ``cvbasil''. \\
 
-En primer lugar, se generará una fotografía de un único elemento, con 20 pasos y escala CFG de 7. El \textit{prompt} es el siguiente: ``\textit{a picture of cvbasil, spring style, highly detailed, cloudy day, raining}''.
+En primer lugar, se generará una fotografía de un único elemento, con 20 pasos y escala CFG de 7. El \textit{prompt} es el siguiente: ``\textit{a picture of cvbasil, spring style, highly detailed, cloudy day, raining}''.\\
 
 \begin{figure}[!htb]
 	\centering
@@ -404,14 +387,24 @@ El \textit{prompt} elegido para este tipo de imagen es el siguiente:``\textit{a 
 	\label{fig:cvbasilbyn}
 \end{figure}
 
-Respecto al resultado con este \textit{prompt}, y con unos pasos y escala CFG avanzados, se puede decir que el rendimiento ha sido el esperado, y ha introducido los elementos deseados. Se pueden apreciar tanto los árboles como las personas, a la par que muestra un estilo que refleja antigüedad, por lo que la imagen satisface la descripción introducida.
+Respecto al resultado con este \textit{prompt}, y con unos pasos y escala CFG avanzados, se puede decir que el rendimiento ha sido el esperado, y ha introducido los elementos deseados. Se pueden apreciar tanto los árboles como las personas, a la par que muestra un estilo que refleja antigüedad, por lo que la imagen satisface la descripción introducida.\\
 
-Podemos apreciar cómo ambas fotografías muestran calidad y se ajustan a lo que solicita la descripción, por lo que es una buena manera de poner en práctica cómo los parámetros que mejoran el rendimiento en humanos también lo hacen en lugares.
+Podemos apreciar cómo ambas fotografías muestran calidad y se ajustan a lo que solicita la descripción, por lo que es una buena manera de poner en práctica cómo los parámetros que mejoran el rendimiento en humanos también lo hacen en lugares.\\
 
-El siguiente paso es mostrar los resultados con los parámetros escogidos para animales. En este caso hemos seleccionado el dataset que aparece en la figura \ref{fig:comphachi} en el que el \textit{token} otorgado es ``hachiko''.
+Adicionalmente, hemos podido comprobar la capacidad de identificar diferentes estilos y corrientes artísticas, siendo capaz de distinguir nombres de artistas famosos y el estilo que adoptaba cada uno de ellos. Por ejemplo, en la figura \ref{fig:colmestyles} se puede ver en la imagen de la derecha cómo especificando en el \textit{prompt} el artista ``Van Gogh'' se genera una imagen con el estilo característico que el artista presentaba. En la imagen de la derecha se pidió una caricatura. \\
 
-Primera fotografía con un entorno simple, se puede ver en la figura \ref{fig:hachigorrito}. \textit{Prompt}: ``\textit{a photograph of hachift80alp wearing a hat, hd}''. 20 pasos, escala CFG 7.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 0.8
+	\textwidth]{Imagenes/Vectorial/colmenar_styles.png}
+	\caption{Resultados de imagenes del lugar entrenado al estilo Van Gogh y viñeta}
+	\label{fig:colmestyles}
+\end{figure}
 
+
+El siguiente paso es mostrar los resultados con los parámetros escogidos para animales. En este caso hemos seleccionado el dataset que aparece en la figura \ref{fig:comphachi} en el que el \textit{token} otorgado es ``hachiko''.\\
+
+ Primera fotografía con un entorno simple, se puede ver en la figura \ref{fig:hachigorrito}. \textit{Prompt}: ``\textit{a photograph of hachift80alp wearing a hat, hd}''. 20 pasos, escala CFG 7. \\
 
 \begin{figure}[!htb]
 	\centering
@@ -421,10 +414,10 @@ Primera fotografía con un entorno simple, se puede ver en la figura \ref{fig:ha
 	\label{fig:hachigorrito}
 \end{figure}
 
-En la fotografía de la figura \ref{hachipersona}se refleja al perro con una alta calidad, de manera que se pueden apreciar perfectamente todos sus rasgos sin ninguna deformidad. De esta manera, con el número de pasos y escala establecidos se ha generado un buen resultado.
+En la fotografía de la figura \ref{fig:hachigorrito} se refleja al perro con una alta calidad, de manera que se pueden apreciar perfectamente todos sus rasgos sin ninguna deformidad. De esta manera, con el número de pasos y escala establecidos se ha generado un buen resultado.\\
 
 Segunda foto con un entorno complejo. 25 pasos y 13 de escala CFG.
-\textit{``a picture of hachift80alp and a man, hd''}
+\textit{``a picture of hachift80alp and a man, hd''}.\\
 
 \begin{figure}[!htb]
 	\centering
@@ -434,7 +427,7 @@ Segunda foto con un entorno complejo. 25 pasos y 13 de escala CFG.
 	\label{fig:hachipersona}
 \end{figure}
 
-En cuanto al resultado obtenido, muestra perfectamente al animal y también a la persona, sin ninguna deformidad y con una muy buena calidad. Se demuestra que se deben aumentar tanto los pasos como la escala para generar una buena fotografía. El resultado es más que satisfactorio y acorde a lo que se ha pedido en la descripción.
+En cuanto al resultado obtenido, la figura \ref{fig:hachipersona} muestra perfectamente al animal y también a la persona, sin ninguna deformidad y con una muy buena calidad. Se demuestra que se deben aumentar tanto los pasos como la escala para generar una buena fotografía. El resultado es más que satisfactorio y acorde a lo que se ha pedido en la descripción. Incluso, resulta sorprendente la naturalidad de la pose de la persona que sale en la fotografía, mostrando total naturalidad y la misma familiaridad en el gesto que tendría una persona de la edad del chico que sale en la imagen y que es consciente que está siendo fotografiado con alguien o algo. Esto demuestra como el modelo de inteligencia artificial usado sabe reconocer patrones en el comportamiento de las personas, ya sea en gestos o en expresiones corporales. \\
 
 \subsection{Resultados con múltiples capas de entrenamiento}
 
@@ -481,12 +474,9 @@ En los tres aspectos, hemos identificado dos posibles situaciones que se pueden 
 
 \begin{itemize}
 	\item \underline{Peligros con el sobreentrenamiento}: Se produce cuando el modelo no se puede generalizar y se ajusta demasiado al conjunto de datos entrenados. Se debe principalmente a que el tamaño de los datos es demasiado pequeño y no contiene suficientes muestras de datos para poder representar con precisión la totalidad de datos de entrada posibles. Otra razón es que el modelo se entrena durante demasiado tiempo en un solo conjunto de datos de muestra. En nuestro modelo, encontramos sobreentrenamiento cuando elegimos un número de \textit{steps} muy elevado para un número de fotografías que no es lo suficientemente alto. Una manera de detectar que nuestro modelo está sobreentrenado es cuando no genera bien la cara de la persona, y se aprecian fallos en determinadas facciones, como en los ojos y la boca, en los cuales se aprecia deformidad.\\
-
 	\item \underline{Falta de pasos en el entrenamiento}: En este caso, se produce cuando el modelo de datos no tiene la capacidad de capturar de forma precisa la relación entre las variables de entrada y de salida, de manera que existe un elevado índice de errores en el conjunto de datos de entrenamiento y en los datos no vistos. Se debe a que el modelo es demasiado simple, porque el tamaño de los datos es demasiado pequeño, o bien porque se necesita más tiempo de entrenamiento. En este caso, cuando generamos las imágenes, se evidencia que el modelo aún no ha aprendido lo suficiente acerca del elemento o \textit{token} del que se ha realizado el entrenamiento, pues el resultado de la generación refleja una persona que no muestra ningún parecido con la realidad.\\
-
-
 	\item \underline{Mezcla de personas}: Para ampliar los horizontes de nuestro entrenamiento, hemos entrenado a una persona, asociando un \textit{token} a ella para su identificación, sobre un modelo que previamente ya había sido entrenado con una persona y su \textit{token} asociado, para comprobar si efectivamente se podía generar en una sola imagen una representación de las dos personas entrenadas, una junto a la otra. Es aquí donde se ha detectado una peculiaridad, ya que, a pesar de que un modelo genere buenos resultados de cada una de las dos personas, en el mismo momento que se solicita en un determinado \textit{prompt} o descripción que se vean reflejados una o varias personas entrenadas en la misma fotografía, ningún modelo de los que se haya probado, ha generado buenos resultados de esta manera. Lo que finalmente se aprecia en la imagen generada como se puede ver en la figura \ref{fig:willpor2}, es que aparecen dos personas pero sus rostros son una mezcla de las características faciales y fisiológicas de ambas, produciéndose una deformidad en muchos de los casos y que los rostros aparezcan prácticamente duplicados.\\
-
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
