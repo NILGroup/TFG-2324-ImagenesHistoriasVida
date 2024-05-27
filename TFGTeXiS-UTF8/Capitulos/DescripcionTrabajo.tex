@@ -408,9 +408,9 @@ Respecto al resultado con este \textit{prompt}, y con unos pasos y escala CFG av
 
 Podemos apreciar cómo ambas fotografías muestran calidad y se ajustan a lo que solicita la descripción, por lo que es una buena manera de poner en práctica cómo los parámetros que mejoran el rendimiento en humanos también lo hacen en lugares.
 
-El siguiente paso es mostrar los resultados con los parámetros escogidos para animales. En este caso hemos seleccionado el dataset que aparece en la figura \ref{fig:comphachi}.
+El siguiente paso es mostrar los resultados con los parámetros escogidos para animales. En este caso hemos seleccionado el dataset que aparece en la figura \ref{fig:comphachi} en el que el \textit{token} otorgado es ``hachiko''.
 
-Primera fotografía con un entorno simple. \textit{Prompt}: ``\textit{a photograph of hachift80alp wearing a hat, hd}''. 20 pasos, escala CFG 7.
+Primera fotografía con un entorno simple, se puede ver en la figura \ref{fig:hachigorrito}. \textit{Prompt}: ``\textit{a photograph of hachift80alp wearing a hat, hd}''. 20 pasos, escala CFG 7.
 
 
 \begin{figure}[!htb]
@@ -418,10 +418,10 @@ Primera fotografía con un entorno simple. \textit{Prompt}: ``\textit{a photogra
 	\includegraphics[width = 0.5
 	\textwidth]{Imagenes/Vectorial/hachigorrito.png}
 	\caption{Una fotografía de Hachiko con un gorro}
-	\label{fig:cvbasilnublado}
+	\label{fig:hachigorrito}
 \end{figure}
 
-En esta fotografía se refleja al perro con una alta calidad, de manera que se pueden apreciar perfectamente todos sus rasgos sin ninguna deformidad. De esta manera, con el número de pasos y escala establecidos se ha generado un buen resultado.
+En la fotografía de la figura \ref{hachipersona}se refleja al perro con una alta calidad, de manera que se pueden apreciar perfectamente todos sus rasgos sin ninguna deformidad. De esta manera, con el número de pasos y escala establecidos se ha generado un buen resultado.
 
 Segunda foto con un entorno complejo. 25 pasos y 13 de escala CFG.
 \textit{``a picture of hachift80alp and a man, hd''}
@@ -431,7 +431,7 @@ Segunda foto con un entorno complejo. 25 pasos y 13 de escala CFG.
 	\includegraphics[width = 0.5
 	\textwidth]{Imagenes/Vectorial/hachiconpersona.png}
 	\caption{Una fotografía de hachiko con una persona}
-	\label{fig:cvbasilnublado}
+	\label{fig:hachipersona}
 \end{figure}
 
 En cuanto al resultado obtenido, muestra perfectamente al animal y también a la persona, sin ninguna deformidad y con una muy buena calidad. Se demuestra que se deben aumentar tanto los pasos como la escala para generar una buena fotografía. El resultado es más que satisfactorio y acorde a lo que se ha pedido en la descripción.
@@ -500,9 +500,9 @@ En los tres aspectos, hemos identificado dos posibles situaciones que se pueden 
 
 Debido a la importancia que consideramos que tiene en el desarrollo de unas adecuadas historias de vida la mezcla de elementos personales con la propia persona, consideramos métodos para arreglar la poca certeza que nos otorga el modelo de Stable Diffusion con múltiples capas de entrenamiento, ya que a la luz de los resultados, el modelo es, por el momento, inválido en este aspecto. \\
 
-Por ello, decidimos profundizar en las opciones que ofrece la interfaz de Stable Diffusion y dimos con la opción img2img, es decir, imagen a imagen. Esto es, como su nombre indica, un método en el que la entrada, en vez de ser texto como lo venía siendo hasta ahora, es una propia imagen. Sin embargo, el \textit{prompt} sigue siendo un elemento fundamental que sigue formando parte del modelo, ya que de esta manera, se le especifica a la técnica de inteligencia artificial lo que se desea en la imagen futura y el modelo se encargará de crearlo, teniendo en cuenta la estructura y objetos ya dispuestos en la imagen original. 
+Por ello, decidimos profundizar en las opciones que ofrece la interfaz de Stable Diffusion y dimos con la opción img2img, es decir, imagen a imagen. Esto es, como su nombre indica, un método en el que la entrada, en vez de ser texto como lo venía siendo hasta ahora, es una propia imagen. Sin embargo, el \textit{prompt} sigue siendo un elemento fundamental que sigue formando parte del modelo, ya que de esta manera, se le especifica a la técnica de inteligencia artificial lo que se desea en la imagen futura y el modelo se encargará de crearlo, teniendo en cuenta la estructura y objetos ya dispuestos en la imagen original. \\
 
-Incluso, el propio modelo de Stable Diffusion con el método de img2img tiene sus propias técnicas, de las cuales, una particularmente llamó nuestra atención: la técnica \textit{Inpainting}. 
+Incluso, el propio modelo de Stable Diffusion con el método de img2img tiene sus propias técnicas, de las cuales, una particularmente llamó nuestra atención: la técnica \textit{Inpainting}. \\
 
 Entre los problemas que se encontraban en el contenido final de las imágenes pedidas bajo un \textit{prompt} que integraba dos elementos entrenados, podíamos distinguir 3 casos principales: contenido aleatorio no especificado, falta completa de uno de los dos elementos o un elemento y el concepto del segundo elemento sin llegar a ser el especificado. Es decir, si pedimos que genere en una imagen a la actriz coreana ``sqgkhoju'' y el salón de la serie Friends, puede pasar que genere contenido aleatorio, que genere solamente a la actriz coreana o que genere a la actriz coreana en un salón que no es el de la serie de Friends que se ha especificado. Ejemplo de ello, se puede ver en la figura \ref{fig:comparacionhojufrdns}. \\
 
@@ -514,9 +514,9 @@ Esta novedosa técnica debe su nombre a que el protagonista es un pincel virtual
 
 De esta manera, el modelo de inteligencia artificial genera lo especificado en el \textit{prompt} solamente en el área indicada sustituyéndolo por lo que había anteriormente. En este ejemplo, el área que dibujaríamos correspondería a la persona de la foto y el resultado final serían los dos elementos diferentes integrados a la perfección en una sola imagen. \\
 
-Debido a la novedad de la técnica, los parámetros que estábamos acostumbrados a cambiar, también se han ampliado para poder emplear la técnica con los mejores resultados posibles y de la manera más eficiente. 
+Debido a la novedad de la técnica, los parámetros que estábamos acostumbrados a cambiar, también se han ampliado para poder emplear la técnica con los mejores resultados posibles y de la manera más eficiente. \\
 
-Entre ellos, los más importantes y que se pueden ver en la figura \ref{fig:paramsinpainting} señalados, son 5, con los cuales dos ya estamos familiarizados, que son los \textit{steps} y \textit{cfg scale}. Por lo tanto, nos centraremos más en los 3 restantes. 
+Entre ellos, los más importantes y que se pueden ver en la figura \ref{fig:paramsinpainting} señalados, son 5, con los cuales dos ya estamos familiarizados, que son los \textit{steps} y \textit{cfg scale}. Por lo tanto, nos centraremos más en los 3 restantes. \\
 
 \begin{figure}[h]
 	\centering
@@ -526,13 +526,13 @@ Entre ellos, los más importantes y que se pueden ver en la figura \ref{fig:para
 	\label{fig:paramsinpainting}
 \end{figure}
 
-El primer parámetro es ``\textit{Mask Mode}'' y antes de continuar, es importante especificar que en \textit{Inpainting}, cuando se habla de ``\textit{mask}'' se refiere únicamente al área que hemos marcado con el pincel para su posterior modificación. Como podemos ver en la figura \ref{fig:paramsinpainting}, en este parámetro se encuentran dos opciones: \textit{inpaint masked} e \textit{inpaint not masked}. A lo que se refiere es al área que se va a ver sustuida por el \textit{prompt}, ya que habrá casos en los que se quiera conservar la imagen en su totalidad a excepción de una parte y casos que por el contrario, se desearía modificar la imagen en su totalidad, a excepción de una porción, como lo puede ser en el caso de un cambio de fondo. 
+El primer parámetro es ``\textit{Mask Mode}'' y antes de continuar, es importante especificar que en \textit{Inpainting}, cuando se habla de ``\textit{mask}'' se refiere únicamente al área que hemos marcado con el pincel para su posterior modificación. Como podemos ver en la figura \ref{fig:paramsinpainting}, en este parámetro se encuentran dos opciones: \textit{inpaint masked} e \textit{inpaint not masked}. A lo que se refiere es al área que se va a ver sustuida por el \textit{prompt}, ya que habrá casos en los que se quiera conservar la imagen en su totalidad a excepción de una parte y casos que por el contrario, se desearía modificar la imagen en su totalidad, a excepción de una porción, como lo puede ser en el caso de un cambio de fondo. \\
 
-El segundo parámetro es ``\textit{Masked content}'' y las opciones que presenta son un poco más extensas que en el parámetro anterior, siendo estas \textit{fill}, \textit{original}, \textit{latent noise} y \textit{latent nothing}. Lo interesante de estas opciones es el funcionamiento que lleva a cabo Stable Diffusion en la generación de contenido en el área especificada. Como ya hemos podido ver en el Capítulo 2, Stable Diffusion necesita o bien ruido o bien nuevos datos para generar una imagen, y al tener la opción a original, se trabajará a partir del contenido de la foto original, es decir, se coge de referencia la forma y colores originales para la generación. En general, se recomienda no cambiar estas opciones y siempre mantener la que está por defecto, es decir, original. 
+El segundo parámetro es ``\textit{Masked content}'' y las opciones que presenta son un poco más extensas que en el parámetro anterior, siendo estas \textit{fill}, \textit{original}, \textit{latent noise} y \textit{latent nothing}. Lo interesante de estas opciones es el funcionamiento que lleva a cabo Stable Diffusion en la generación de contenido en el área especificada. Como ya hemos podido ver en el Capítulo 2, Stable Diffusion necesita o bien ruido o bien nuevos datos para generar una imagen, y al tener la opción a original, se trabajará a partir del contenido de la foto original, es decir, se coge de referencia la forma y colores originales para la generación. En general, se recomienda no cambiar estas opciones y siempre mantener la que está por defecto, es decir, original. \\
 
-Por último, el tercer parámetro ``Denoising Strength'' es un valor entre 0 y 1 que explica la fuerza en la que cambiará el área seleccionada en comparación la imagen original, siendo el 0 que no cambie nada y el 1 algo completamente diferente. 
+Por último, el tercer parámetro ``Denoising Strength'' es un valor entre 0 y 1 que explica la fuerza en la que cambiará el área seleccionada en comparación la imagen original, siendo el 0 que no cambie nada y el 1 algo completamente diferente. \\
 
-Cabe destacar que la técnica de \textit{inpainting} implementada a través del método de imagen a imagen no está incorporada en la aplicación NMKD SD GUI y por ello, se han tenido que buscar alternativas para acceder a ella. En concreto, hablamos de un cuaderno de trabajo hecho en Google Colab en el que se ha importado código de GitHub de Automatic1111 \footnote{\url{https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb#scrollTo=p4wj_txjP3TC}}, una conocida interfaz gráfica destinada a usar herramientas avanzadas de Stable Diffusion. La principal ventaja que presenta este cuaderno es que permite cargar un modelo propio ya entrenado, como se puede ver en la figura \ref{fig:inpainting1} que el modelo cargado es el archivo frndslivro.ckpt visto en este mismo capítulo anteriormente. Lo cual es perfecto para el objetivo que queremos conseguir. 
+Cabe destacar que la técnica de \textit{inpainting} implementada a través del método de imagen a imagen no está incorporada en la aplicación NMKD SD GUI y por ello, se han tenido que buscar alternativas para acceder a ella. En concreto, hablamos de un cuaderno de trabajo hecho en Google Colab en el que se ha importado código de GitHub de Automatic1111 \footnote{\url{https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb#scrollTo=p4wj_txjP3TC}}, una conocida interfaz gráfica destinada a usar herramientas avanzadas de Stable Diffusion. La principal ventaja que presenta este cuaderno es que permite cargar un modelo propio ya entrenado, como se puede ver en la figura \ref{fig:inpainting1} que el modelo cargado es el archivo frndslivro.ckpt visto en este mismo capítulo anteriormente. Lo cual es perfecto para el objetivo que queremos conseguir. \\
 
 \begin{figure}[h]
 	\centering
@@ -542,9 +542,9 @@ Cabe destacar que la técnica de \textit{inpainting} implementada a través del 
 	\label{fig:inpainting1}
 \end{figure}
 
-En la figura \ref{fig:inpainting1} se puede ver a la derecha la imagen ``original'', la cual previamente ya había sido pasada por esta técnica para poner la cara de ``80alp'' en la persona anteriormente generada. En la misma figura se puede ver el área \textit{masked} seleccionada con el pincel y el parámetro ``\textit{Mask mode}'' establecido a ``\textit{Inpaint not masked}''. Finalmente, podemos ver en el \textit{prompt} que solamente se especifica el \textit{token} ``frdslivro'' debido a que lo que se quiere conseguir es que sustituya lo que no está seleccionado por la brocha en la imagen, por el salón entrenado del modelo. El resultado puede verse en la parte derecha de la imagen, el cual podemos afirmar que es todo un éxito, al haber conseguido incorporar 3 \textit{tokens} entrenados diferentes, la persona, el animal y el lugar. 
+En la figura \ref{fig:inpainting1} se puede ver a la derecha la imagen ``original'', la cual previamente ya había sido pasada por esta técnica para poner la cara de ``80alp'' en la persona anteriormente generada. En la misma figura se puede ver el área \textit{masked} seleccionada con el pincel y el parámetro ``\textit{Mask mode}'' establecido a ``\textit{Inpaint not masked}''. Finalmente, podemos ver en el \textit{prompt} que solamente se especifica el \textit{token} ``frdslivro'' debido a que lo que se quiere conseguir es que sustituya lo que no está seleccionado por la brocha en la imagen, por el salón entrenado del modelo. El resultado puede verse en la parte derecha de la imagen, el cual podemos afirmar que es todo un éxito, al haber conseguido incorporar 3 \textit{tokens} entrenados diferentes, la persona, el animal y el lugar. \\
 
-En el siguiente ejemplo de la figura \ref{fig:fasesinpainting} podemos ver la evolución que sigue una misma imagen bajo diferentes peticiones de \textit{prompt} en la fase de \textit{inpainting}. En la primera imagen que se ve en la figura, el \textit{prompt} especificado fue ``\textit{a happy 80alp walking with his dog hachift80alp in the forest next to the mountains, day light, full hd, high quality}'' y podemos ver como generó todo a la perfección excepto a la persona entrenada. En la segunda foto, se partió de la primera imagen y trazando el área del rostro de la persona, se puso como \textit{prompt} ``\textit{a close up picture of 80alp face, hd}''. Finalmente, para que el cuerpo de la persona generada al principio encajara con el de una persona de la edad de la foto, se seleccionó la ropa como área y finalmente el \textit{prompt} fue ``\textit{old man clothes}'' y el resultado final fue excepcional. 
+En el siguiente ejemplo de la figura \ref{fig:fasesinpainting} podemos ver la evolución que sigue una misma imagen bajo diferentes peticiones de \textit{prompt} en la fase de \textit{inpainting}. En la primera imagen que se ve en la figura, el \textit{prompt} especificado fue ``\textit{a happy 80alp walking with his dog hachift80alp in the forest next to the mountains, day light, full hd, high quality}'' y podemos ver como generó todo a la perfección excepto a la persona entrenada. En la segunda foto, se partió de la primera imagen y trazando el área del rostro de la persona, se puso como \textit{prompt} ``\textit{a close up picture of 80alp face, hd}''. Finalmente, para que el cuerpo de la persona generada al principio encajara con el de una persona de la edad de la foto, se seleccionó la ropa como área y finalmente el \textit{prompt} fue ``\textit{old man clothes}'' y el resultado final fue excepcional. \\
 
 \begin{figure}[h]
 	\centering
@@ -556,7 +556,7 @@ En el siguiente ejemplo de la figura \ref{fig:fasesinpainting} podemos ver la ev
 
 \section{Evolución de los modelos del proyecto}
 
-Este apartado muestra los pasos que se han llevado a cabo durante la realización del proyecto. Resulta significativo porque el contraste de lo que se podía hacer al principio con lo que se puede hacer ahora es muy elevado, y pone en valor el trabajo realizado.
+Este apartado muestra los pasos que se han llevado a cabo durante la realización del proyecto. Resulta significativo porque el contraste de lo que se podía hacer al principio con lo que se puede hacer ahora es muy elevado, y pone en valor el trabajo realizado.\\
 
 1. No se podían generar imágenes en local. No estaba instalado CUDA en el equipo, además de otras herramientas necesarias como Diffusers.
 
