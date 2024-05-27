@@ -376,7 +376,7 @@ En conclusión, para ambos análisis realizados, consideramos que para imágenes
 
 A raíz de las demostraciones de los apartados anteriores, cualquier usuario podría generar fotografías con el conocimiento suficiente de qué valores debe introducir en steps y CFG scale para obtener buenos resultados. Para poner en práctica este aprendizaje, vamos a comprobar la calidad de las imágenes generadas con más elementos que no estén basados en personas, como animales y lugares concretos.
 
-El primer ejemplo de mostrar resultados será con lugares. Este lugar es el dataset que se ve en la figura \ref{fig:datasetcolme}. 
+El primer ejemplo de mostrar resultados será con lugares. Este lugar es el entrenado con el dataset que se ve en la figura \ref{fig:datasetcolme}, al que se le identifica con el token ``cvbasil''. 
 
 En primer lugar, se generará una fotografía de un único elemento, con 20 pasos y escala CFG de 7. El \textit{prompt} es el siguiente: ``\textit{a picture of cvbasil, spring style, highly detailed, cloudy day, raining}''.
 
@@ -389,13 +389,20 @@ En primer lugar, se generará una fotografía de un único elemento, con 20 paso
 \end{figure}
  
 
-Con este \textit{prompt}, simplemente se está detallando cómo debe ser el elemento, en qué contexto se desea incluir. El resultado es bastante correcto y con una buena calidad, porque respeta en gran medida lo que se pide en el \textit{prompt}. Incluye un árbol completamente cubierto como elemento primaveral, casas con un alto grado de detalle y con la perspectiva correcta y se refleja un día nublado, por lo que se puede decir que el resultado tiene una alta calidad y satisface las exigencias del usuario.
+Con este \textit{prompt}, simplemente se está detallando cómo debe ser el elemento, en qué contexto se desea incluir. El resultado es bastante correcto y con una buena calidad, porque respeta en gran medida lo que se pide en el \textit{prompt}. Incluye un árbol completamente cubierto como elemento primaveral, casas con un alto grado de detalle y con la perspectiva correcta y se refleja un día nublado, por lo que se puede decir que el resultado tiene una alta calidad y satisface las exigencias del usuario.\\
 
-Por el contrario, si se desea que el elemento entrenado contenga un entorno más desarrollado, es necesario elevar el número de pasos a 25 y la escala CFG a 13. 
-El \textit{prompt} elegido para este tipo de imagen es el siguiente:``\textit{a photograph of cvbasil in the Roman empire, surrounded by trees and people}''.
+Por el contrario, si se desea que el elemento entrenado contenga un entorno más desarrollado, es necesario elevar el número de pasos a 25 y la escala CFG a 13. \\
+
+El \textit{prompt} elegido para este tipo de imagen es el siguiente:``\textit{a photograph of cvbasil in the Roman empire, surrounded by trees and people}''.\\
 
 
-Figura X: la basílica junto con árboles y personas
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 0.5
+	\textwidth]{Imagenes/Vectorial/colmeb&n.png}
+	\caption{La basílica junto con árboles y personas}
+	\label{fig:cvbasilbyn}
+\end{figure}
 
 Respecto al resultado con este \textit{prompt}, y con unos pasos y escala CFG avanzados, se puede decir que el rendimiento ha sido el esperado, y ha introducido los elementos deseados. Se pueden apreciar tanto los árboles como las personas, a la par que muestra un estilo que refleja antigüedad, por lo que la imagen satisface la descripción introducida.
 
@@ -472,13 +479,13 @@ A lo largo de la variedad de entrenamientos realizados hemos hecho pruebas exhau
 
 En los tres aspectos, hemos identificado dos posibles situaciones que se pueden dar y que presentan fallos en cuanto a la calidad de los resultados: exceso y falta de pasos en el entrenamiento. 
 
+\begin{itemize}
+	\item \underline{Peligros con el sobreentrenamiento}: Se produce cuando el modelo no se puede generalizar y se ajusta demasiado al conjunto de datos entrenados. Se debe principalmente a que el tamaño de los datos es demasiado pequeño y no contiene suficientes muestras de datos para poder representar con precisión la totalidad de datos de entrada posibles. Otra razón es que el modelo se entrena durante demasiado tiempo en un solo conjunto de datos de muestra. En nuestro modelo, encontramos sobreentrenamiento cuando elegimos un número de \textit{steps} muy elevado para un número de fotografías que no es lo suficientemente alto. Una manera de detectar que nuestro modelo está sobreentrenado es cuando no genera bien la cara de la persona, y se aprecian fallos en determinadas facciones, como en los ojos y la boca, en los cuales se aprecia deformidad.\\
 
-- Peligros con el sobreentrenamiento: Se produce cuando el modelo no se puede generalizar y se ajusta demasiado al conjunto de datos entrenados. Se debe principalmente a que el tamaño de los datos es demasiado pequeño y no contiene suficientes muestras de datos para poder representar con precisión la totalidad de datos de entrada posibles. Otra razón es que el modelo se entrena durante demasiado tiempo en un solo conjunto de datos de muestra. En nuestro modelo, encontramos sobreentrenamiento cuando elegimos un número de \textit{steps} muy elevado para un número de fotografías que no es lo suficientemente alto. Una manera de detectar que nuestro modelo está sobreentrenado es cuando no genera bien la cara de la persona, y se aprecian fallos en determinadas facciones, como en los ojos y la boca, en los cuales se aprecia deformidad.\\
-
-- Falta de pasos en el entrenamiento: En este caso, se produce cuando el modelo de datos no tiene la capacidad de capturar de forma precisa la relación entre las variables de entrada y de salida, de manera que existe un elevado índice de errores en el conjunto de datos de entrenamiento y en los datos no vistos. Se debe a que el modelo es demasiado simple, porque el tamaño de los datos es demasiado pequeño, o bien porque se necesita más tiempo de entrenamiento. En este caso, cuando generamos las imágenes, se evidencia que el modelo aún no ha aprendido lo suficiente acerca del elemento o \textit{token} del que se ha realizado el entrenamiento, pues el resultado de la generación refleja una persona que no muestra ningún parecido con la realidad.\\
+	\item \underline{Falta de pasos en el entrenamiento}: En este caso, se produce cuando el modelo de datos no tiene la capacidad de capturar de forma precisa la relación entre las variables de entrada y de salida, de manera que existe un elevado índice de errores en el conjunto de datos de entrenamiento y en los datos no vistos. Se debe a que el modelo es demasiado simple, porque el tamaño de los datos es demasiado pequeño, o bien porque se necesita más tiempo de entrenamiento. En este caso, cuando generamos las imágenes, se evidencia que el modelo aún no ha aprendido lo suficiente acerca del elemento o \textit{token} del que se ha realizado el entrenamiento, pues el resultado de la generación refleja una persona que no muestra ningún parecido con la realidad.\\
 
 
-En cuanto a mezcla de personas: Para ampliar los horizontes de nuestro entrenamiento, hemos entrenado a una persona, asociando un \textit{token} a ella para su identificación, sobre un modelo que previamente ya había sido entrenado con una persona y su \textit{token} asociado, para comprobar si efectivamente se podía generar en una sola imagen una representación de las dos personas entrenadas, una junto a la otra. Es aquí donde se ha detectado una peculiaridad, ya que, a pesar de que un modelo genere buenos resultados de cada una de las dos personas, en el mismo momento que se solicita en un determinado \textit{prompt} o descripción que se vean reflejados una o varias personas entrenadas en la misma fotografía, ningún modelo de los que se haya probado, ha generado buenos resultados de esta manera. Lo que finalmente se aprecia en la imagen generada, es que aparecen dos personas pero sus rostros son una mezcla de las características faciales y fisiológicas de ambas, produciéndose una deformidad en muchos de los casos y que los rostros aparezcan prácticamente duplicados.
+	\item \underline{Mezcla de personas}: Para ampliar los horizontes de nuestro entrenamiento, hemos entrenado a una persona, asociando un \textit{token} a ella para su identificación, sobre un modelo que previamente ya había sido entrenado con una persona y su \textit{token} asociado, para comprobar si efectivamente se podía generar en una sola imagen una representación de las dos personas entrenadas, una junto a la otra. Es aquí donde se ha detectado una peculiaridad, ya que, a pesar de que un modelo genere buenos resultados de cada una de las dos personas, en el mismo momento que se solicita en un determinado \textit{prompt} o descripción que se vean reflejados una o varias personas entrenadas en la misma fotografía, ningún modelo de los que se haya probado, ha generado buenos resultados de esta manera. Lo que finalmente se aprecia en la imagen generada como se puede ver en la figura \ref{fig:willpor2}, es que aparecen dos personas pero sus rostros son una mezcla de las características faciales y fisiológicas de ambas, produciéndose una deformidad en muchos de los casos y que los rostros aparezcan prácticamente duplicados.\\
 
 
 \begin{figure}[h]
